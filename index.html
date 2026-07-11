@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NutriPath — המסלול שלך לתזונה</title>
+
+  <!-- PWA: מאפשר "התקנה" כאפליקציה עם אייקון ומסך משלה -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#A15D55" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="NutriPath" />
+  <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ===== מסך פתיחה / הרשמה ===== -->
+    <section id="screen-onboarding" class="screen active">
+      <div class="hero">
+        <div class="logo-mark">
+          <svg width="40" height="40" viewBox="0 0 120 120" aria-hidden="true">
+            <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#A15D55"/>
+            <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#C48D7A" transform="rotate(90 60 60)"/>
+            <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#7A5B45" transform="rotate(180 60 60)"/>
+            <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#D9A9A0" transform="rotate(270 60 60)"/>
+            <circle cx="60" cy="60" r="9" fill="#F7F2EC"/>
+          </svg>
+          <div class="logo">Nutri<b>Path</b></div>
+        </div>
+        <p class="logo-tagline">המסלול שלך לתזונה</p>
+        <h1>התפריט שמתאים בדיוק לך</h1>
+        <p class="subtitle">בלי לספור כלום — אלא אם בא לך. ממלאים פרטים פעם אחת, ומקבלים תפריט יומי מותאם אישית למטרה שלך.</p>
+      </div>
+
+      <form id="profile-form" class="card">
+        <div class="row">
+          <div class="field">
+            <label>שם פרטי</label>
+            <input type="text" name="firstName" required placeholder="ישראל" />
+          </div>
+          <div class="field">
+            <label>שם משפחה</label>
+            <input type="text" name="lastName" required placeholder="ישראלי" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>גיל</label>
+            <input type="number" name="age" required min="16" max="100" placeholder="30" />
+            <p class="hint">האפליקציה מיועדת לגילאי 16 ומעלה.</p>
+          </div>
+          <div class="field">
+            <label>מין</label>
+            <select name="gender" required>
+              <option value="">בחר/י</option>
+              <option value="female">נקבה</option>
+              <option value="male">זכר</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>משקל (ק"ג)</label>
+            <input type="number" name="weight" required min="30" max="250" step="0.1" placeholder="70" />
+          </div>
+          <div class="field">
+            <label>גובה (ס"מ)</label>
+            <input type="number" name="height" required min="120" max="220" placeholder="170" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>רמת פעילות</label>
+          <select name="activity" required>
+            <option value="sedentary">יושבני — מעט מאוד פעילות</option>
+            <option value="light">קלה — 1-3 אימונים בשבוע</option>
+            <option value="moderate" selected>בינונית — 3-5 אימונים בשבוע</option>
+            <option value="active">גבוהה — 6-7 אימונים בשבוע</option>
+            <option value="athlete">ספורטיבי — עבודה פיזית / פעמיים ביום</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>סוג התזונה</label>
+          <div class="diet-grid" id="diet-grid">
+            <label class="diet-option">
+              <input type="radio" name="diet" value="chittuv" required />
+              <div class="diet-card"><span class="diet-emoji">🔥</span><span class="diet-name">חיטוב</span><span class="diet-desc">ירידה באחוזי שומן</span></div>
+            </label>
+            <label class="diet-option">
+              <input type="radio" name="diet" value="masa" />
+              <div class="diet-card"><span class="diet-emoji">💪</span><span class="diet-name">מסה</span><span class="diet-desc">בניית שריר</span></div>
+            </label>
+            <label class="diet-option">
+              <input type="radio" name="diet" value="health" />
+              <div class="diet-card"><span class="diet-emoji">🥗</span><span class="diet-name">בריאותית</span><span class="diet-desc">איזון ותחזוקה</span></div>
+            </label>
+            <label class="diet-option">
+              <input type="radio" name="diet" value="keto" />
+              <div class="diet-card"><span class="diet-emoji">🥑</span><span class="diet-name">קטוגנית</span><span class="diet-desc">דלת פחמימות</span></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>העדפות (לא חובה)</label>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="prefs" value="vegetarian" /> צמחוני</label>
+            <label class="chip"><input type="checkbox" name="prefs" value="vegan" /> טבעוני</label>
+          </div>
+        </div>
+
+        <div class="field toggle-field">
+          <div>
+            <label>ספירת קלוריות וגרמים</label>
+            <p class="hint">כבוי = תפריט נקי בלי מספרים. דלוק = הצגת קלוריות, גרמים ומאקרו.</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" name="showCounting" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary">בנו לי תפריט ✨</button>
+      </form>
+    </section>
+
+    <!-- ===== מסך התפריט ===== -->
+    <section id="screen-menu" class="screen">
+      <header class="menu-header">
+        <div>
+          <div class="greeting" id="greeting"></div>
+          <div class="diet-badge" id="diet-badge"></div>
+        </div>
+        <div class="header-actions">
+          <button class="btn-ghost" id="btn-open-week">📅 שבועי + קניות</button>
+          <button class="btn-ghost" id="btn-edit">עריכת פרטים</button>
+        </div>
+      </header>
+
+      <div class="summary-bar" id="summary-bar"></div>
+
+      <div class="day-nav">
+        <button class="btn-ghost" id="prev-day">‹ אתמול</button>
+        <span id="day-label">היום</span>
+        <button class="btn-ghost" id="next-day">מחר ›</button>
+      </div>
+
+      <div id="meals"></div>
+
+      <div id="dessert" class="dessert-card"></div>
+      <div id="bakery" class="bakery-card"></div>
+
+      <div class="footer-note">
+        💡 האפליקציה נמצאת בשלב אב-טיפוס. הערכים הם הערכה תזונתית ואינם תחליף לייעוץ מקצועי.
+      </div>
+    </section>
+
+    <!-- ===== מסך תצוגה שבועית + רשימת קניות ===== -->
+    <section id="screen-week" class="screen">
+      <header class="menu-header">
+        <div>
+          <div class="greeting">📅 השבוע שלי</div>
+          <div class="diet-badge" id="week-diet-badge"></div>
+        </div>
+        <button class="btn-ghost" id="btn-back-to-menu">חזרה לתפריט</button>
+      </header>
+
+      <div class="week-tabs">
+        <button class="week-tab active" data-tab="days" id="tab-days">תפריט שבועי</button>
+        <button class="week-tab" data-tab="shopping" id="tab-shopping">🛒 רשימת קניות</button>
+      </div>
+
+      <div id="week-days" class="week-panel active"></div>
+      <div id="week-shopping" class="week-panel"></div>
+    </section>
+
+  </div>
+
+  <script src="meals.js"></script>
+  <script src="nutrition.js"></script>
+  <script src="brands.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
