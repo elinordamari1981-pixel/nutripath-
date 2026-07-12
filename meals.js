@@ -187,6 +187,29 @@ const MEALS = [
     ],
     steps: ['חותכים תותים וקיווי לקוביות ומערבבים עם הקוטג\'.'],
   },
+  {
+    id: 's1_cottage1_veg',
+    slot: 'snack1', diets: ['chittuv'], tags: ['veg'],
+    name: 'קוטג\' 1% עם מלפפון, עגבניות שרי ופלפל צהוב',
+    ingredients: [
+      { name: 'גבינת קוטג\' 1%', grams: 150, home: 'גביע', kcal: 108, protein: 18, carbs: 5.25, fat: 1.5 },
+      { name: 'מלפפון', grams: 60, home: 'חצי מלפפון', kcal: 9, protein: 0.42, carbs: 2.16, fat: 0.06 },
+      { name: 'עגבניות שרי', grams: 50, home: 'חופן', kcal: 9, protein: 0.45, carbs: 1.95, fat: 0.1 },
+      { name: 'פלפל צהוב', grams: 40, home: 'רבע פלפל', kcal: 10.4, protein: 0.4, carbs: 2, fat: 0.08 },
+    ],
+    steps: ['חותכים ירקות לקוביות קטנות ומערבבים עם הקוטג\'.'],
+  },
+  {
+    id: 's1_cottage3_pomegranate',
+    slot: 'snack1', diets: ['chittuv'], tags: ['veg'],
+    name: 'קוטג\' 3% עם גרגירי רימון וקינמון',
+    ingredients: [
+      { name: 'גבינת קוטג\' 3%', grams: 150, home: 'גביע', kcal: 135, protein: 16.5, carbs: 5.25, fat: 4.5 },
+      { name: 'גרגירי רימון', grams: 50, home: 'חופן', kcal: 41.5, protein: 0.85, carbs: 9.35, fat: 0.6 },
+      { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['מפזרים גרגירי רימון על הקוטג\' ומתבלים בקינמון.'],
+  },
 
   /* ===================== ארוחות צהריים — חיטוב ===================== */
   {
@@ -279,14 +302,15 @@ const MEALS = [
 
   /* ===================== חטיפים — חיטוב ===================== */
   {
-    id: 's2_almonds_berries',
-    slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'vegan'],
-    name: 'חופן שקדים עם פירות יער',
+    id: 's2_ricotta_honey',
+    slot: 'snack2', diets: ['chittuv'], tags: ['veg'],
+    name: 'ריקוטה קלה עם דבש וקינמון',
     ingredients: [
-      { name: 'שקדים', grams: 20, home: 'חופן', kcal: 116, protein: 4.3, carbs: 4.4, fat: 10 },
-      { name: 'פירות יער', grams: 60, home: 'חופן', kcal: 26, protein: 0.7, carbs: 6, fat: 0 },
+      { name: 'ריקוטה קלה', grams: 100, home: 'גביע קטן', kcal: 110, protein: 10, carbs: 4, fat: 6 },
+      { name: 'דבש', grams: 10, home: 'חצי כף', kcal: 30, protein: 0.03, carbs: 8.24, fat: 0 },
+      { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    steps: ['מגישים יחד כחטיף מהיר.'],
+    steps: ['מטפטפים דבש על הריקוטה ומפזרים קינמון.'],
   },
   {
     id: 's2_rice_cakes_cheese_cucumber',
@@ -310,14 +334,15 @@ const MEALS = [
     steps: ['מורחים חמאת בוטנים על טוסט קלוי.'],
   },
   {
-    id: 's2_orange_walnuts',
-    slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'vegan'],
-    name: 'תפוז פרוס עם חופן אגוזי מלך',
+    id: 's2_eggs_tomato',
+    slot: 'snack2', diets: ['chittuv'], tags: ['veg'],
+    name: 'ביצים קשות עם עגבנייה ומלח ים',
     ingredients: [
-      { name: 'תפוז', grams: 150, count: 1, unit: 'יחידה', home: 'תפוז', kcal: 70.5, protein: 1.35, carbs: 18, fat: 0.15 },
-      { name: 'אגוזי מלך', grams: 15, home: 'חופן קטן', kcal: 98, protein: 2.25, carbs: 2.1, fat: 9.75 },
+      { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
+      { name: 'עגבנייה', grams: 100, count: 1, unit: 'יחידה', home: 'עגבנייה', kcal: 18, protein: 0.9, carbs: 3.9, fat: 0.2 },
+      { name: 'מלח ים גס', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    steps: ['פורסים תפוז לפלחים ומגישים לצד אגוזי המלך.'],
+    steps: ['פורסים ביצים קשות ועגבנייה, מתבלים במלח ים גס.'],
   },
 
   /* ===================== ארוחות ערב — חיטוב ===================== */
@@ -578,6 +603,29 @@ const MEALS = [
     ],
     steps: ['מורחים חמאת בוטנים על הפריכיות ומניחים פרוסות בננה מעל.'],
   },
+  {
+    id: 'ms1_cottage3_banana_honey',
+    slot: 'snack1', diets: ['masa'], tags: ['veg'],
+    name: 'קוטג\' 3% עם בננה ודבש',
+    ingredients: [
+      { name: 'גבינת קוטג\' 3%', grams: 150, home: 'גביע', kcal: 135, protein: 16.5, carbs: 5.25, fat: 4.5 },
+      { name: 'בננה', grams: 100, count: 1, unit: 'יחידה', home: 'בננה', kcal: 89, protein: 1.1, carbs: 23, fat: 0.3 },
+      { name: 'דבש', grams: 10, home: 'חצי כף', kcal: 30, protein: 0.03, carbs: 8.24, fat: 0 },
+    ],
+    steps: ['פורסים בננה על הקוטג\' ומטפטפים דבש.'],
+  },
+  {
+    id: 'ms1_labneh_zaatar_pita',
+    slot: 'snack1', diets: ['masa'], tags: ['veg'],
+    name: 'לבנה עם זעתר ושמן זית על פיתה מלאה',
+    ingredients: [
+      { name: 'לבנה', grams: 150, home: 'קערית', kcal: 180, protein: 10.5, carbs: 7.5, fat: 12 },
+      { name: 'שמן זית', grams: 5, count: 1, unit: 'כפית', home: 'כפית', kcal: 44, protein: 0, carbs: 0, fat: 5 },
+      { name: 'פיתה מלאה', grams: 60, count: 1, unit: 'יחידה', home: 'פיתה', kcal: 147, protein: 5.4, carbs: 28.8, fat: 0.9 },
+      { name: 'זעתר', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['שופכים שמן זית על הלבנה, מפזרים זעתר ומגישים עם פיתה חמה.'],
+  },
 
   /* ===================== ארוחות צהריים — מסה ===================== */
   {
@@ -735,26 +783,26 @@ const MEALS = [
     steps: ['מורחים חמאת בוטנים על הלחם ומסדרים פרוסות בננה מעל.'],
   },
   {
-    id: 'ms2_yogurt_honey_walnuts',
+    id: 'ms2_cottage5_pineapple',
     slot: 'snack2', diets: ['masa'], tags: ['veg'],
-    name: 'יוגורט יווני 5% עם דבש ואגוזי מלך (קלאסי יווני)',
+    name: 'קוטג\' 5% עם אננס',
     ingredients: [
-      { name: 'יוגורט יווני 5%', grams: 180, home: 'גביע', kcal: 174.6, protein: 16.2, carbs: 7.2, fat: 9 },
-      { name: 'דבש', grams: 15, count: 1, unit: 'כף', home: 'כף', kcal: 45.6, protein: 0.05, carbs: 12.4, fat: 0 },
-      { name: 'אגוזי מלך', grams: 15, home: 'חופן קטן', kcal: 98, protein: 2.25, carbs: 2.1, fat: 9.75 },
-      { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+      { name: 'גבינת קוטג\' 5%', grams: 150, home: 'גביע', kcal: 154.5, protein: 16.5, carbs: 5.1, fat: 7.5 },
+      { name: 'אננס', grams: 100, home: 'פרוסות', kcal: 50, protein: 0.5, carbs: 13, fat: 0.1 },
     ],
-    steps: ['מערבבים יוגורט עם דבש ואגוזי מלך קצוצים, מפזרים קינמון — קומבינציה יוונית קלאסית.'],
+    steps: ['חותכים אננס לקוביות ומערבבים עם הקוטג\'.'],
   },
   {
-    id: 'ms2_dates_almonds',
-    slot: 'snack2', diets: ['masa'], tags: ['veg', 'vegan'],
-    name: 'תמרים ממולאים בשקדים',
+    id: 'ms2_mozzarella_caprese',
+    slot: 'snack2', diets: ['masa'], tags: ['veg'],
+    name: 'מוצרלה עם עגבניות שרי ובזיליקום (קפרזה)',
     ingredients: [
-      { name: 'תמרים', grams: 48, count: 2, unit: 'יחידות', home: '2 תמרים', kcal: 133, protein: 0.9, carbs: 36, fat: 0.2 },
-      { name: 'שקדים', grams: 25, home: 'חופן', kcal: 145, protein: 5.4, carbs: 5.5, fat: 12.5 },
+      { name: 'מוצרלה מלאה', grams: 60, home: 'כדור קטן', kcal: 168, protein: 13.2, carbs: 1.2, fat: 12.6 },
+      { name: 'עגבניות שרי', grams: 80, home: 'חופן', kcal: 14.4, protein: 0.72, carbs: 3.1, fat: 0.16 },
+      { name: 'שמן זית', grams: 5, count: 1, unit: 'כפית', home: 'כפית', kcal: 44, protein: 0, carbs: 0, fat: 5 },
+      { name: 'בזיליקום טרי', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    steps: ['ממלאים כל תמר בשקד שלם — חטיף אנרגיה מהיר.'],
+    steps: ['פורסים מוצרלה, מסדרים עם עגבניות שרי, מטפטפים שמן זית ומפזרים בזיליקום.'],
   },
   {
     id: 'ms2_apple_cheese',
@@ -942,14 +990,26 @@ const MEALS = [
     steps: ['מערבבים יוגורט עם קוקוס טחון ואגוזי מלך קצוצים.'],
   },
   {
-    id: 'ks1_macadamia_pecan',
-    slot: 'snack1', diets: ['keto'], tags: ['veg', 'vegan'],
-    name: 'חופן אגוזי מקדמיה ופקאן',
+    id: 'ks1_mozzarella_caprese',
+    slot: 'snack1', diets: ['keto'], tags: ['veg'],
+    name: 'מוצרלה עם עגבניות שרי, בזיליקום ושמן זית (קפרזה)',
     ingredients: [
-      { name: 'אגוזי מקדמיה', grams: 15, home: 'חופן קטן', kcal: 108, protein: 1.19, carbs: 2.07, fat: 11.4 },
-      { name: 'פקאן', grams: 15, home: 'חופן קטן', kcal: 104, protein: 1.35, carbs: 2.1, fat: 10.8 },
+      { name: 'מוצרלה מלאה', grams: 100, home: 'כדור', kcal: 280, protein: 22, carbs: 2, fat: 21 },
+      { name: 'עגבניות שרי', grams: 50, home: 'חופן', kcal: 9, protein: 0.45, carbs: 1.95, fat: 0.1 },
+      { name: 'שמן זית', grams: 10, count: 2, unit: 'כפית', home: '2 כפיות', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+      { name: 'בזיליקום טרי', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    steps: ['מגישים חופן אגוזים מעורב כחטיף שובע.'],
+    steps: ['פורסים מוצרלה ועגבניות שרי, מטפטפים שמן זית ומפזרים עלי בזיליקום.'],
+  },
+  {
+    id: 'ks1_mini_peppers_cream',
+    slot: 'snack1', diets: ['keto'], tags: ['veg'],
+    name: 'פלפלים ממולאים בגבינת שמנת',
+    ingredients: [
+      { name: 'פלפלים מיני צבעוניים', grams: 100, home: '5-6 פלפלים', kcal: 30, protein: 1, carbs: 6, fat: 0.3 },
+      { name: 'גבינת שמנת 30%', grams: 60, home: '4 כפות', kcal: 205, protein: 3.6, carbs: 2.4, fat: 20.4 },
+    ],
+    steps: ['חוצים פלפלים מיני ומוציאים גרעינים, ממלאים בגבינת שמנת בעזרת כפית או שק זילוף.'],
   },
 
   /* ===================== ארוחות צהריים — קיטו ===================== */
@@ -1039,14 +1099,15 @@ const MEALS = [
     ],
   },
   {
-    id: 'ks2_cheese_walnuts',
+    id: 'ks2_olives_feta',
     slot: 'snack2', diets: ['keto'], tags: ['veg'],
-    name: 'קוביות גבינה צהובה 28% עם אגוזי מלך',
+    name: 'זיתים ופטה בולגרית עם שמן זית',
     ingredients: [
-      { name: 'גבינה צהובה 28%', grams: 40, home: '2 פרוסות', kcal: 140, protein: 10, carbs: 0.8, fat: 11.2 },
-      { name: 'אגוזי מלך', grams: 15, home: 'חופן קטן', kcal: 98, protein: 2.25, carbs: 2.1, fat: 9.75 },
+      { name: 'זיתים', grams: 60, home: '15 זיתים', kcal: 69, protein: 0.48, carbs: 3.6, fat: 6.6 },
+      { name: 'פטה בולגרית 14%', grams: 50, home: 'קוביה', kcal: 132, protein: 7, carbs: 1.5, fat: 10.5 },
+      { name: 'שמן זית', grams: 5, count: 1, unit: 'כפית', home: 'כפית', kcal: 44, protein: 0, carbs: 0, fat: 5 },
     ],
-    steps: ['חותכים גבינה לקוביות ומגישים לצד אגוזי המלך.'],
+    steps: ['מערבבים זיתים וקוביות פטה בקערית ומטפטפים שמן זית.'],
   },
   {
     id: 'ks2_avocado_lemon',
@@ -1059,14 +1120,19 @@ const MEALS = [
     steps: ['חוצים אבוקדו, מתבלים במלח ים גס, לימון ופלפל שחור ואוכלים בכפית.'],
   },
   {
-    id: 'ks2_almonds_feta',
+    id: 'ks2_deviled_eggs_avocado',
     slot: 'snack2', diets: ['keto'], tags: ['veg'],
-    name: 'חופן שקדים עם קוביות פטה בולגרית',
+    name: 'ביצים ממולאות באבוקדו',
     ingredients: [
-      { name: 'שקדים', grams: 15, home: 'חופן קטן', kcal: 87, protein: 3.2, carbs: 3.3, fat: 7.5 },
-      { name: 'פטה בולגרית 14%', grams: 30, home: 'קוביה', kcal: 79, protein: 4.2, carbs: 0.9, fat: 6.3 },
+      { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
+      { name: 'אבוקדו', grams: 40, home: 'רבע אבוקדו', kcal: 64, protein: 0.8, carbs: 3.6, fat: 6 },
+      { name: 'פפריקה חריפה ומיץ לימון', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    steps: ['מגישים שקדים וקוביות פטה יחד כחטיף שובע.'],
+    steps: [
+      'חוצים ביצים קשות לאורך ומוציאים את החלמון.',
+      'מועכים את החלמון עם אבוקדו, מיץ לימון ופפריקה חריפה.',
+      'ממלאים בחזרה את חצאי הביצה בתערובת.',
+    ],
   },
 
   /* ===================== ארוחות ערב — קיטו ===================== */
@@ -1295,14 +1361,25 @@ const MEALS = [
 
   /* ===================== ארוחות ביניים — בריאותית ===================== */
   {
-    id: 'hs1_orange_walnuts',
-    slot: 'snack1', diets: ['health'], tags: ['veg', 'vegan'],
-    name: 'תפוז עם חופן אגוזי מלך',
+    id: 'hs1_cottage3_peach',
+    slot: 'snack1', diets: ['health'], tags: ['veg'],
+    name: 'קוטג\' 3% עם אפרסק פרוס',
     ingredients: [
-      { name: 'תפוז', grams: 150, count: 1, unit: 'יחידה', home: 'תפוז', kcal: 70.5, protein: 1.35, carbs: 18, fat: 0.15 },
-      { name: 'אגוזי מלך', grams: 15, home: 'חופן קטן', kcal: 98, protein: 2.25, carbs: 2.1, fat: 9.75 },
+      { name: 'גבינת קוטג\' 3%', grams: 150, home: 'גביע', kcal: 135, protein: 16.5, carbs: 5.25, fat: 4.5 },
+      { name: 'אפרסק', grams: 120, count: 1, unit: 'יחידה', home: 'אפרסק', kcal: 46.8, protein: 1.08, carbs: 12, fat: 0.36 },
     ],
-    steps: ['פורסים תפוז לפלחים ומגישים לצד האגוזים.'],
+    steps: ['פורסים אפרסק ומערבבים עם הקוטג\'.'],
+  },
+  {
+    id: 'hs1_labneh_veg_dip',
+    slot: 'snack1', diets: ['health'], tags: ['veg'],
+    name: 'לבנה עם ירקות חתוכים ושמן זית',
+    ingredients: [
+      { name: 'לבנה', grams: 150, home: 'קערית', kcal: 180, protein: 10.5, carbs: 7.5, fat: 12 },
+      { name: 'מלפפון ופלפל', grams: 100, home: 'קערית', kcal: 20, protein: 1, carbs: 4, fat: 0.2 },
+      { name: 'שמן זית', grams: 5, count: 1, unit: 'כפית', home: 'כפית', kcal: 44, protein: 0, carbs: 0, fat: 5 },
+    ],
+    steps: ['חותכים ירקות לאצבעות, מטפטפים שמן זית על הלבנה וטובלים.'],
   },
   {
     id: 'hs1_hummus_veg_pita',
@@ -1421,14 +1498,14 @@ const MEALS = [
     steps: ['חותכים גזר ומלפפון לאצבעות וטובלים בחומוס.'],
   },
   {
-    id: 'hs2_green_apple_almond_butter',
-    slot: 'snack2', diets: ['health'], tags: ['veg', 'vegan'],
-    name: 'תפוח ירוק עם חמאת שקדים',
+    id: 'hs2_cottage1_grapes',
+    slot: 'snack2', diets: ['health'], tags: ['veg'],
+    name: 'קוטג\' 1% עם ענבים',
     ingredients: [
-      { name: 'תפוח ירוק', grams: 150, count: 1, unit: 'יחידה', home: 'תפוח ירוק', kcal: 78, protein: 0.45, carbs: 21, fat: 0.3 },
-      { name: 'חמאת שקדים טבעית', grams: 20, count: 1, unit: 'כף', home: 'כף', kcal: 122.8, protein: 4.2, carbs: 3.8, fat: 11.2 },
+      { name: 'גבינת קוטג\' 1%', grams: 150, home: 'גביע', kcal: 108, protein: 18, carbs: 5.25, fat: 1.5 },
+      { name: 'ענבים', grams: 100, home: 'אשכול קטן', kcal: 69, protein: 0.7, carbs: 18, fat: 0.2 },
     ],
-    steps: ['פורסים תפוח לפלחים וטובלים בחמאת שקדים.'],
+    steps: ['מערבבים ענבים חצויים עם הקוטג\'.'],
   },
   {
     id: 'hs2_boiled_eggs_paprika',
@@ -1441,15 +1518,14 @@ const MEALS = [
     steps: ['פורסים ביצים קשות ומתבלים במלח ים ופפריקה.'],
   },
   {
-    id: 'hs2_trail_mix',
+    id: 'hs2_pepper_hummus',
     slot: 'snack2', diets: ['health'], tags: ['veg', 'vegan'],
-    name: 'תערובת אגוזים ופירות יבשים',
+    name: 'פלפל אדום חתוך עם חומוס',
     ingredients: [
-      { name: 'אגוזי מלך', grams: 10, home: 'חופן קטן', kcal: 65.4, protein: 1.5, carbs: 1.4, fat: 6.5 },
-      { name: 'שקדים', grams: 10, home: 'חופן קטן', kcal: 57.9, protein: 2.1, carbs: 2.2, fat: 5 },
-      { name: 'משמשים מיובשים', grams: 15, home: 'כמה יחידות', kcal: 45, protein: 0.45, carbs: 11.25, fat: 0.08 },
+      { name: 'פלפל אדום', grams: 100, count: 1, unit: 'יחידה', home: 'פלפל שלם', kcal: 31, protein: 1, carbs: 6, fat: 0.3 },
+      { name: 'חומוס', grams: 60, home: '4 כפות', kcal: 99.6, protein: 4.74, carbs: 8.4, fat: 5.76 },
     ],
-    steps: ['מערבבים הכול יחד לתערובת חטיף.'],
+    steps: ['חותכים פלפל לרצועות וטובלים בחומוס.'],
   },
 
   /* ===================== ארוחות ערב — בריאותית ===================== */
