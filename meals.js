@@ -200,15 +200,14 @@ const MEALS = [
     steps: ['חותכים ירקות לקוביות קטנות ומערבבים עם הקוטג\'.'],
   },
   {
-    id: 's1_cottage3_pomegranate',
-    slot: 'snack1', diets: ['chittuv'], tags: ['veg'],
-    name: 'קוטג\' 3% עם גרגירי רימון וקינמון',
+    id: 's1_hummus_veg_chittuv',
+    slot: 'snack1', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    name: 'חומוס עם מקלות גזר, מלפפון ופלפל',
     ingredients: [
-      { name: 'גבינת קוטג\' 3%', grams: 150, home: 'גביע', kcal: 135, protein: 16.5, carbs: 5.25, fat: 4.5 },
-      { name: 'גרגירי רימון', grams: 50, home: 'חופן', kcal: 41.5, protein: 0.85, carbs: 9.35, fat: 0.6 },
-      { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+      { name: 'חומוס', grams: 60, home: '4 כפות', kcal: 99.6, protein: 4.74, carbs: 8.4, fat: 5.76 },
+      { name: 'גזר, מלפפון ופלפל', grams: 120, home: 'קערית', kcal: 30, protein: 1.2, carbs: 6.5, fat: 0.3 },
     ],
-    steps: ['מפזרים גרגירי רימון על הקוטג\' ומתבלים בקינמון.'],
+    steps: ['חותכים ירקות לאצבעות וטובלים בחומוס.'],
   },
 
   /* ===================== ארוחות צהריים — חיטוב ===================== */
@@ -1518,14 +1517,14 @@ const MEALS = [
     steps: ['פורסים ביצים קשות ומתבלים במלח ים ופפריקה.'],
   },
   {
-    id: 'hs2_pepper_hummus',
-    slot: 'snack2', diets: ['health'], tags: ['veg', 'vegan'],
-    name: 'פלפל אדום חתוך עם חומוס',
+    id: 'hs2_bulgarit_veg',
+    slot: 'snack2', diets: ['health'], tags: ['veg'],
+    name: 'מלפפון ופלפל עם גבינה בולגרית 5%',
     ingredients: [
-      { name: 'פלפל אדום', grams: 100, count: 1, unit: 'יחידה', home: 'פלפל שלם', kcal: 31, protein: 1, carbs: 6, fat: 0.3 },
-      { name: 'חומוס', grams: 60, home: '4 כפות', kcal: 99.6, protein: 4.74, carbs: 8.4, fat: 5.76 },
+      { name: 'מלפפון ופלפל', grams: 100, home: 'קערית', kcal: 20, protein: 1, carbs: 4, fat: 0.2 },
+      { name: 'גבינה בולגרית 5%', grams: 50, home: 'קוביות', kcal: 72.5, protein: 7.5, carbs: 1.5, fat: 4 },
     ],
-    steps: ['חותכים פלפל לרצועות וטובלים בחומוס.'],
+    steps: ['חותכים ירקות לקוביות ומערבבים עם גבינה בולגרית מפוררת.'],
   },
 
   /* ===================== ארוחות ערב — בריאותית ===================== */
