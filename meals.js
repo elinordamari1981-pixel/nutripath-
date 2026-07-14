@@ -114,7 +114,7 @@ const MEALS = [
   {
     id: 'b_egg_white_veg_scramble',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg'],
-    name: 'מחבת חלבוני ביצה עם פלפל אדום, בצל ופטריות על טוסט מלא',
+    name: 'חביתת חלבוני ביצה עם פלפל אדום, בצל ופטריות על טוסט לחם מלא',
     ingredients: [
       { name: 'חלבוני ביצה', grams: 150, home: '4-5 חלבונים', kcal: 78, protein: 16.5, carbs: 1, fat: 0.3 },
       { name: 'פלפל אדום', grams: 80, home: 'חצי פלפל', kcal: 25, protein: 0.8, carbs: 4.8, fat: 0.2 },
@@ -177,15 +177,16 @@ const MEALS = [
     steps: ['מגישים יחד כחטיף מרענן.'],
   },
   {
-    id: 's1_cottage_kiwi_strawberry',
-    slot: 'snack1', diets: ['chittuv'], tags: ['veg'],
-    name: 'קוטג\' 5% עם קיווי ותותים',
+    id: 's1_tuna_salad_snack',
+    slot: 'snack1', diets: ['chittuv'], tags: [],
+    name: 'סלט טונה עם מלפפון, עגבנייה ולימון',
     ingredients: [
-      { name: 'גבינת קוטג\' 5%', grams: 150, home: 'גביע', kcal: 154.5, protein: 16.5, carbs: 5.1, fat: 7.5 },
-      { name: 'קיווי', grams: 60, count: 1, unit: 'יחידה', home: 'קיווי', kcal: 37, protein: 0.7, carbs: 9, fat: 0.3 },
-      { name: 'תותים', grams: 80, home: 'חופן', kcal: 26, protein: 0.6, carbs: 6.2, fat: 0.24 },
+      { name: 'טונה במים', grams: 80, home: 'קופסה קטנה', kcal: 93, protein: 20.8, carbs: 0, fat: 0.8 },
+      { name: 'מלפפון', grams: 80, home: 'מלפפון קטן', kcal: 12, protein: 0.56, carbs: 2.9, fat: 0.08 },
+      { name: 'עגבנייה', grams: 80, home: 'עגבנייה בינונית', kcal: 14, protein: 0.7, carbs: 3, fat: 0.15 },
+      { name: 'לימון, מלח ופלפל שחור', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    steps: ['חותכים תותים וקיווי לקוביות ומערבבים עם הקוטג\'.'],
+    steps: ['מסננים את הטונה, חותכים ירקות לקוביות ומערבבים הכל יחד עם סחיטת לימון.'],
   },
   {
     id: 's1_cottage1_veg',
@@ -301,47 +302,71 @@ const MEALS = [
 
   /* ===================== חטיפים — חיטוב ===================== */
   {
-    id: 's2_ricotta_honey',
-    slot: 'snack2', diets: ['chittuv'], tags: ['veg'],
-    name: 'ריקוטה קלה עם דבש וקינמון',
+    id: 's2_popcorn_light',
+    slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    name: 'פופקורן ביתי מוקפץ באוויר (דל שומן)',
     ingredients: [
-      { name: 'ריקוטה קלה', grams: 100, home: 'גביע קטן', kcal: 110, protein: 10, carbs: 4, fat: 6 },
+      { name: 'תירס פופקורן (גרעינים)', grams: 25, home: '2 כפות גרעינים', kcal: 97, protein: 3.2, carbs: 19.5, fat: 1.1 },
+      { name: 'מלח, פפריקה ושמרי בירה (אופציונלי)', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מקפיצים את הגרעינים בסיר עם מכסה על אש בינונית תוך נענוע קל, ללא שמן (או במכשיר Air Popper), עד שכל הגרעינים נפתחו.',
+      'מפזרים מלח ופפריקה (או שמרי בירה לטעם "גבינתי") ומגישים חם.',
+    ],
+  },
+  {
+    id: 's2_protein_brownie',
+    slot: 'snack2', diets: ['chittuv'], tags: ['veg'],
+    name: 'בראוני חלבון אישי בתנור',
+    ingredients: [
+      { name: 'ביצה', grams: 50, count: 1, unit: 'ביצה', home: 'ביצה', kcal: 78, protein: 6.5, carbs: 0.5, fat: 5.5 },
+      { name: 'בננה בשלה מעוכה', grams: 60, home: 'חצי בננה', kcal: 53, protein: 0.6, carbs: 14, fat: 0.3 },
+      { name: 'אבקת חלבון בטעם שוקולד', grams: 30, count: 1, unit: 'סקופ', home: 'סקופ', kcal: 115, protein: 24, carbs: 3, fat: 1 },
+      { name: 'קקאו טהור ללא סוכר', grams: 10, home: 'כף גדושה', kcal: 23, protein: 2, carbs: 5.8, fat: 1.4 },
       { name: 'דבש', grams: 10, home: 'חצי כף', kcal: 30, protein: 0.03, carbs: 8.24, fat: 0 },
+      { name: 'אבקת אפייה', season: true, home: 'חצי כפית', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מועכים בננה למחית, מוסיפים ביצה טרופה ודבש ומערבבים.',
+      'מקפלים פנימה אבקת חלבון, קקאו ואבקת אפייה עד לבלילה סמיך ואחיד.',
+      'יוצקים לתבנית קטנה (רמקין) משומנת קלות, ואופים בתנור שחומם מראש ל-175° כ-12-15 דקות עד שקיסם יוצא כמעט יבש.',
+      'לחלופין: אפשר לבשל במיקרוגל בעוצמה גבוהה כ-60-90 שניות ("מאג-בראוני").',
+    ],
+  },
+  {
+    id: 's2_protein_balls',
+    slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    name: 'כדורי חלבון ללא אפייה',
+    ingredients: [
+      { name: 'שיבולת שועל', grams: 30, home: '3 כפות', kcal: 116, protein: 5.1, carbs: 19.4, fat: 2.1 },
+      { name: 'אבקת חלבון בטעם וניל', grams: 20, home: 'שני שליש סקופ', kcal: 77, protein: 16, carbs: 2, fat: 0.7 },
+      { name: 'חמאת בוטנים טבעית', grams: 20, home: 'כף גדושה', kcal: 117, protein: 5, carbs: 4, fat: 10 },
+      { name: 'דבש', grams: 15, count: 1, unit: 'כף', home: 'כף', kcal: 46, protein: 0.05, carbs: 12.4, fat: 0 },
+      { name: 'קוקוס טחון ללא סוכר', grams: 5, home: 'לציפוי', kcal: 33, protein: 0.35, carbs: 1.2, fat: 3.2 },
+    ],
+    steps: [
+      'מערבבים שיבולת שועל, אבקת חלבון וחמאת בוטנים בקערה.',
+      'מוסיפים דבש ומערבבים היטב לבלילה דביקה (אם יבש מדי — מוסיפים כפית מים).',
+      'מעצבים כ-6 כדורים קטנים ומגלגלים בקוקוס טחון.',
+      'מקררים במקרר לפחות 20 דקות עד להתקשות.',
+    ],
+  },
+  {
+    id: 's2_choc_chip_cookies_light',
+    slot: 'snack2', diets: ['chittuv'], tags: ['veg'],
+    name: '2 עוגיות שוקולד צ\'יפס בריאות ודלות קלוריות',
+    ingredients: [
+      { name: 'שיבולת שועל טחונה', grams: 20, home: '2 כפות', kcal: 78, protein: 3.4, carbs: 13, fat: 1.4 },
+      { name: 'בננה בשלה מעוכה', grams: 30, home: 'רבע בננה', kcal: 27, protein: 0.3, carbs: 7, fat: 0.15 },
+      { name: 'אבקת חלבון בטעם וניל', grams: 7.5, home: 'רבע סקופ', kcal: 29, protein: 6, carbs: 0.75, fat: 0.25 },
+      { name: "שוקולד מריר (צ'יפס)", grams: 7.5, home: 'כפית גדושה', kcal: 41, protein: 0.4, carbs: 4.6, fat: 2.3 },
       { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    steps: ['מטפטפים דבש על הריקוטה ומפזרים קינמון.'],
-  },
-  {
-    id: 's2_rice_cakes_cheese_cucumber',
-    slot: 'snack2', diets: ['chittuv'], tags: ['veg'],
-    name: 'פריכיות אורז מלא עם גבינה לבנה 5% ומלפפון',
-    ingredients: [
-      { name: 'פריכיות אורז מלא', grams: 18, count: 2, unit: 'יחידות', home: '2 פריכיות', kcal: 70, protein: 1.44, carbs: 14.6, fat: 0.54 },
-      { name: 'גבינה לבנה 5%', grams: 50, home: '2 כפות', kcal: 45, protein: 5, carbs: 1.75, fat: 2.5 },
-      { name: 'מלפפון', grams: 50, home: 'חצי מלפפון', kcal: 7.5, protein: 0.35, carbs: 1.8, fat: 0.05 },
+    steps: [
+      'מועכים בננה למחית חלקה, מערבבים עם קמח שיבולת שועל ואבקת חלבון לבלילה אחיד.',
+      'מקפלים פנימה את שברי השוקולד המריר וקורט קינמון.',
+      'מעצבים 2 עוגיות שטוחות על נייר אפייה ואופים בתנור שחומם מראש ל-175° כ-10-12 דקות עד להזהבה קלה.',
     ],
-    steps: ['מורחים גבינה לבנה על הפריכיות ומניחים פרוסות מלפפון מעל.'],
-  },
-  {
-    id: 's2_pb_toast',
-    slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'vegan'],
-    name: 'טוסט לחם מלא עם חמאת בוטנים',
-    ingredients: [
-      { name: 'לחם מלא', grams: 30, count: 1, unit: 'פרוסה', home: 'פרוסה', kcal: 80, protein: 4, carbs: 14, fat: 1 },
-      { name: 'חמאת בוטנים טבעית', grams: 16, count: 1, unit: 'כף', home: 'כף', kcal: 94, protein: 4, carbs: 3, fat: 8 },
-    ],
-    steps: ['מורחים חמאת בוטנים על טוסט קלוי.'],
-  },
-  {
-    id: 's2_eggs_tomato',
-    slot: 'snack2', diets: ['chittuv'], tags: ['veg'],
-    name: 'ביצים קשות עם עגבנייה ומלח ים',
-    ingredients: [
-      { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
-      { name: 'עגבנייה', grams: 100, count: 1, unit: 'יחידה', home: 'עגבנייה', kcal: 18, protein: 0.9, carbs: 3.9, fat: 0.2 },
-      { name: 'מלח ים גס', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
-    ],
-    steps: ['פורסים ביצים קשות ועגבנייה, מתבלים במלח ים גס.'],
   },
 
   /* ===================== ארוחות ערב — חיטוב ===================== */
@@ -463,20 +488,23 @@ const MEALS = [
 
   /* ===================== ארוחות בוקר — מסה ===================== */
   {
-    id: 'mb_mass_shake',
+    id: 'mb_pb_banana_pancakes',
     slot: 'breakfast', diets: ['masa'], tags: ['veg'],
-    name: 'שייק מסה — בננה קפואה, שיבולת שועל וחלבון',
+    name: 'פנקייקים עם חמאת בוטנים ובננה',
     ingredients: [
-      { name: 'חלב 2%', grams: 300, liquid: true, home: 'כוס וחצי', kcal: 150, protein: 10, carbs: 14, fat: 5 },
-      { name: 'אבקת חלבון', grams: 30, count: 1, unit: 'סקופ', home: 'סקופ', kcal: 115, protein: 24, carbs: 3, fat: 1 },
-      { name: 'שיבולת שועל מהירה', grams: 50, home: '5 כפות', kcal: 194, protein: 8.5, carbs: 33, fat: 3.5 },
-      { name: 'בננה קפואה', grams: 120, count: 1, unit: 'יחידה', home: 'בננה', kcal: 107, protein: 1.3, carbs: 27, fat: 0.4 },
-      { name: 'חמאת בוטנים טבעית', grams: 30, count: 2, unit: 'כפות', home: '2 כפות', kcal: 176, protein: 7.5, carbs: 6, fat: 15 },
+      { name: 'קמח מלא', grams: 60, home: 'חצי כוס', kcal: 204, protein: 8.2, carbs: 43.2, fat: 1.5 },
+      { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1, fat: 11 },
+      { name: 'חלב 2%', grams: 100, liquid: true, home: 'חצי כוס', kcal: 50, protein: 3.3, carbs: 4.7, fat: 1.7 },
+      { name: 'שמן קוקוס', grams: 10, home: 'כף (לטיגון)', kcal: 90, protein: 0, carbs: 0, fat: 10 },
+      { name: 'חמאת בוטנים טבעית', grams: 20, home: 'כף גדושה', kcal: 117, protein: 5, carbs: 4, fat: 10 },
+      { name: 'בננה', grams: 100, count: 1, unit: 'יחידה', home: 'בננה', kcal: 89, protein: 1, carbs: 23, fat: 0.3 },
+      { name: 'דבש', grams: 15, count: 1, unit: 'כף', home: 'כף', kcal: 46, protein: 0.05, carbs: 12.4, fat: 0 },
+      { name: 'אבקת אפייה', season: true, home: 'כפית', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
     steps: [
-      'מכניסים את כל המרכיבים לבלנדר — כדאי להשתמש בבננה קפואה ושיבולת שועל מהירה כדי להבטיח מרקם חלק וקרמי.',
-      'טוחנים 60-90 שנייה ברצף, עד שאין גרגירים מורגשים.',
-      'שותים מיד — שייק עשיר ומלא אנרגיה לבוקר.',
+      'טורפים ביצים עם חלב, ומוסיפים קמח מלא ואבקת אפייה עד לבלילה חלקה.',
+      'מחממים מחבת עם מעט שמן קוקוס, יוצקים מנות קטנות מהבלילה ומטגנים כ-2 דקות לכל צד עד הזהבה.',
+      'פורסים בננה ומגישים לצד הפנקייקים עם חמאת בוטנים וטפטוף דבש מעל.',
     ],
   },
   {
@@ -536,7 +564,7 @@ const MEALS = [
   {
     id: 'mb_french_toast_protein',
     slot: 'breakfast', diets: ['masa'], tags: [],
-    name: 'טוסט חלבון מטוגן עם בננה ודבש',
+    name: 'טוסט צרפתי (ביצים) מטוגן עם בננה ודבש',
     ingredients: [
       { name: 'לחם מלא', grams: 90, count: 3, unit: 'פרוסות', home: '3 פרוסות', kcal: 180, protein: 9, carbs: 31.5, fat: 2.25 },
       { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1, fat: 11 },
@@ -782,14 +810,17 @@ const MEALS = [
     steps: ['מורחים חמאת בוטנים על הלחם ומסדרים פרוסות בננה מעל.'],
   },
   {
-    id: 'ms2_cottage5_pineapple',
-    slot: 'snack2', diets: ['masa'], tags: ['veg'],
-    name: 'קוטג\' 5% עם אננס',
+    id: 'ms2_tuna_sandwich',
+    slot: 'snack2', diets: ['masa'], tags: [],
+    name: 'כריך טונה עם עגבנייה ומלפפון בלחם מלא',
     ingredients: [
-      { name: 'גבינת קוטג\' 5%', grams: 150, home: 'גביע', kcal: 154.5, protein: 16.5, carbs: 5.1, fat: 7.5 },
-      { name: 'אננס', grams: 100, home: 'פרוסות', kcal: 50, protein: 0.5, carbs: 13, fat: 0.1 },
+      { name: 'טונה במים', grams: 80, home: 'קופסה קטנה', kcal: 93, protein: 20.8, carbs: 0, fat: 0.8 },
+      { name: 'לחם מלא', grams: 60, count: 2, unit: 'פרוסות', home: '2 פרוסות', kcal: 160, protein: 8, carbs: 28, fat: 2 },
+      { name: 'עגבנייה', grams: 40, home: 'חצי עגבנייה', kcal: 7, protein: 0.35, carbs: 1.5, fat: 0.08 },
+      { name: 'מלפפון', grams: 40, home: 'חצי מלפפון קטן', kcal: 6, protein: 0.28, carbs: 1.45, fat: 0.04 },
+      { name: 'שמן זית', grams: 5, count: 1, unit: 'כפית', home: 'כפית', kcal: 44, protein: 0, carbs: 0, fat: 5 },
     ],
-    steps: ['חותכים אננס לקוביות ומערבבים עם הקוטג\'.'],
+    steps: ['מסננים את הטונה ומערבבים עם שמן זית, מניחים על פרוסת לחם עם עגבנייה ומלפפון פרוסים וסוגרים בפרוסה השנייה.'],
   },
   {
     id: 'ms2_mozzarella_caprese',
@@ -804,14 +835,14 @@ const MEALS = [
     steps: ['פורסים מוצרלה, מסדרים עם עגבניות שרי, מטפטפים שמן זית ומפזרים בזיליקום.'],
   },
   {
-    id: 'ms2_apple_cheese',
-    slot: 'snack2', diets: ['masa'], tags: ['veg'],
-    name: 'תפוח ירוק פרוס עם גבינה צהובה 9%',
+    id: 'ms2_dates_almond_butter',
+    slot: 'snack2', diets: ['masa'], tags: ['veg', 'vegan'],
+    name: 'תמרים במילוי חמאת שקדים',
     ingredients: [
-      { name: 'תפוח ירוק', grams: 150, count: 1, unit: 'יחידה', home: 'תפוח ירוק', kcal: 78, protein: 0.45, carbs: 21, fat: 0.3 },
-      { name: 'גבינה צהובה 9%', grams: 40, home: '2 פרוסות', kcal: 86, protein: 10.8, carbs: 0.4, fat: 3.6 },
+      { name: 'תמרים', grams: 60, home: '3-4 תמרים', kcal: 169, protein: 1.5, carbs: 45, fat: 0.24 },
+      { name: 'חמאת שקדים טבעית', grams: 20, home: 'כף גדושה', kcal: 120, protein: 4, carbs: 4, fat: 10 },
     ],
-    steps: ['פורסים את התפוח ומגישים לצד פרוסות הגבינה — שילוב קלאסי.'],
+    steps: ['חוצים כל תמר ומוציאים את הגלעין, וממלאים בחמאת שקדים בעזרת כפית.'],
   },
 
   /* ===================== מתכוני קינוח — מסה ===================== */
@@ -897,10 +928,10 @@ const MEALS = [
   {
     id: 'kb_shakshuka_feta',
     slot: 'breakfast', diets: ['keto'], tags: ['veg'],
-    name: 'שקשוקה קטוגנית עם פלפלים, זיתים ופטה',
+    name: 'שקשוקה קטוגנית עם כרוב, זיתים ופטה',
     ingredients: [
       { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
-      { name: 'פלפל אדום וצהוב', grams: 100, home: 'פלפל שלם', kcal: 30, protein: 1, carbs: 6, fat: 0.3 },
+      { name: 'כרוב לבן פרוס דק', grams: 100, home: 'כ-1.5 כוסות פרוס', kcal: 25, protein: 1.3, carbs: 5.8, fat: 0.1 },
       { name: 'עגבניות שרי', grams: 50, home: 'חופן קטן', kcal: 9, protein: 0.45, carbs: 1.95, fat: 0.1 },
       { name: 'זיתים', grams: 25, home: 'כ-7 זיתים', kcal: 29, protein: 0.2, carbs: 1.5, fat: 2.75 },
       { name: 'פטה בולגרית 14%', grams: 40, home: 'קוביה', kcal: 106, protein: 5.6, carbs: 1.2, fat: 8.4 },
@@ -908,7 +939,7 @@ const MEALS = [
       { name: 'פפריקה, כמון ושום', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
     steps: [
-      'מטגנים פלפלים בשמן זית עם פפריקה, כמון ושום עד ריכוך.',
+      'מטגנים כרוב פרוס בשמן זית עם פפריקה, כמון ושום עד ריכוך.',
       'מוסיפים עגבניות שרי חצויות וזיתים, ושוברים פנימה ביצים.',
       'מבשלים בכיסוי עד שהחלבון נקרש, מפוררים פטה מעל ומגישים.',
     ],
@@ -952,12 +983,12 @@ const MEALS = [
   {
     id: 'ks1_cream_cheese_veg',
     slot: 'snack1', diets: ['keto'], tags: ['veg'],
-    name: 'גבינת שמנת 30% עם מקלות מלפפון, סלרי ופלפל',
+    name: 'גבינת שמנת 30% עם מקלות מלפפון, סלרי וכרוב סגול',
     ingredients: [
       { name: 'גבינת שמנת 30%', grams: 50, home: '3 כפות', kcal: 171, protein: 3, carbs: 2, fat: 17 },
       { name: 'מלפפון', grams: 60, home: 'חצי מלפפון', kcal: 9, protein: 0.42, carbs: 2.16, fat: 0.06 },
       { name: 'סלרי', grams: 40, home: 'קלמה', kcal: 6.4, protein: 0.28, carbs: 1.2, fat: 0.08 },
-      { name: 'פלפל אדום', grams: 40, home: 'רבע פלפל', kcal: 12, protein: 0.4, carbs: 2.4, fat: 0.12 },
+      { name: 'כרוב סגול', grams: 40, home: 'מקלות כרוב', kcal: 11, protein: 0.55, carbs: 2.5, fat: 0.06 },
     ],
     steps: ['חותכים ירקות לאצבעות וטובלים בגבינת השמנת.'],
   },
@@ -1001,14 +1032,15 @@ const MEALS = [
     steps: ['פורסים מוצרלה ועגבניות שרי, מטפטפים שמן זית ומפזרים עלי בזיליקום.'],
   },
   {
-    id: 'ks1_mini_peppers_cream',
+    id: 'ks1_cucumber_boats_cream',
     slot: 'snack1', diets: ['keto'], tags: ['veg'],
-    name: 'פלפלים ממולאים בגבינת שמנת',
+    name: 'סירות מלפפון ממולאות בגבינת שמנת',
     ingredients: [
-      { name: 'פלפלים מיני צבעוניים', grams: 100, home: '5-6 פלפלים', kcal: 30, protein: 1, carbs: 6, fat: 0.3 },
+      { name: 'מלפפון', grams: 150, home: '2 מלפפונים קטנים', kcal: 22.5, protein: 0.98, carbs: 5.4, fat: 0.17 },
       { name: 'גבינת שמנת 30%', grams: 60, home: '4 כפות', kcal: 205, protein: 3.6, carbs: 2.4, fat: 20.4 },
+      { name: 'פפריקה ושמיר', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
     ],
-    steps: ['חוצים פלפלים מיני ומוציאים גרעינים, ממלאים בגבינת שמנת בעזרת כפית או שק זילוף.'],
+    steps: ['חוצים את המלפפונים לאורך ומגרדים מעט מהמרכז ליצירת "סירה".', 'ממלאים בגבינת שמנת בעזרת כפית או שק זילוף, ומפזרים פפריקה ושמיר.'],
   },
 
   /* ===================== ארוחות צהריים — קיטו ===================== */
@@ -1037,7 +1069,7 @@ const MEALS = [
     name: 'חזה עוף עם עור צלוי וסלט אבוקדו ושמן זית',
     ingredients: [
       { name: 'חזה עוף עם עור', grams: 150, home: 'חזה בינוני', kcal: 296, protein: 30, carbs: 0, fat: 18 },
-      { name: 'חסה, מלפפון, פלפל ובצל סגול', grams: 150, home: 'קערה', kcal: 30, protein: 1.5, carbs: 4.5, fat: 0.3 },
+      { name: 'חסה, מלפפון, כרוב סגול ובצל סגול', grams: 150, home: 'קערה', kcal: 30, protein: 1.5, carbs: 4.5, fat: 0.3 },
       { name: 'אבוקדו', grams: 70, home: 'שני שליש אבוקדו', kcal: 112, protein: 1.4, carbs: 6.3, fat: 10.5 },
       { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
       { name: 'פפריקה, שום ולימון', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
