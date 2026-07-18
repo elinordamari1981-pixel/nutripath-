@@ -38,6 +38,7 @@ const BRANDS = {
   'אבקת חלבון': { brand: 'Optimum Nutrition (או מותג מועדף)', cat: 'protein' },
   'אבקת חלבון בטעם וניל': { brand: 'Optimum Nutrition (או מותג מועדף)', cat: 'protein' },
   'אבקת חלבון בטעם שוקולד': { brand: 'Optimum Nutrition (או מותג מועדף)', cat: 'protein' },
+  'טופו קשה': { brand: 'מדף הטבעוני (ללא מותג ספציפי)', cat: 'protein' },
 
   'ביצים': { brand: 'חופית', cat: 'protein' },
   'חלבוני ביצה': { brand: 'תנובה', cat: 'protein' },

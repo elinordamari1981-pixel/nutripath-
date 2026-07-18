@@ -65,6 +65,7 @@ $('#profile-form').addEventListener('submit', (e) => {
     activity: fd.get('activity'),
     diet: fd.get('diet'),
     prefs: fd.getAll('prefs'),
+    allergens: fd.getAll('allergens'),
     showCounting: fd.get('showCounting') === 'on',
   };
   saveProfile(profile);
@@ -185,6 +186,7 @@ function prefillForm(p) {
   f.activity.value = p.activity;
   f.querySelector(`input[name=diet][value=${p.diet}]`).checked = true;
   f.querySelectorAll('input[name=prefs]').forEach((c) => { c.checked = p.prefs.includes(c.value); });
+  f.querySelectorAll('input[name=allergens]').forEach((c) => { c.checked = (p.allergens || []).includes(c.value); });
   f.showCounting.checked = p.showCounting;
 }
 
@@ -264,7 +266,7 @@ function renderMeal(meal, showC) {
   if (meal.empty) {
     return `
       <div class="meal">
-        <div class="meal-head"><div class="meal-title">${mealIcon(meal.emoji)} ${meal.name}</div></div>
+        <div class="meal-head"><div class="meal-title">${mealIcon(meal.emoji)} ${meal.slotName}</div></div>
         <div class="meal-empty">אין ארוחה שמתאימה להעדפות שבחרת בשלב זה עדיין 🙏</div>
       </div>`;
   }

@@ -107,6 +107,7 @@ function mealsFor(slot, profile) {
     if (!m.diets.includes(profile.diet)) return false;
     if (profile.prefs.includes('vegan') && !m.tags.includes('vegan')) return false;
     if (profile.prefs.includes('vegetarian') && !m.tags.includes('veg')) return false;
+    if ((profile.allergens || []).some((a) => m.tags.includes(a))) return false;
     return true;
   });
 }
