@@ -51,10 +51,54 @@ document.querySelectorAll('#diet-grid input[name=diet]').forEach((input) => {
   });
 });
 
+/* ---------- אשף שאלות ההרשמה (quiz) ---------- */
+const quizForm = $('#profile-form');
+const quizSteps = Array.from(quizForm.querySelectorAll('.quiz-step'));
+const QUIZ_TOTAL = quizSteps.length;
+let quizStep = 1;
+
+function showQuizStep(n) {
+  quizStep = Math.max(1, Math.min(QUIZ_TOTAL, n));
+  quizSteps.forEach((s) => s.classList.toggle('active', +s.dataset.step === quizStep));
+  $('#quiz-progress-fill').style.width = `${(quizStep / QUIZ_TOTAL) * 100}%`;
+  $('#quiz-step-label').textContent = `שאלה ${quizStep} מתוך ${QUIZ_TOTAL}`;
+  $('#quiz-back').hidden = quizStep === 1;
+  const isLast = quizStep === QUIZ_TOTAL;
+  $('#quiz-next').hidden = isLast;
+  $('#quiz-submit').hidden = !isLast;
+}
+
+function currentStepValid() {
+  const step = quizSteps[quizStep - 1];
+  const requiredInputs = Array.from(step.querySelectorAll('[required]'));
+  // עבור קבוצת radio מספיק שאחד מסומן — לא צריך שכולם יעברו checkValidity בנפרד
+  const seenRadioGroups = new Set();
+  for (const input of requiredInputs) {
+    if (input.type === 'radio') {
+      if (seenRadioGroups.has(input.name)) continue;
+      seenRadioGroups.add(input.name);
+      const group = step.querySelectorAll(`input[name="${input.name}"]`);
+      if (!Array.from(group).some((r) => r.checked)) { input.reportValidity(); return false; }
+      continue;
+    }
+    if (!input.checkValidity()) { input.reportValidity(); return false; }
+  }
+  return true;
+}
+
+$('#quiz-next').addEventListener('click', () => {
+  if (!currentStepValid()) return;
+  showQuizStep(quizStep + 1);
+});
+$('#quiz-back').addEventListener('click', () => showQuizStep(quizStep - 1));
+showQuizStep(1);
+
 /* ---------- שליחת טופס ההרשמה ---------- */
-$('#profile-form').addEventListener('submit', (e) => {
+quizForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  if (!currentStepValid()) return;
   const fd = new FormData(e.target);
+  const weightGoalRaw = fd.get('weightGoal');
   profile = {
     firstName: fd.get('firstName').trim(),
     lastName: fd.get('lastName').trim(),
@@ -62,6 +106,7 @@ $('#profile-form').addEventListener('submit', (e) => {
     gender: fd.get('gender'),
     weight: +fd.get('weight'),
     height: +fd.get('height'),
+    weightGoal: weightGoalRaw ? +weightGoalRaw : null,
     activity: fd.get('activity'),
     diet: fd.get('diet'),
     prefs: fd.getAll('prefs'),
@@ -180,14 +225,17 @@ function prefillForm(p) {
   f.firstName.value = p.firstName;
   f.lastName.value = p.lastName;
   f.age.value = p.age;
-  f.gender.value = p.gender;
+  const genderInput = f.querySelector(`input[name=gender][value=${p.gender}]`);
+  if (genderInput) genderInput.checked = true;
   f.weight.value = p.weight;
   f.height.value = p.height;
+  f.weightGoal.value = p.weightGoal || '';
   f.activity.value = p.activity;
   f.querySelector(`input[name=diet][value=${p.diet}]`).checked = true;
   f.querySelectorAll('input[name=prefs]').forEach((c) => { c.checked = p.prefs.includes(c.value); });
   f.querySelectorAll('input[name=allergens]').forEach((c) => { c.checked = (p.allergens || []).includes(c.value); });
   f.showCounting.checked = p.showCounting;
+  showQuizStep(1);
 }
 
 /* ---------- הצגת התפריט ---------- */

@@ -116,6 +116,18 @@ input:focus, select:focus {
 .btn-primary:hover { background: var(--green-dark); }
 .btn-primary:active { transform: scale(0.99); }
 
+/* ---------- Quiz onboarding ---------- */
+.quiz-progress { height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; margin-bottom: 10px; }
+.quiz-progress-fill { height: 100%; background: var(--green); border-radius: 999px; transition: width 0.3s ease; width: 0%; }
+.quiz-step-label { font-size: 12.5px; color: var(--text-soft); margin-bottom: 18px; }
+.quiz-step { display: none; animation: fade 0.3s ease; }
+.quiz-step.active { display: block; }
+.quiz-question { font-size: 21px; font-weight: 700; margin-bottom: 16px; }
+.quiz-nav { display: flex; gap: 10px; margin-top: 8px; }
+.quiz-nav .btn-primary { flex: 1; }
+.quiz-nav .btn-ghost { flex: 0 0 auto; padding: 16px 18px; }
+.quiz-nav .btn-ghost[hidden] { display: none; }
+
 /* ---------- Menu screen ---------- */
 .menu-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 4px 16px; }
 .greeting { font-size: 23px; font-weight: 700; }

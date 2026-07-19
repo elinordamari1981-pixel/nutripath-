@@ -13,14 +13,27 @@ const ACTIVITY_FACTORS = {
   athlete: 1.9,
 };
 
+// אחוז גירעון/עודף דינמי לפי מרחק ממשקל היעד (אם הוזן) — ככל שהיעד רחוק יותר
+// (עד 10% ממשקל הגוף), ההתאמה נעה בהדרגה מ-basePct עד maxPct. בלי יעד, או כשהיעד
+// כבר הושג/בכיוון ההפוך, נשארים על הנוסחה הבסיסית שאושרה (basePct).
+function goalAdjustedPct(profile, basePct, maxPct, direction) {
+  const goal = profile.weightGoal;
+  if (!goal || !profile.weight) return basePct;
+  const diff = direction === 'lose' ? profile.weight - goal : goal - profile.weight;
+  if (diff <= 0) return basePct;
+  const gapRatio = diff / profile.weight;
+  return basePct + (maxPct - basePct) * Math.min(1, gapRatio / 0.10);
+}
+
 // מטא-דאטה של סוגי התזונה + נוסחת היעדים לכל אחת
 const DIETS = {
   chittuv: {
     name: 'תזונה לחיטוב',
     ready: true, // מאגר הארוחות נבנה
-    // נוסחה שאושרה: גירעון 20%, חלבון 2.2 ג'/ק"ג, שומן 0.9 ג'/ק"ג, פחמימה = הנותר
+    // נוסחה שאושרה: גירעון בסיס 20% (עד 25% כשמשקל היעד רחוק), חלבון 2.2 ג'/ק"ג, שומן 0.9 ג'/ק"ג, פחמימה = הנותר
     targets(profile, tdee) {
-      const calories = Math.round(tdee * 0.80);
+      const deficitPct = goalAdjustedPct(profile, 0.20, 0.25, 'lose');
+      const calories = Math.round(tdee * (1 - deficitPct));
       const protein = Math.round(2.2 * profile.weight);
       const fat = Math.round(0.9 * profile.weight);
       const carbs = Math.max(0, Math.round((calories - protein * 4 - fat * 9) / 4));
@@ -30,9 +43,10 @@ const DIETS = {
   masa: {
     name: 'תזונה למסה',
     ready: true, // מאגר הארוחות נבנה
-    // נוסחה שאושרה: עודף 15%, חלבון 2.0 ג'/ק"ג, שומן 1.0 ג'/ק"ג, פחמימה = הנותר
+    // נוסחה שאושרה: עודף בסיס 15% (עד 20% כשמשקל היעד רחוק), חלבון 2.0 ג'/ק"ג, שומן 1.0 ג'/ק"ג, פחמימה = הנותר
     targets(profile, tdee) {
-      const calories = Math.round(tdee * 1.15);
+      const surplusPct = goalAdjustedPct(profile, 0.15, 0.20, 'gain');
+      const calories = Math.round(tdee * (1 + surplusPct));
       const protein = Math.round(2.0 * profile.weight);
       const fat = Math.round(1.0 * profile.weight);
       const carbs = Math.max(0, Math.round((calories - protein * 4 - fat * 9) / 4));
@@ -72,9 +86,12 @@ const MEAL_SLOTS = [
 /* ---------- חישוב יעדים ---------- */
 
 // נוסחת Mifflin-St Jeor — הסטנדרט המקצועי לחישוב BMR
+// לגברים: +5, לנשים: -161. עבור "אחר" (שהנוסחה המקורית לא מבחינה בו) — ממוצע בין שני המקדמים.
 function calcBMR({ gender, weight, height, age }) {
   const base = 10 * weight + 6.25 * height - 5 * age;
-  return gender === 'male' ? base + 5 : base - 161;
+  if (gender === 'male') return base + 5;
+  if (gender === 'female') return base - 161;
+  return base - 78;
 }
 
 function calcTargets(profile) {

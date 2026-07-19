@@ -40,109 +40,148 @@
         <p class="subtitle">בלי לספור כלום — אלא אם בא לך. ממלאים פרטים פעם אחת, ומקבלים תפריט יומי מותאם אישית למטרה שלך.</p>
       </div>
 
-      <form id="profile-form" class="card">
-        <div class="row">
-          <div class="field">
-            <label>שם פרטי</label>
-            <input type="text" name="firstName" required placeholder="ישראל" />
-          </div>
-          <div class="field">
-            <label>שם משפחה</label>
-            <input type="text" name="lastName" required placeholder="ישראלי" />
+      <form id="profile-form" class="card quiz-card">
+        <div class="quiz-progress"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+        <div class="quiz-step-label" id="quiz-step-label"></div>
+
+        <div class="quiz-step" data-step="1">
+          <h2 class="quiz-question">היי! איך קוראים לך? 👋</h2>
+          <div class="row">
+            <div class="field">
+              <label>שם פרטי</label>
+              <input type="text" name="firstName" required placeholder="ישראל" />
+            </div>
+            <div class="field">
+              <label>שם משפחה</label>
+              <input type="text" name="lastName" required placeholder="ישראלי" />
+            </div>
           </div>
         </div>
 
-        <div class="row">
+        <div class="quiz-step" data-step="2">
+          <h2 class="quiz-question">בת/בן כמה את/ה?</h2>
           <div class="field">
-            <label>גיל</label>
             <input type="number" name="age" required min="16" max="100" placeholder="30" />
             <p class="hint">האפליקציה מיועדת לגילאי 16 ומעלה.</p>
           </div>
+        </div>
+
+        <div class="quiz-step" data-step="3">
+          <h2 class="quiz-question">איך תרצה/י שנתייחס אליך?</h2>
           <div class="field">
-            <label>מין</label>
-            <select name="gender" required>
-              <option value="">בחר/י</option>
-              <option value="female">נקבה</option>
-              <option value="male">זכר</option>
-            </select>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="gender" value="female" required /> נקבה</label>
+              <label class="chip"><input type="radio" name="gender" value="male" /> זכר</label>
+              <label class="chip"><input type="radio" name="gender" value="other" /> אחר</label>
+            </div>
           </div>
         </div>
 
-        <div class="row">
+        <div class="quiz-step" data-step="4">
+          <h2 class="quiz-question">מה המשקל הנוכחי שלך?</h2>
           <div class="field">
-            <label>משקל (ק"ג)</label>
+            <label>ק"ג</label>
             <input type="number" name="weight" required min="30" max="250" step="0.1" placeholder="70" />
           </div>
+        </div>
+
+        <div class="quiz-step" data-step="5">
+          <h2 class="quiz-question">ומה הגובה שלך?</h2>
           <div class="field">
-            <label>גובה (ס"מ)</label>
+            <label>ס"מ</label>
             <input type="number" name="height" required min="120" max="220" placeholder="170" />
           </div>
         </div>
 
-        <div class="field">
-          <label>רמת פעילות</label>
-          <select name="activity" required>
-            <option value="sedentary">יושבני — מעט מאוד פעילות</option>
-            <option value="light">קלה — 1-3 אימונים בשבוע</option>
-            <option value="moderate" selected>בינונית — 3-5 אימונים בשבוע</option>
-            <option value="active">גבוהה — 6-7 אימונים בשבוע</option>
-            <option value="athlete">ספורטיבי — עבודה פיזית / פעמיים ביום</option>
-          </select>
+        <div class="quiz-step" data-step="6">
+          <h2 class="quiz-question">יש לך משקל יעד שאת/ה שואפ/ת אליו?</h2>
+          <div class="field">
+            <label>ק"ג (לא חובה)</label>
+            <input type="number" name="weightGoal" min="30" max="250" step="0.1" placeholder="למשל 65" />
+            <p class="hint">ככל שהיעד רחוק יותר מהמשקל הנוכחי, נכוון את קצב הגירעון/עודף הקלורי בהתאם.</p>
+          </div>
         </div>
 
-        <div class="field">
-          <label>סוג התזונה</label>
-          <div class="diet-grid" id="diet-grid">
-            <label class="diet-option">
-              <input type="radio" name="diet" value="chittuv" required />
-              <div class="diet-card"><span class="diet-emoji">🔥</span><span class="diet-name">חיטוב</span><span class="diet-desc">ירידה באחוזי שומן</span></div>
-            </label>
-            <label class="diet-option">
-              <input type="radio" name="diet" value="masa" />
-              <div class="diet-card"><span class="diet-emoji">💪</span><span class="diet-name">מסה</span><span class="diet-desc">בניית שריר</span></div>
-            </label>
-            <label class="diet-option">
-              <input type="radio" name="diet" value="health" />
-              <div class="diet-card"><span class="diet-emoji">🥗</span><span class="diet-name">בריאותית</span><span class="diet-desc">איזון ותחזוקה</span></div>
-            </label>
-            <label class="diet-option">
-              <input type="radio" name="diet" value="keto" />
-              <div class="diet-card"><span class="diet-emoji">🥑</span><span class="diet-name">קטוגנית</span><span class="diet-desc">דלת פחמימות</span></div>
+        <div class="quiz-step" data-step="7">
+          <h2 class="quiz-question">כמה את/ה פעיל/ה פיזית?</h2>
+          <div class="field">
+            <select name="activity" required>
+              <option value="sedentary">יושבני — מעט מאוד פעילות</option>
+              <option value="light">קלה — 1-3 אימונים בשבוע</option>
+              <option value="moderate" selected>בינונית — 3-5 אימונים בשבוע</option>
+              <option value="active">גבוהה — 6-7 אימונים בשבוע</option>
+              <option value="athlete">ספורטיבי — עבודה פיזית / פעמיים ביום</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="8">
+          <h2 class="quiz-question">לאיזו תזונה את/ה מכוונ/ת?</h2>
+          <div class="field">
+            <div class="diet-grid" id="diet-grid">
+              <label class="diet-option">
+                <input type="radio" name="diet" value="chittuv" required />
+                <div class="diet-card"><span class="diet-emoji">🔥</span><span class="diet-name">חיטוב</span><span class="diet-desc">ירידה באחוזי שומן</span></div>
+              </label>
+              <label class="diet-option">
+                <input type="radio" name="diet" value="masa" />
+                <div class="diet-card"><span class="diet-emoji">💪</span><span class="diet-name">מסה</span><span class="diet-desc">בניית שריר</span></div>
+              </label>
+              <label class="diet-option">
+                <input type="radio" name="diet" value="health" />
+                <div class="diet-card"><span class="diet-emoji">🥗</span><span class="diet-name">בריאותית</span><span class="diet-desc">איזון ותחזוקה</span></div>
+              </label>
+              <label class="diet-option">
+                <input type="radio" name="diet" value="keto" />
+                <div class="diet-card"><span class="diet-emoji">🥑</span><span class="diet-name">קטוגנית</span><span class="diet-desc">דלת פחמימות</span></div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="9">
+          <h2 class="quiz-question">יש לך אלרגיות או רגישויות שכדאי שנדע עליהן?</h2>
+          <div class="field">
+            <p class="hint">נסנן החוצה כל מנה שמכילה את מה שתסמנו כאן (לא חובה).</p>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="allergens" value="gluten" /> גלוטן</label>
+              <label class="chip"><input type="checkbox" name="allergens" value="dairy" /> חלב/לקטוז</label>
+              <label class="chip"><input type="checkbox" name="allergens" value="nuts" /> אגוזים ובוטנים</label>
+              <label class="chip"><input type="checkbox" name="allergens" value="egg" /> ביצים</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="10">
+          <h2 class="quiz-question">צמחוני/ת או טבעוני/ת?</h2>
+          <div class="field">
+            <p class="hint">לא חובה — דלגו הלאה אם לא רלוונטי.</p>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="prefs" value="vegetarian" /> צמחוני</label>
+              <label class="chip"><input type="checkbox" name="prefs" value="vegan" /> טבעוני</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="11">
+          <h2 class="quiz-question">רוצים לראות מספרים, או תפריט נקי?</h2>
+          <div class="field toggle-field">
+            <div>
+              <label>ספירת קלוריות וגרמים</label>
+              <p class="hint">כבוי = תפריט נקי בלי מספרים. דלוק = הצגת קלוריות, גרמים ומאקרו.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" name="showCounting" />
+              <span class="slider"></span>
             </label>
           </div>
         </div>
 
-        <div class="field">
-          <label>העדפות (לא חובה)</label>
-          <div class="chips">
-            <label class="chip"><input type="checkbox" name="prefs" value="vegetarian" /> צמחוני</label>
-            <label class="chip"><input type="checkbox" name="prefs" value="vegan" /> טבעוני</label>
-          </div>
+        <div class="quiz-nav">
+          <button type="button" class="btn-ghost" id="quiz-back">‹ הקודם</button>
+          <button type="button" class="btn-primary" id="quiz-next">הבא ›</button>
+          <button type="submit" class="btn-primary" id="quiz-submit" hidden>בנו לי תפריט ✨</button>
         </div>
-
-        <div class="field">
-          <label>אלרגיות ורגישויות (לא חובה)</label>
-          <p class="hint">נסנן החוצה כל מנה שמכילה את מה שתסמנו כאן.</p>
-          <div class="chips">
-            <label class="chip"><input type="checkbox" name="allergens" value="gluten" /> גלוטן</label>
-            <label class="chip"><input type="checkbox" name="allergens" value="dairy" /> חלב/לקטוז</label>
-            <label class="chip"><input type="checkbox" name="allergens" value="nuts" /> אגוזים ובוטנים</label>
-            <label class="chip"><input type="checkbox" name="allergens" value="egg" /> ביצים</label>
-          </div>
-        </div>
-
-        <div class="field toggle-field">
-          <div>
-            <label>ספירת קלוריות וגרמים</label>
-            <p class="hint">כבוי = תפריט נקי בלי מספרים. דלוק = הצגת קלוריות, גרמים ומאקרו.</p>
-          </div>
-          <label class="switch">
-            <input type="checkbox" name="showCounting" />
-            <span class="slider"></span>
-          </label>
-        </div>
-
-        <button type="submit" class="btn-primary">בנו לי תפריט ✨</button>
       </form>
     </section>
 
