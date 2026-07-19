@@ -207,14 +207,18 @@ function foodFamily(meal) {
 }
 
 // בונה שילוב יום אחד (מנה לכל ארוחה) לפי בחירה אקראית, תוך הימנעות מחזרה
-// על אותה משפחת מזון פעמיים באותו יום (כשיש חלופה זמינה)
-function buildCombination(profile, targets, rnd) {
+// על אותה משפחת מזון פעמיים באותו יום (כשיש חלופה זמינה), ומחזרה על אותה
+// מנה בדיוק שהופיעה באותו סלוט בימים הקרובים האחרונים (avoidIdsPerSlot)
+function buildCombination(profile, targets, rnd, avoidIdsPerSlot) {
   const usedFamilies = new Set();
-  const meals = MEAL_SLOTS.map((slot) => {
+  const meals = MEAL_SLOTS.map((slot, idx) => {
     const candidates = mealsFor(slot.key, profile);
     if (!candidates.length) return { emoji: slot.emoji, slotName: slot.name, empty: true };
-    const fresh = candidates.filter((m) => !usedFamilies.has(foodFamily(m)));
-    const pool = fresh.length ? fresh : candidates;
+    const avoidIds = (avoidIdsPerSlot && avoidIdsPerSlot[idx]) || new Set();
+    const notRecent = candidates.filter((m) => !avoidIds.has(m.id));
+    const recencyPool = notRecent.length ? notRecent : candidates;
+    const fresh = recencyPool.filter((m) => !usedFamilies.has(foodFamily(m)));
+    const pool = fresh.length ? fresh : recencyPool;
     const chosen = pool[Math.floor(rnd() * pool.length)];
     usedFamilies.add(foodFamily(chosen));
     const scaled = scaleMeal(chosen, targets.calories * slot.share);
@@ -231,23 +235,54 @@ function macroError(totals, targets) {
     + Math.abs(totals.fat - targets.fat);
 }
 
+// בוחר את השילוב הכי קרוב ליעדי המאקרו מתוך 18 ניסיונות אקראיים, בהינתן זרע נתון
+function pickBestCombination(profile, targets, rnd, avoidIdsPerSlot) {
+  let best = null;
+  let bestErr = Infinity;
+  for (let i = 0; i < 18; i++) {
+    const combo = buildCombination(profile, targets, rnd, avoidIdsPerSlot);
+    const err = macroError(combo.dayTotals, targets);
+    if (err < bestErr) { bestErr = err; best = combo; }
+  }
+  return best;
+}
+
+// זיכרון תוצאות לפי (תזונה+העדפות+אלרגנים+יעדים+יום) — מונע חישוב כפול וחשוב
+// כדי שבדיקת "מה הוצג בימים הקודמים" תשקף את התוצאה המתוקנת בפועל, לא חישוב גולמי מחדש
+const _dailyMenuMemo = new Map();
+function _memoKey(profile, targets, dayOffset) {
+  return JSON.stringify([profile.diet, profile.prefs, profile.allergens || [], targets.calories, targets.protein, targets.carbs, targets.fat, dayOffset]);
+}
+
 function generateDailyMenu(profile, targets, dayOffset = 0) {
   const diet = DIETS[profile.diet];
   if (!diet.ready) return { ready: false, dietName: diet.name };
 
-  // זרע לפי היום — כל יום מקבל שילוב אחר אך יציב
-  const rnd = seededRandom(1000 + dayOffset * 97);
+  const key = _memoKey(profile, targets, dayOffset);
+  if (_dailyMenuMemo.has(key)) return _dailyMenuMemo.get(key);
 
-  // בוחנים כמה שילובים ובוחרים את זה שהכי קרוב לכל יעדי המאקרו
-  let best = null;
-  let bestErr = Infinity;
-  for (let i = 0; i < 18; i++) {
-    const combo = buildCombination(profile, targets, rnd);
-    const err = macroError(combo.dayTotals, targets);
-    if (err < bestErr) { bestErr = err; best = combo; }
+  // בלי זיכרון בין-יומי, מזעור סטיית המאקרו "מנצח" תמיד באותה מנה הכי מתאימה
+  // לכל סלוט — כך שאותה מנה חוזרת שוב ושוב לאורך השבוע. פותרים זאת ע"י בדיקה
+  // רקורסיבית (וממוזכרת) של 3 הימים האחרונים בפועל, ומניעת חזרה מדויקת על
+  // אותה מנה באותו סלוט בימים הקרובים.
+  const LOOKBACK_DAYS = 3;
+  const avoidIdsPerSlot = MEAL_SLOTS.map(() => new Set());
+  for (let back = 1; back <= LOOKBACK_DAYS; back++) {
+    const d = dayOffset - back;
+    if (d < 0) break;
+    const prevMenu = generateDailyMenu(profile, targets, d);
+    if (prevMenu.ready) {
+      prevMenu.meals.forEach((m, idx) => { if (!m.empty) avoidIdsPerSlot[idx].add(m.id); });
+    }
   }
 
-  return { ready: true, meals: best.meals, dayTotals: best.dayTotals };
+  // זרע לפי היום — כל יום מקבל שילוב אחר אך יציב
+  const rnd = seededRandom(1000 + dayOffset * 97);
+  const best = pickBestCombination(profile, targets, rnd, avoidIdsPerSlot);
+
+  const result = { ready: true, meals: best.meals, dayTotals: best.dayTotals };
+  _dailyMenuMemo.set(key, result);
+  return result;
 }
 
 // מתכון הקינוח השבועי — מתחלף פעם בשבוע. מוצג בגודל מנה מלא (בלי כיוונון),
