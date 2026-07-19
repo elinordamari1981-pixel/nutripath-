@@ -165,6 +165,17 @@ const MEALS = [
 
   /* ===================== ארוחות ביניים — חיטוב ===================== */
   {
+    id: 's1_eggs_avocado_lemon',
+    slot: 'snack1', diets: ['chittuv'], tags: ['egg'],
+    name: 'ביצים קשות עם אבוקדו ולימון',
+    ingredients: [
+      { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
+      { name: 'אבוקדו', grams: 50, home: 'רבע אבוקדו', kcal: 80, protein: 1, carbs: 4.5, fat: 7.5 },
+      { name: 'לימון ומלח', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['חוצים ביצים קשות, מוסיפים פרוסות אבוקדו, ומתבלים בלימון ומלח.'],
+  },
+  {
     id: 's1_apple_almonds',
     slot: 'snack1', diets: ['chittuv'], tags: ['veg', 'vegan', 'nuts'],
     name: 'תפוח ירוק עם חופן שקדים',
@@ -244,6 +255,23 @@ const MEALS = [
   },
 
   /* ===================== ארוחות צהריים — חיטוב ===================== */
+  {
+    id: 'l_beef_cauliflower_mash',
+    slot: 'lunch', diets: ['chittuv'], tags: [],
+    name: 'סטייק בקר רזה עם פירה כרובית וברוקולי',
+    ingredients: [
+      { name: 'בשר בקר רזה', grams: 150, home: 'סטייק בינוני', kcal: 325.5, protein: 38.8, carbs: 0, fat: 18 },
+      { name: 'כרובית', grams: 200, home: 'לפירה', kcal: 50, protein: 3.8, carbs: 10, fat: 0.6 },
+      { name: 'ברוקולי', grams: 100, home: 'קערית', kcal: 34, protein: 2.8, carbs: 7, fat: 0.4 },
+      { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+      { name: 'שום ורוזמרין', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'צולים את הסטייק במחבת חמה עם מעט שמן זית, שום ורוזמרין, לפי מידת העשייה הרצויה.',
+      'מבשלים כרובית עד רכה וטוחנים בבלנדר/מעכה לפירה חלק עם שמן זית.',
+      'מאדים או מקפיצים ברוקולי, ומגישים הכל יחד.',
+    ],
+  },
   {
     id: 'l_tofu_teriyaki_rice',
     slot: 'lunch', diets: ['chittuv'], tags: ['veg', 'vegan', 'gluten'],
@@ -452,6 +480,22 @@ const MEALS = [
 
   /* ===================== ארוחות ערב — חיטוב ===================== */
   {
+    id: 'd_seabream_couscous',
+    slot: 'dinner', diets: ['chittuv'], tags: ['gluten'],
+    name: 'פילה דג ים בתנור עם קוסקוס מלא וירקות',
+    ingredients: [
+      { name: 'פילה דג ים (לברק/דניס)', grams: 180, home: 'פילה', kcal: 172.8, protein: 36, carbs: 0, fat: 3.06 },
+      { name: 'קוסקוס מלא מבושל', grams: 150, home: 'כוס', kcal: 168, protein: 5.7, carbs: 34.5, fat: 0.3 },
+      { name: 'בצל, גזר וקישוא', grams: 150, home: 'קערה', kcal: 55, protein: 2, carbs: 10, fat: 0.5 },
+      { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+      { name: 'פפריקה ולימון', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מתבלים את הדג בפפריקה, מלח ולימון, ואופים בתנור ב-200° כ-15-18 דקות.',
+      'מקפיצים ירקות בשמן זית עד ריכוך, ומגישים עם קוסקוס מלא.',
+    ],
+  },
+  {
     id: 'd_lentil_quinoa_patties_chittuv',
     slot: 'dinner', diets: ['chittuv'], tags: ['veg', 'vegan'],
     name: 'קציצות עדשים וקינואה ברוטב עגבניות',
@@ -541,6 +585,25 @@ const MEALS = [
   },
 
   /* ===================== מתכוני קינוח שבועי — חיטוב ===================== */
+  {
+    id: 'ds_apple_oat_crumble',
+    slot: 'dessert', diets: ['chittuv'], tags: ['veg', 'vegan', 'gluten'],
+    name: 'קרמבל תפוחים ושיבולת שועל (ללא סוכר לבן)',
+    yield: 'כ-6 מנות',
+    serving: { label: 'מנה', kcal: 165, protein: 3, carbs: 26, fat: 6.3 },
+    ingredients: [
+      { name: 'תפוח', grams: 400, count: 4, unit: 'יחידות', home: '4 תפוחים', kcal: 208, protein: 1.2, carbs: 56, fat: 0.8 },
+      { name: 'שיבולת שועל', grams: 100, home: 'כוס', kcal: 389, protein: 17, carbs: 66, fat: 7 },
+      { name: 'שמן קוקוס', grams: 30, count: 1, unit: 'כף', home: 'כף גדושה', kcal: 270, protein: 0, carbs: 0, fat: 30 },
+      { name: 'דבש', grams: 40, count: 2, unit: 'כפות', home: '2 כפות', kcal: 121, protein: 0.12, carbs: 33, fat: 0 },
+      { name: 'קינמון', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'פורסים תפוחים דק ומניחים בתבנית אפייה, מפזרים קינמון.',
+      'מערבבים שיבולת שועל עם שמן קוקוס נמס ודבש, ומפזרים מעל התפוחים.',
+      'אופים ב-180° כ-25-30 דקות עד שהתפוחים מתרככים והשכבה העליונה מוזהבת.',
+    ],
+  },
   {
     id: 'ds_protein_cookies',
     slot: 'dessert', diets: ['chittuv'], tags: ['veg', 'gluten', 'dairy', 'nuts', 'egg'],
@@ -729,6 +792,17 @@ const MEALS = [
 
   /* ===================== ארוחות ביניים — מסה ===================== */
   {
+    id: 'ms1_egg_cheese_sandwich',
+    slot: 'snack1', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'egg'],
+    name: 'כריך ביצה וגבינה צהובה בלחם מלא',
+    ingredients: [
+      { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1, fat: 11 },
+      { name: 'גבינה צהובה 9%', grams: 40, home: '2 פרוסות', kcal: 86, protein: 10.8, carbs: 0.4, fat: 3.6 },
+      { name: 'לחם מלא', grams: 60, count: 2, unit: 'פרוסות', home: '2 פרוסות', kcal: 160, protein: 8, carbs: 28, fat: 2 },
+    ],
+    steps: ['מטגנים ביצים לחביתה קלה, מניחים גבינה צהובה שתימס מעל, וסוגרים בין 2 פרוסות לחם מלא.'],
+  },
+  {
     id: 'ms1_dates_tahini',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'vegan'],
     name: 'תמרים ממולאים בטחינה גולמית',
@@ -812,6 +886,22 @@ const MEALS = [
   },
 
   /* ===================== ארוחות צהריים — מסה ===================== */
+  {
+    id: 'ml_salmon_rice_asparagus',
+    slot: 'lunch', diets: ['masa'], tags: [],
+    name: 'פילה סלמון עם אורז מלא ואספרגוס',
+    ingredients: [
+      { name: 'פילה סלמון', grams: 180, home: 'פילה', kcal: 374.4, protein: 36, carbs: 0, fat: 23.4 },
+      { name: 'אורז מלא מבושל', grams: 180, home: 'כוס', kcal: 201.6, protein: 4.68, carbs: 42.3, fat: 1.62 },
+      { name: 'אספרגוס', grams: 120, home: 'צרור קטן', kcal: 24, protein: 2.64, carbs: 4.68, fat: 0.12 },
+      { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+      { name: 'לימון ושמיר', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מתבלים סלמון בלימון, מלח ושמיר ואופים בתנור ב-200° כ-15 דקות.',
+      'מקפיצים אספרגוס בשמן זית כ-4-5 דקות, ומגישים עם אורז מלא.',
+    ],
+  },
   {
     id: 'ml_hummus_spinach_coconut_curry',
     slot: 'lunch', diets: ['masa'], tags: ['veg', 'vegan'],
@@ -938,6 +1028,22 @@ const MEALS = [
   },
 
   /* ===================== ארוחות ערב — מסה ===================== */
+  {
+    id: 'md_turkey_meatballs_sweetpotato_mash',
+    slot: 'dinner', diets: ['masa'], tags: [],
+    name: 'קציצות הודו ענקיות עם פירה בטטה',
+    ingredients: [
+      { name: 'בשר הודו טחון', grams: 200, home: '2 קציצות גדולות', kcal: 380, protein: 40, carbs: 0, fat: 24 },
+      { name: 'בטטה (למחית)', grams: 250, home: 'בטטה גדולה', kcal: 225, protein: 5, carbs: 52.5, fat: 0.25 },
+      { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+      { name: 'רוזמרין, שום ומלח', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מעצבים את בשר ההודו הטחון לקציצות גדולות, מתבלים ברוזמרין ושום.',
+      'צולים במחבת עם מעט שמן זית עד להשחמה ובישול מלא.',
+      'מבשלים בטטה עד רכה וטוחנים לפירה חלק עם שמן זית ומלח.',
+    ],
+  },
   {
     id: 'md_chickpea_quinoa_patties',
     slot: 'dinner', diets: ['masa'], tags: ['veg', 'vegan'],
@@ -1108,6 +1214,27 @@ const MEALS = [
 
   /* ===================== מתכוני קינוח — מסה ===================== */
   {
+    id: 'mds_chocolate_brownies',
+    slot: 'dessert', diets: ['masa'], tags: ['veg', 'gluten', 'egg'],
+    name: 'בראוניז שוקולד עשירים (ללא אגוזים)',
+    yield: 'כ-12 קוביות',
+    serving: { label: 'קובייה', kcal: 160, protein: 4.6, carbs: 18.6, fat: 8.6 },
+    ingredients: [
+      { name: 'קמח מלא', grams: 150, home: 'כוס וחצי', kcal: 510, protein: 19.5, carbs: 108, fat: 3.75 },
+      { name: 'ביצים', grams: 200, count: 4, unit: 'ביצים', home: '4 ביצים', kcal: 312, protein: 26, carbs: 2, fat: 22 },
+      { name: 'שמן קוקוס', grams: 60, count: 3, unit: 'כפות', home: '3 כפות', kcal: 540, protein: 0, carbs: 0, fat: 60 },
+      { name: 'דבש', grams: 80, count: 4, unit: 'כפות', home: '4 כפות', kcal: 244, protein: 0.24, carbs: 66, fat: 0 },
+      { name: 'קקאו טהור ללא סוכר', grams: 40, home: '4 כפות', kcal: 91, protein: 7.84, carbs: 23.2, fat: 5.6 },
+      { name: "שוקולד מריר (צ'יפס)", grams: 40, home: '3 כפות', kcal: 219, protein: 2.13, carbs: 24.5, fat: 12.27 },
+      { name: 'אבקת אפייה', season: true, home: 'כפית', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'טורפים ביצים עם שמן קוקוס נמס ודבש.',
+      'מוסיפים קמח מלא, קקאו ואבקת אפייה ומערבבים לבלילה אחיד. מקפלים פנימה שברי שוקולד מריר.',
+      'יוצקים לתבנית מרובעת (כ-20x20) מרופדת בנייר אפייה ואופים ב-175° כ-25 דקות. מקררים ופורסים לקוביות.',
+    ],
+  },
+  {
     id: 'mds_energy_balls',
     slot: 'dessert', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'nuts'],
     name: 'בולי אנרגיה חמאת בוטנים, שיבולת שועל ושוקולד מריר',
@@ -1255,6 +1382,18 @@ const MEALS = [
 
   /* ===================== ארוחות ביניים — קיטו ===================== */
   {
+    id: 'ks1_eggs_olives_oil',
+    slot: 'snack1', diets: ['keto'], tags: ['egg'],
+    name: 'ביצים קשות עם זיתים ושמן זית',
+    ingredients: [
+      { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
+      { name: 'זיתים', grams: 30, home: 'כ-8 זיתים', kcal: 34.8, protein: 0.24, carbs: 1.8, fat: 3.3 },
+      { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+      { name: 'מלח ופפריקה', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['חוצים ביצים קשות, מגישים לצד זיתים, ומטפטפים שמן זית מעל.'],
+  },
+  {
     id: 'ks1_olives_cucumber_coconut',
     slot: 'snack1', diets: ['keto'], tags: ['veg', 'vegan'],
     name: 'זיתים ומלפפון עם שמן זית וקוקוס טחון',
@@ -1342,6 +1481,22 @@ const MEALS = [
   },
 
   /* ===================== ארוחות צהריים — קיטו ===================== */
+  {
+    id: 'kl_turkey_asparagus_avocado',
+    slot: 'lunch', diets: ['keto'], tags: [],
+    name: 'חזה הודו צלוי עם אספרגוס ואבוקדו בשמן זית',
+    ingredients: [
+      { name: 'חזה הודו', grams: 170, home: 'חזה בינוני', kcal: 231, protein: 40.8, carbs: 0, fat: 3.4 },
+      { name: 'אספרגוס', grams: 150, home: 'צרור', kcal: 30, protein: 3.3, carbs: 5.85, fat: 0.15 },
+      { name: 'אבוקדו', grams: 60, home: 'חצי אבוקדו', kcal: 96, protein: 1.2, carbs: 5.4, fat: 9 },
+      { name: 'שמן זית', grams: 15, count: 1, unit: 'כף', home: 'כף', kcal: 132, protein: 0, carbs: 0, fat: 15 },
+      { name: 'שום וטימין', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מתבלים חזה הודו בשום וטימין, וצולים במחבת עם מעט שמן זית עד בישול מלא.',
+      'מקפיצים אספרגוס בשאר שמן הזית, ומגישים עם פרוסות אבוקדו.',
+    ],
+  },
   {
     id: 'kl_tofu_greens_coconut_stirfry',
     slot: 'lunch', diets: ['keto'], tags: ['veg', 'vegan'],
@@ -1519,6 +1674,23 @@ const MEALS = [
 
   /* ===================== ארוחות ערב — קיטו ===================== */
   {
+    id: 'kd_lamb_burger_avocado_cabbage',
+    slot: 'dinner', diets: ['keto'], tags: [],
+    name: 'המבורגר טלה עם אבוקדו וסלט כרוב סגול',
+    ingredients: [
+      { name: 'בשר טלה טחון', grams: 150, home: 'קציצה גדולה', kcal: 420, protein: 37.5, carbs: 0, fat: 28.5 },
+      { name: 'אבוקדו', grams: 60, home: 'חצי אבוקדו', kcal: 96, protein: 1.2, carbs: 5.4, fat: 9 },
+      { name: 'כרוב סגול', grams: 80, home: 'סלט קצוץ', kcal: 22, protein: 1.1, carbs: 5, fat: 0.12 },
+      { name: 'שמן זית', grams: 5, count: 1, unit: 'כפית', home: 'כפית', kcal: 44, protein: 0, carbs: 0, fat: 5 },
+      { name: 'מלח ופפריקה', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מעצבים קציצת המבורגר עבה מהטלה הטחון, מתבלים במלח ופפריקה.',
+      'צולים במחבת חמה או על גריל לדרגת העשייה הרצויה.',
+      'מכינים סלט כרוב סגול קצוץ עם שמן זית, ומגישים לצד ההמבורגר ופרוסות אבוקדו (בלי לחמנייה).',
+    ],
+  },
+  {
     id: 'kd_roasted_cauliflower_butter_cheese',
     slot: 'dinner', diets: ['keto'], tags: ['veg', 'dairy', 'egg'],
     name: 'כרובית אפויה שלמה עם חמאה, שום וגבינה',
@@ -1627,6 +1799,24 @@ const MEALS = [
   },
 
   /* ===================== מתכוני קינוח שבועי — קיטו ===================== */
+  {
+    id: 'kds_chocolate_coconut_fat_bombs',
+    slot: 'dessert', diets: ['keto'], tags: ['veg', 'vegan'],
+    name: 'פצצות שומן שוקולד-קוקוס קפואות',
+    yield: 'כ-10 קוביות',
+    serving: { label: 'קובייה', kcal: 123, protein: 0.9, carbs: 2.7, fat: 13 },
+    ingredients: [
+      { name: 'שמן קוקוס', grams: 100, home: 'חצי כוס', kcal: 900, protein: 0, carbs: 0, fat: 100 },
+      { name: 'קוקוס טחון ללא סוכר', grams: 40, home: '4 כפות', kcal: 264, protein: 2.76, carbs: 9.6, fat: 25.6 },
+      { name: 'קקאו טהור ללא סוכר', grams: 30, home: '3 כפות', kcal: 68, protein: 5.88, carbs: 17.4, fat: 4.11 },
+      { name: 'ממתיק קטוגני (אריתריטול/סטיביה) ווניל', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'ממיסים שמן קוקוס בעדינות (מיקרוגל או בן-מארי) ומערבבים עם קקאו, קוקוס טחון וממתיק.',
+      'יוצקים לתבנית קוביות קרח או תבנית סיליקון קטנה.',
+      'מקפיאים לפחות שעה עד להתקשות מלאה. שומרים במקפיא.',
+    ],
+  },
   {
     id: 'kds_avocado_mousse',
     slot: 'dessert', diets: ['keto'], tags: ['veg', 'vegan'],
@@ -1825,6 +2015,18 @@ const MEALS = [
 
   /* ===================== ארוחות ביניים — בריאותית ===================== */
   {
+    id: 'hs1_tuna_cucumber_tomato',
+    slot: 'snack1', diets: ['health'], tags: [],
+    name: 'טונה עם מלפפון ועגבנייה',
+    ingredients: [
+      { name: 'טונה במים', grams: 80, home: 'קופסה קטנה', kcal: 93, protein: 20.8, carbs: 0, fat: 0.8 },
+      { name: 'מלפפון', grams: 60, home: 'חצי מלפפון', kcal: 9, protein: 0.42, carbs: 2.16, fat: 0.06 },
+      { name: 'עגבנייה', grams: 60, home: 'חצי עגבנייה', kcal: 10.8, protein: 0.54, carbs: 2.34, fat: 0.12 },
+      { name: 'לימון', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['מסננים את הטונה, חותכים ירקות לקוביות, ומערבבים הכל עם סחיטת לימון.'],
+  },
+  {
     id: 'hs1_cottage3_peach',
     slot: 'snack1', diets: ['health'], tags: ['veg', 'dairy'],
     name: 'קוטג\' 3% עם אפרסק פרוס',
@@ -1880,6 +2082,35 @@ const MEALS = [
   },
 
   /* ===================== ארוחות צהריים — בריאותית ===================== */
+  {
+    id: 'hl_seabream_bulgur_salad',
+    slot: 'lunch', diets: ['health'], tags: ['gluten'],
+    name: 'פילה דג ים אפוי עם בורגול וסלט ירקות',
+    ingredients: [
+      { name: 'פילה דג ים (לברק/דניס)', grams: 180, home: 'פילה', kcal: 172.8, protein: 36, carbs: 0, fat: 3.06 },
+      { name: 'בורגול מבושל', grams: 150, home: 'כוס', kcal: 124.5, protein: 4.65, carbs: 27.9, fat: 0.3 },
+      { name: 'סלט ירקות', grams: 150, home: 'קערה', kcal: 37.5, protein: 1.5, carbs: 7.5, fat: 0.45 },
+      { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+      { name: 'לימון ופטרוזיליה', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['אופים את הדג בתנור ב-200° כ-15-18 דקות עם לימון.', 'מגישים עם בורגול מבושל וסלט ירקות טרי, מתובל בשמן זית.'],
+  },
+  {
+    id: 'hl_tofu_rice_noodles_veg',
+    slot: 'lunch', diets: ['health'], tags: ['veg', 'vegan', 'gluten'],
+    name: 'טופו מוקפץ עם ירקות ואטריות אורז ברוטב סויה קליל',
+    ingredients: [
+      { name: 'טופו קשה', grams: 150, home: 'חצי חבילה', kcal: 216, protein: 23.25, carbs: 4.5, fat: 13.05 },
+      { name: 'אטריות אורז מבושלות', grams: 150, home: 'כוס וחצי', kcal: 162, protein: 3, carbs: 36, fat: 0.3 },
+      { name: 'ברוקולי, גזר ופלפל צהוב', grams: 150, home: 'קערה', kcal: 45, protein: 2.5, carbs: 9, fat: 0.3 },
+      { name: 'רוטב סויה דל נתרן', grams: 15, home: 'כף', kcal: 8, protein: 1, carbs: 1, fat: 0 },
+      { name: 'שמן שומשום', grams: 5, count: 1, unit: 'כפית', home: 'כפית', kcal: 44, protein: 0, carbs: 0, fat: 5 },
+    ],
+    steps: [
+      'מייבשים טופו וחותכים לקוביות, מטגנים בשמן שומשום עד להשחמה.',
+      'מוסיפים ירקות ומקפיצים כ-3-4 דקות, ואז מוסיפים אטריות אורז מבושלות ורוטב סויה ומערבבים.',
+    ],
+  },
   {
     id: 'hl_salmon_quinoa_veg',
     slot: 'lunch', diets: ['health'], tags: [],
@@ -1994,6 +2225,22 @@ const MEALS = [
 
   /* ===================== ארוחות ערב — בריאותית ===================== */
   {
+    id: 'hd_turkey_burger_cabbage_slaw',
+    slot: 'dinner', diets: ['health'], tags: [],
+    name: 'המבורגר הודו עם סלט כרוב סגול',
+    ingredients: [
+      { name: 'בשר הודו טחון', grams: 170, home: 'קציצה גדולה', kcal: 272, protein: 35.7, carbs: 0, fat: 13.6 },
+      { name: 'כרוב סגול', grams: 100, home: 'סלט קצוץ', kcal: 27.5, protein: 1.38, carbs: 6.25, fat: 0.15 },
+      { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+      { name: 'פפריקה ושום', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מעצבים את בשר ההודו הטחון לקציצת המבורגר, מתבלים בפפריקה ושום.',
+      'צולים במחבת עם מעט שמן זית עד בישול מלא.',
+      'מכינים סלט כרוב סגול קצוץ עם שאר שמן הזית, ומגישים לצד ההמבורגר.',
+    ],
+  },
+  {
     id: 'hd_lentil_quinoa_patties_gf',
     slot: 'dinner', diets: ['health'], tags: ['veg', 'vegan'],
     name: 'קציצות עדשים, קינואה וגזר עם טחינה (ללא גלוטן)',
@@ -2081,6 +2328,22 @@ const MEALS = [
   },
 
   /* ===================== מתכוני קינוח שבועי — בריאותית ===================== */
+  {
+    id: 'hds_fresh_fruit_salad',
+    slot: 'dessert', diets: ['health'], tags: ['veg', 'vegan'],
+    name: 'סלט פירות טרי עם דבש, לימון ונענע',
+    yield: 'כ-4 מנות',
+    serving: { label: 'מנה', kcal: 98, protein: 1.1, carbs: 25.3, fat: 0.4 },
+    ingredients: [
+      { name: 'תפוח', grams: 200, count: 2, unit: 'יחידות', home: '2 תפוחים', kcal: 104, protein: 0.6, carbs: 28, fat: 0.4 },
+      { name: 'ענבים', grams: 150, home: 'אשכול', kcal: 103.5, protein: 1.05, carbs: 27, fat: 0.3 },
+      { name: 'קיווי', grams: 120, count: 2, unit: 'יחידות', home: '2 קיווי', kcal: 74, protein: 1.4, carbs: 18, fat: 0.6 },
+      { name: 'תותים', grams: 150, home: 'חופן גדול', kcal: 48.75, protein: 1.13, carbs: 11.6, fat: 0.45 },
+      { name: 'דבש', grams: 20, count: 1, unit: 'כף', home: 'כף', kcal: 61, protein: 0.06, carbs: 16.5, fat: 0 },
+      { name: 'לימון ונענע טרייה', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['חותכים את כל הפירות לקוביות/פרוסות.', 'מערבבים בקערה, מטפטפים דבש וסחיטת לימון, ומקשטים בעלי נענע.'],
+  },
   {
     id: 'hds_oat_banana_cookies',
     slot: 'dessert', diets: ['health'], tags: ['veg', 'vegan', 'gluten', 'nuts'],
