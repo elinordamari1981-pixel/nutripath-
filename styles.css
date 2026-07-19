@@ -133,6 +133,13 @@ input:focus, select:focus {
 .quiz-nav .btn-ghost { flex: 0 0 auto; padding: 16px 18px; }
 .quiz-nav .btn-ghost[hidden] { display: none; }
 
+/* Welcome-back screen (returning user with a saved profile) */
+.welcome-back-card { text-align: center; }
+.welcome-back-greeting { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+.welcome-back-card .subtitle { margin: 0 auto 22px; }
+.welcome-back-card .btn-primary { margin-bottom: 10px; }
+.btn-block { width: 100%; padding: 12px; }
+
 /* ---------- Menu screen ---------- */
 .menu-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 4px 16px; }
 .greeting { font-size: 23px; font-weight: 700; }

@@ -364,6 +364,16 @@ function renderMeal(meal, showC) {
     </div>`;
 }
 
+/* ---------- מסך "ברוך שובך" למשתמש חוזר ---------- */
+$('#btn-go-to-menu').addEventListener('click', () => {
+  renderMenu();
+  showScreen('screen-menu');
+});
+$('#btn-restart-quiz').addEventListener('click', () => {
+  prefillForm(profile);
+  showScreen('screen-onboarding');
+});
+
 /* ---------- אתחול ---------- */
 (function init() {
   const saved = loadProfile();
@@ -371,8 +381,8 @@ function renderMeal(meal, showC) {
     profile = saved;
     targets = calcTargets(profile);
     prefillForm(profile);
-    renderMenu();
-    showScreen('screen-menu');
+    $('#welcome-back-greeting').textContent = `ברוך שובך, ${profile.firstName}! 👋`;
+    showScreen('screen-welcome-back');
   }
 })();
 
