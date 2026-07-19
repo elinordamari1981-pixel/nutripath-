@@ -23,19 +23,6 @@ const MEALS = [
 
   /* ===================== ארוחות בוקר — חיטוב ===================== */
   {
-    id: 'b_quinoa_coconut_berries_dates',
-    slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'vegan'],
-    name: 'דייסת קינואה מתוקה עם חלב קוקוס, פירות יער ותמרים',
-    ingredients: [
-      { name: 'קינואה מבושלת', grams: 150, home: 'כוס', kcal: 180, protein: 6.63, carbs: 31.25, fat: 2.88 },
-      { name: 'חלב קוקוס (שימורים)', grams: 100, liquid: true, home: 'חצי קופסה', kcal: 180, protein: 2, carbs: 3, fat: 18 },
-      { name: 'פירות יער', grams: 60, home: 'חופן', kcal: 26, protein: 0.7, carbs: 6, fat: 0 },
-      { name: 'תמרים', grams: 30, home: '2 תמרים', kcal: 84.5, protein: 0.75, carbs: 22.5, fat: 0.12 },
-      { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
-    ],
-    steps: ['מחממים קינואה מבושלת עם חלב קוקוס עד לסמיכות דייסה.', 'מוסיפים פירות יער, תמרים קצוצים וקינמון ומגישים חם.'],
-  },
-  {
     id: 'b_tofu_scramble_chittuv',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'vegan', 'gluten'],
     name: 'טופו מקושקש עם ירקות ופטריות על טוסט לחם מלא',
