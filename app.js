@@ -60,11 +60,16 @@ let quizStep = 1;
 function showQuizStep(n) {
   quizStep = Math.max(1, Math.min(QUIZ_TOTAL, n));
   quizSteps.forEach((s) => s.classList.toggle('active', +s.dataset.step === quizStep));
-  $('#quiz-progress-fill').style.width = `${(quizStep / QUIZ_TOTAL) * 100}%`;
-  $('#quiz-step-label').textContent = `שאלה ${quizStep} מתוך ${QUIZ_TOTAL}`;
+  const isWelcome = quizStep === 1;
+  const questionsTotal = QUIZ_TOTAL - 1; // שלב 1 הוא מסך ברוכים הבאים, לא נספר כשאלה
+  $('#quiz-progress-fill').style.width = isWelcome ? '0%' : `${((quizStep - 1) / questionsTotal) * 100}%`;
+  $('#quiz-progress-fill').parentElement.hidden = isWelcome;
+  $('#quiz-step-label').hidden = isWelcome;
+  $('#quiz-step-label').textContent = `שאלה ${quizStep - 1} מתוך ${questionsTotal}`;
   $('#quiz-back').hidden = quizStep === 1;
   const isLast = quizStep === QUIZ_TOTAL;
   $('#quiz-next').hidden = isLast;
+  $('#quiz-next').textContent = isWelcome ? 'בואו נתחיל ✨' : 'הבא ›';
   $('#quiz-submit').hidden = !isLast;
 }
 

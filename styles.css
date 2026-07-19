@@ -123,6 +123,11 @@ input:focus, select:focus {
 .quiz-step { display: none; animation: fade 0.3s ease; }
 .quiz-step.active { display: block; }
 .quiz-question { font-size: 21px; font-weight: 700; margin-bottom: 16px; }
+.quiz-welcome { text-align: center; padding: 10px 0 6px; }
+.quiz-welcome .logo-mark { display: flex; justify-content: center; margin-bottom: 14px; }
+.quiz-welcome .quiz-question { font-size: 25px; margin-bottom: 4px; }
+.quiz-welcome-tagline { color: var(--green); font-weight: 600; font-size: 15px; margin-bottom: 14px; }
+.quiz-welcome .subtitle { margin-inline: auto; }
 .quiz-nav { display: flex; gap: 10px; margin-top: 8px; }
 .quiz-nav .btn-primary { flex: 1; }
 .quiz-nav .btn-ghost { flex: 0 0 auto; padding: 16px 18px; }
