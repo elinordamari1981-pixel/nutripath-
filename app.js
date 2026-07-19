@@ -104,6 +104,7 @@ quizForm.addEventListener('submit', (e) => {
   if (!currentStepValid()) return;
   const fd = new FormData(e.target);
   const weightGoalRaw = fd.get('weightGoal');
+  const workoutsRaw = fd.get('workoutsPerWeek');
   profile = {
     firstName: fd.get('firstName').trim(),
     lastName: fd.get('lastName').trim(),
@@ -113,6 +114,7 @@ quizForm.addEventListener('submit', (e) => {
     height: +fd.get('height'),
     weightGoal: weightGoalRaw ? +weightGoalRaw : null,
     activity: fd.get('activity'),
+    workoutsPerWeek: workoutsRaw ? +workoutsRaw : null,
     diet: fd.get('diet'),
     prefs: fd.getAll('prefs'),
     allergens: fd.getAll('allergens'),
@@ -236,6 +238,7 @@ function prefillForm(p) {
   f.height.value = p.height;
   f.weightGoal.value = p.weightGoal || '';
   f.activity.value = p.activity;
+  f.workoutsPerWeek.value = p.workoutsPerWeek || '';
   f.querySelector(`input[name=diet][value=${p.diet}]`).checked = true;
   f.querySelectorAll('input[name=prefs]').forEach((c) => { c.checked = p.prefs.includes(c.value); });
   f.querySelectorAll('input[name=allergens]').forEach((c) => { c.checked = (p.allergens || []).includes(c.value); });

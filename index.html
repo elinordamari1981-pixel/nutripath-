@@ -62,29 +62,15 @@
         </div>
 
         <div class="quiz-step" data-step="2">
-          <h2 class="quiz-question">היי! איך קוראים לך? 👋</h2>
-          <div class="row">
-            <div class="field">
-              <label>שם פרטי</label>
-              <input type="text" name="firstName" required placeholder="ישראל" />
-            </div>
-            <div class="field">
-              <label>שם משפחה</label>
-              <input type="text" name="lastName" required placeholder="ישראלי" />
-            </div>
-          </div>
-        </div>
-
-        <div class="quiz-step" data-step="3">
-          <h2 class="quiz-question">בת/בן כמה את/ה?</h2>
+          <h2 class="quiz-question">מה גילך?</h2>
           <div class="field">
             <input type="number" name="age" required min="16" max="100" placeholder="30" />
             <p class="hint">האפליקציה מיועדת לגילאי 16 ומעלה.</p>
           </div>
         </div>
 
-        <div class="quiz-step" data-step="4">
-          <h2 class="quiz-question">איך תרצה/י שנתייחס אליך?</h2>
+        <div class="quiz-step" data-step="3">
+          <h2 class="quiz-question">מה המין הביולוגי שלך?</h2>
           <div class="field">
             <div class="chips">
               <label class="chip"><input type="radio" name="gender" value="female" required /> נקבה</label>
@@ -94,24 +80,22 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="5">
-          <h2 class="quiz-question">מה המשקל הנוכחי שלך?</h2>
+        <div class="quiz-step" data-step="4">
+          <h2 class="quiz-question">מה הגובה שלך (בס"מ)?</h2>
           <div class="field">
-            <label>ק"ג</label>
+            <input type="number" name="height" required min="120" max="220" placeholder="170" />
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="5">
+          <h2 class="quiz-question">מה המשקל שלך (בק"ג)?</h2>
+          <div class="field">
             <input type="number" name="weight" required min="30" max="250" step="0.1" placeholder="70" />
           </div>
         </div>
 
         <div class="quiz-step" data-step="6">
-          <h2 class="quiz-question">ומה הגובה שלך?</h2>
-          <div class="field">
-            <label>ס"מ</label>
-            <input type="number" name="height" required min="120" max="220" placeholder="170" />
-          </div>
-        </div>
-
-        <div class="quiz-step" data-step="7">
-          <h2 class="quiz-question">יש לך משקל יעד שאת/ה שואפ/ת אליו?</h2>
+          <h2 class="quiz-question">מה משקל המטרה שלך?</h2>
           <div class="field">
             <label>ק"ג (לא חובה)</label>
             <input type="number" name="weightGoal" min="30" max="250" step="0.1" placeholder="למשל 65" />
@@ -119,8 +103,8 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="8">
-          <h2 class="quiz-question">כמה את/ה פעיל/ה פיזית?</h2>
+        <div class="quiz-step" data-step="7">
+          <h2 class="quiz-question">מה רמת הפעילות הגופנית שלך?</h2>
           <div class="field">
             <select name="activity" required>
               <option value="sedentary">יושבני — מעט מאוד פעילות</option>
@@ -132,8 +116,15 @@
           </div>
         </div>
 
+        <div class="quiz-step" data-step="8">
+          <h2 class="quiz-question">כמה פעמים בשבוע את/ה מתאמן/ת?</h2>
+          <div class="field">
+            <input type="number" name="workoutsPerWeek" min="0" max="14" step="1" placeholder="למשל 3" />
+          </div>
+        </div>
+
         <div class="quiz-step" data-step="9">
-          <h2 class="quiz-question">לאיזו תזונה את/ה מכוונ/ת?</h2>
+          <h2 class="quiz-question">איזה סגנון תזונה את/ה מעדיפ/ה?</h2>
           <div class="field">
             <div class="diet-grid" id="diet-grid">
               <label class="diet-option">
@@ -157,7 +148,7 @@
         </div>
 
         <div class="quiz-step" data-step="10">
-          <h2 class="quiz-question">יש לך אלרגיות או רגישויות שכדאי שנדע עליהן?</h2>
+          <h2 class="quiz-question">האם יש לך אלרגיות או רגישויות למזון?</h2>
           <div class="field">
             <p class="hint">נסנן החוצה כל מנה שמכילה את מה שתסמנו כאן (לא חובה).</p>
             <div class="chips">
@@ -170,6 +161,20 @@
         </div>
 
         <div class="quiz-step" data-step="11">
+          <h2 class="quiz-question">היי! איך קוראים לך? 👋</h2>
+          <div class="row">
+            <div class="field">
+              <label>שם פרטי</label>
+              <input type="text" name="firstName" required placeholder="ישראל" />
+            </div>
+            <div class="field">
+              <label>שם משפחה</label>
+              <input type="text" name="lastName" required placeholder="ישראלי" />
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="12">
           <h2 class="quiz-question">צמחוני/ת או טבעוני/ת?</h2>
           <div class="field">
             <p class="hint">לא חובה — דלגו הלאה אם לא רלוונטי.</p>
@@ -180,7 +185,7 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="12">
+        <div class="quiz-step" data-step="13">
           <h2 class="quiz-question">רוצים לראות מספרים, או תפריט נקי?</h2>
           <div class="field toggle-field">
             <div>
