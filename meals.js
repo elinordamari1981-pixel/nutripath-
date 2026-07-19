@@ -23,6 +23,19 @@ const MEALS = [
 
   /* ===================== ארוחות בוקר — חיטוב ===================== */
   {
+    id: 'b_quinoa_coconut_berries_dates',
+    slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    name: 'דייסת קינואה מתוקה עם חלב קוקוס, פירות יער ותמרים',
+    ingredients: [
+      { name: 'קינואה מבושלת', grams: 150, home: 'כוס', kcal: 180, protein: 6.63, carbs: 31.25, fat: 2.88 },
+      { name: 'חלב קוקוס (שימורים)', grams: 100, liquid: true, home: 'חצי קופסה', kcal: 180, protein: 2, carbs: 3, fat: 18 },
+      { name: 'פירות יער', grams: 60, home: 'חופן', kcal: 26, protein: 0.7, carbs: 6, fat: 0 },
+      { name: 'תמרים', grams: 30, home: '2 תמרים', kcal: 84.5, protein: 0.75, carbs: 22.5, fat: 0.12 },
+      { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['מחממים קינואה מבושלת עם חלב קוקוס עד לסמיכות דייסה.', 'מוסיפים פירות יער, תמרים קצוצים וקינמון ומגישים חם.'],
+  },
+  {
     id: 'b_tofu_scramble_chittuv',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'vegan', 'gluten'],
     name: 'טופו מקושקש עם ירקות ופטריות על טוסט לחם מלא',
@@ -266,6 +279,19 @@ const MEALS = [
       'טורפים ביצים, יוצקים מעל הירקות במחבת שניתנת לתנור, ומפזרים פטה מפוררת.',
       'אופים בתנור ב-180° כ-15-18 דקות עד שהביצים נקרשות ומשחימות קלות מלמעלה.',
     ],
+  },
+  {
+    id: 'l_hummus_quinoa_tahini_salad',
+    slot: 'lunch', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    name: 'סלט חומוס, קינואה וירקות עם טחינה',
+    ingredients: [
+      { name: 'חומוס', grams: 100, home: '7 כפות', kcal: 166, protein: 7.9, carbs: 14, fat: 9.6 },
+      { name: 'קינואה מבושלת', grams: 100, home: 'חצי כוס', kcal: 120, protein: 4.42, carbs: 20.83, fat: 1.92 },
+      { name: 'סלט ירקות', grams: 150, home: 'קערה', kcal: 37.5, protein: 1.5, carbs: 7.5, fat: 0.45 },
+      { name: 'טחינה גולמית', grams: 15, home: 'כף', kcal: 89, protein: 2.55, carbs: 3.15, fat: 8.1 },
+      { name: 'לימון ושום כתוש', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['מערבבים חומוס, קינואה מבושלת וסלט ירקות בקערה.', 'מטפטפים טחינה גולמית ולימון ומערבבים היטב.'],
   },
   {
     id: 'l_chicken_quinoa',
@@ -561,6 +587,19 @@ const MEALS = [
 
   /* ===================== ארוחות בוקר — מסה ===================== */
   {
+    id: 'mb_rice_pudding_coconut_apple',
+    slot: 'breakfast', diets: ['masa'], tags: ['veg', 'vegan'],
+    name: 'דייסת אורז מתוקה עם חלב קוקוס ותפוח',
+    ingredients: [
+      { name: 'אורז לבן מבושל', grams: 150, home: 'כוס', kcal: 195, protein: 4.05, carbs: 42, fat: 0.45 },
+      { name: 'חלב קוקוס (שימורים)', grams: 150, liquid: true, home: 'שלושת רבעי קופסה', kcal: 270, protein: 3, carbs: 4.5, fat: 27 },
+      { name: 'תפוח', grams: 100, count: 1, unit: 'יחידה', home: 'תפוח בינוני', kcal: 52, protein: 0.3, carbs: 14, fat: 0.2 },
+      { name: 'דבש', grams: 15, home: 'חצי כף', kcal: 45, protein: 0.05, carbs: 12.4, fat: 0 },
+      { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['מחממים אורז מבושל עם חלב קוקוס עד לסמיכות דייסה.', 'מוסיפים תפוח מגורד או קצוץ, דבש וקינמון.'],
+  },
+  {
     id: 'mb_eggs_potatoes_avocado',
     slot: 'breakfast', diets: ['masa'], tags: ['veg', 'dairy', 'egg'],
     name: 'ביצים מקושקשות עם אבוקדו, גבינה צהובה ותפוחי אדמה מטוגנים',
@@ -690,6 +729,16 @@ const MEALS = [
 
   /* ===================== ארוחות ביניים — מסה ===================== */
   {
+    id: 'ms1_dates_tahini',
+    slot: 'snack1', diets: ['masa'], tags: ['veg', 'vegan'],
+    name: 'תמרים ממולאים בטחינה גולמית',
+    ingredients: [
+      { name: 'תמרים', grams: 60, home: '3-4 תמרים', kcal: 169, protein: 1.5, carbs: 45, fat: 0.24 },
+      { name: 'טחינה גולמית', grams: 20, home: 'כף גדושה', kcal: 119, protein: 3.4, carbs: 4.2, fat: 10.8 },
+    ],
+    steps: ['חוצים כל תמר ומוציאים את הגלעין, וממלאים בטחינה גולמית בעזרת כפית.'],
+  },
+  {
     id: 'ms1_yogurt_granola_mass',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'gluten', 'dairy'],
     name: 'יוגורט יווני 5% עם גרנולה טבעית ובננה',
@@ -763,6 +812,23 @@ const MEALS = [
   },
 
   /* ===================== ארוחות צהריים — מסה ===================== */
+  {
+    id: 'ml_hummus_spinach_coconut_curry',
+    slot: 'lunch', diets: ['masa'], tags: ['veg', 'vegan'],
+    name: 'קארי חומוס ותרד בחלב קוקוס עם אורז לבן',
+    ingredients: [
+      { name: 'חומוס', grams: 150, home: 'קופסה', kcal: 249, protein: 11.85, carbs: 21, fat: 14.4 },
+      { name: 'תרד טרי', grams: 100, home: 'חופן גדול', kcal: 23, protein: 2.9, carbs: 3.6, fat: 0.4 },
+      { name: 'חלב קוקוס (שימורים)', grams: 100, liquid: true, home: 'חצי קופסה', kcal: 180, protein: 2, carbs: 3, fat: 18 },
+      { name: 'אורז לבן מבושל', grams: 150, home: 'כוס', kcal: 195, protein: 4.05, carbs: 42, fat: 0.45 },
+      { name: 'כורכום וכמון', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מחממים חלב קוקוס עם כורכום וכמון, מוסיפים חומוס ומבשלים כ-5 דקות.',
+      'מוסיפים תרד ומבשלים עוד 2-3 דקות עד שנובל.',
+      'מגישים על אורז לבן.',
+    ],
+  },
   {
     id: 'ml_lentil_coconut_curry',
     slot: 'lunch', diets: ['masa'], tags: ['veg', 'vegan', 'nuts'],
@@ -983,6 +1049,17 @@ const MEALS = [
 
   /* ===================== חטיפים — מסה ===================== */
   {
+    id: 'ms2_rice_cakes_hummus_tomato',
+    slot: 'snack2', diets: ['masa'], tags: ['veg', 'vegan'],
+    name: 'פריכיות אורז עם חומוס ועגבניות שרי',
+    ingredients: [
+      { name: 'פריכיות אורז מלא', grams: 36, count: 4, unit: 'יחידות', home: '4 פריכיות', kcal: 139.3, protein: 2.93, carbs: 29.2, fat: 1.07 },
+      { name: 'חומוס', grams: 80, home: '5-6 כפות', kcal: 132.8, protein: 6.32, carbs: 11.2, fat: 7.68 },
+      { name: 'עגבניות שרי', grams: 60, home: 'חופן', kcal: 10.8, protein: 0.54, carbs: 2.34, fat: 0.12 },
+    ],
+    steps: ['מורחים חומוס על הפריכיות ומניחים חצאי עגבניות שרי מעל.'],
+  },
+  {
     id: 'ms2_pb_banana_sandwich',
     slot: 'snack2', diets: ['masa'], tags: ['veg', 'vegan', 'gluten', 'nuts'],
     name: 'כריך חמאת בוטנים ובננה',
@@ -1079,6 +1156,19 @@ const MEALS = [
 
   /* ===================== ארוחות בוקר — קיטו ===================== */
   {
+    id: 'kb_avocado_olive_coconut_bowl',
+    slot: 'breakfast', diets: ['keto'], tags: ['veg', 'vegan'],
+    name: 'קערת אבוקדו, זיתים וקוקוס טחון',
+    ingredients: [
+      { name: 'אבוקדו', grams: 150, home: 'אבוקדו וחצי', kcal: 240, protein: 3, carbs: 13.5, fat: 22.5 },
+      { name: 'זיתים', grams: 30, home: 'כ-8 זיתים', kcal: 34.8, protein: 0.24, carbs: 1.8, fat: 3.3 },
+      { name: 'קוקוס טחון ללא סוכר', grams: 20, home: '2 כפות', kcal: 132, protein: 1.38, carbs: 4.8, fat: 12.8 },
+      { name: 'שמן זית', grams: 5, count: 1, unit: 'כפית', home: 'כפית', kcal: 44, protein: 0, carbs: 0, fat: 5 },
+      { name: 'לימון ומלח ים', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['חותכים אבוקדו לקוביות, מערבבים עם זיתים וקוקוס טחון.', 'מטפטפים שמן זית ולימון ומתבלים במלח ים.'],
+  },
+  {
     id: 'kb_cheese_omelet_avocado',
     slot: 'breakfast', diets: ['keto'], tags: ['veg', 'dairy', 'egg'],
     name: 'חביתת גבינה ותרד עם אבוקדו וזיתים',
@@ -1165,6 +1255,18 @@ const MEALS = [
 
   /* ===================== ארוחות ביניים — קיטו ===================== */
   {
+    id: 'ks1_olives_cucumber_coconut',
+    slot: 'snack1', diets: ['keto'], tags: ['veg', 'vegan'],
+    name: 'זיתים ומלפפון עם שמן זית וקוקוס טחון',
+    ingredients: [
+      { name: 'זיתים', grams: 40, home: 'כ-10 זיתים', kcal: 46, protein: 0.32, carbs: 2.4, fat: 4.4 },
+      { name: 'מלפפון', grams: 80, home: 'מלפפון קטן', kcal: 12, protein: 0.56, carbs: 2.88, fat: 0.08 },
+      { name: 'קוקוס טחון ללא סוכר', grams: 20, home: '2 כפות', kcal: 132, protein: 1.38, carbs: 4.8, fat: 12.8 },
+      { name: 'שמן זית', grams: 10, count: 1, unit: 'כף', home: 'כף', kcal: 88, protein: 0, carbs: 0, fat: 10 },
+    ],
+    steps: ['חותכים מלפפון לקוביות, מערבבים עם זיתים וקוקוס טחון, ומטפטפים שמן זית.'],
+  },
+  {
     id: 'ks1_avocado_macadamia_olives',
     slot: 'snack1', diets: ['keto'], tags: ['veg', 'vegan', 'nuts'],
     name: 'אבוקדו ואגוזי מקדמיה עם זיתים בשמן זית ולימון',
@@ -1240,6 +1342,23 @@ const MEALS = [
   },
 
   /* ===================== ארוחות צהריים — קיטו ===================== */
+  {
+    id: 'kl_tofu_greens_coconut_stirfry',
+    slot: 'lunch', diets: ['keto'], tags: ['veg', 'vegan'],
+    name: 'טופו מוקפץ עם ירקות ירוקים בשמן קוקוס וחלב קוקוס',
+    ingredients: [
+      { name: 'טופו קשה', grams: 150, home: 'חצי חבילה', kcal: 216, protein: 23.25, carbs: 4.5, fat: 13.05 },
+      { name: 'כרובית', grams: 100, home: 'קערית', kcal: 25, protein: 1.9, carbs: 5, fat: 0.3 },
+      { name: 'תרד טרי', grams: 80, home: 'חופן', kcal: 18.4, protein: 2.32, carbs: 2.88, fat: 0.32 },
+      { name: 'חלב קוקוס (שימורים)', grams: 100, liquid: true, home: 'חצי קופסה', kcal: 180, protein: 2, carbs: 3, fat: 18 },
+      { name: 'שמן קוקוס', grams: 10, home: 'כף', kcal: 90, protein: 0, carbs: 0, fat: 10 },
+    ],
+    steps: [
+      'מייבשים טופו קשה וחותכים לקוביות, מטגנים בשמן קוקוס עד להשחמה.',
+      'מוסיפים כרובית ומקפיצים כ-3 דקות, ואז מוסיפים תרד וחלב קוקוס.',
+      'מבשלים עוד 3-4 דקות עד שהתרד נובל והרוטב מסמיך מעט.',
+    ],
+  },
   {
     id: 'kl_cauliflower_cheddar_frittata',
     slot: 'lunch', diets: ['keto'], tags: ['veg', 'dairy', 'egg'],
@@ -1578,6 +1697,19 @@ const MEALS = [
 
   /* ===================== ארוחות בוקר — בריאותית ===================== */
   {
+    id: 'hb_quinoa_fruit_tahini_bowl',
+    slot: 'breakfast', diets: ['health'], tags: ['veg', 'vegan'],
+    name: 'קערת קינואה עם פירות טריים וטחינה',
+    ingredients: [
+      { name: 'קינואה מבושלת', grams: 120, home: 'חצי כוס וקצת', kcal: 144, protein: 5.3, carbs: 25, fat: 2.3 },
+      { name: 'תפוח', grams: 100, count: 1, unit: 'יחידה', home: 'תפוח בינוני', kcal: 52, protein: 0.3, carbs: 14, fat: 0.2 },
+      { name: 'ענבים', grams: 60, home: 'חופן', kcal: 41.25, protein: 0.42, carbs: 10.8, fat: 0.12 },
+      { name: 'טחינה גולמית', grams: 15, home: 'כף', kcal: 89, protein: 2.55, carbs: 3.15, fat: 8.1 },
+      { name: 'קינמון', season: true, home: 'קורט', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: ['מערבבים קינואה מבושלת קרה עם תפוח קצוץ וענבים חצויים.', 'מטפטפים טחינה גולמית ומפזרים קינמון.'],
+  },
+  {
     id: 'hb_cottage_quinoa_berries',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'dairy'],
     name: 'קערת קוטג\' עם קינואה, פירות יער ודבש',
@@ -1861,6 +1993,23 @@ const MEALS = [
   },
 
   /* ===================== ארוחות ערב — בריאותית ===================== */
+  {
+    id: 'hd_lentil_quinoa_patties_gf',
+    slot: 'dinner', diets: ['health'], tags: ['veg', 'vegan'],
+    name: 'קציצות עדשים, קינואה וגזר עם טחינה (ללא גלוטן)',
+    ingredients: [
+      { name: 'עדשים מבושלות', grams: 180, home: 'כוס גדושה', kcal: 208.8, protein: 16.2, carbs: 36, fat: 0.72 },
+      { name: 'קינואה מבושלת', grams: 60, home: 'שליש כוס', kcal: 72, protein: 2.65, carbs: 12.5, fat: 1.15 },
+      { name: 'גזר מגורד', grams: 60, home: 'גזר אחד', kcal: 24.6, protein: 0.54, carbs: 6, fat: 0.12 },
+      { name: 'טחינה גולמית', grams: 15, home: 'כף', kcal: 89, protein: 2.55, carbs: 3.15, fat: 8.1 },
+      { name: 'כמון ופטרוזיליה', season: true, home: 'לפי הטעם', kcal: 0, protein: 0, carbs: 0, fat: 0 },
+    ],
+    steps: [
+      'מועכים עדשים וקינואה מבושלים יחד עם גזר מגורד וכמון.',
+      'מעצבים לקציצות (התערובת משמשת כבינדר טבעי, ללא צורך בפירורי לחם).',
+      'אופים בתנור ב-200° כ-15-18 דקות, הופכים באמצע, ומגישים עם טחינה גולמית.',
+    ],
+  },
   {
     id: 'hd_seabream_root_veg',
     slot: 'dinner', diets: ['health'], tags: [],
