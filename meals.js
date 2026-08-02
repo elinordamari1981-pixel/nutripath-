@@ -25,6 +25,7 @@ const MEALS = [
   {
     id: 'b_tofu_scramble_chittuv',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'vegan', 'gluten'],
+    prepMinutes: 15, difficulty: 2,
     name: 'טופו מקושקש עם ירקות ופטריות על טוסט לחם מלא',
     ingredients: [
       { name: 'טופו קשה', grams: 150, home: 'חצי חבילה', kcal: 216, protein: 23.25, carbs: 4.5, fat: 13.05 },
@@ -44,6 +45,7 @@ const MEALS = [
   {
     id: 'b_omelet_avocado',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'gluten', 'egg'],
+    prepMinutes: 10, difficulty: 2,
     name: 'חביתת תרד ופטריות על טוסט אבוקדו',
     ingredients: [
       { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1, fat: 11 },
@@ -64,6 +66,7 @@ const MEALS = [
   {
     id: 'b_yogurt_granola',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'gluten', 'dairy', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קערת יוגורט 0% עם גרנולה טבעית ופירות יער',
     ingredients: [
       { name: 'יוגורט יווני 0%', grams: 200, home: 'גביע גדול', kcal: 120, protein: 20, carbs: 8, fat: 0 },
@@ -81,6 +84,7 @@ const MEALS = [
   {
     id: 'b_protein_pancakes',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'gluten', 'dairy', 'egg'],
+    prepMinutes: 10, difficulty: 1,
     name: 'פנקייק שיבולת שועל וחלבון עם פירות יער',
     ingredients: [
       { name: 'שיבולת שועל', grams: 40, home: '4 כפות', kcal: 156, protein: 6.8, carbs: 26, fat: 2.8 },
@@ -99,6 +103,7 @@ const MEALS = [
   {
     id: 'b_egg_toast',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'gluten', 'egg'],
+    prepMinutes: 5, difficulty: 1,
     name: 'טוסט לחם מלא עם ביצים קשות, אבוקדו ועגבנייה',
     ingredients: [
       { name: 'לחם מלא', grams: 60, count: 2, unit: 'פרוסות', home: '2 פרוסות', kcal: 160, protein: 8, carbs: 28, fat: 2 },
@@ -116,6 +121,7 @@ const MEALS = [
   {
     id: 'b_kiwi_yogurt',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'dairy', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קערת יוגורט 0% עם קיווי, תפוח ירוק ואגוזי מלך',
     ingredients: [
       { name: 'יוגורט יווני 0%', grams: 200, home: 'גביע גדול', kcal: 120, protein: 20, carbs: 8, fat: 0 },
@@ -133,6 +139,7 @@ const MEALS = [
   {
     id: 'b_egg_white_veg_scramble',
     slot: 'breakfast', diets: ['chittuv'], tags: ['veg', 'gluten', 'egg'],
+    prepMinutes: 10, difficulty: 2,
     name: 'חביתת חלבוני ביצה עם פלפל אדום, בצל ופטריות על טוסט לחם מלא',
     ingredients: [
       { name: 'חלבוני ביצה', grams: 150, home: '4-5 חלבונים', kcal: 78, protein: 16.5, carbs: 1, fat: 0.3 },
@@ -154,6 +161,7 @@ const MEALS = [
   {
     id: 's1_eggs_avocado_lemon',
     slot: 'snack1', diets: ['chittuv'], tags: ['egg'],
+    prepMinutes: 5, difficulty: 1,
     name: 'ביצים קשות עם אבוקדו ולימון',
     ingredients: [
       { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
@@ -165,6 +173,7 @@ const MEALS = [
   {
     id: 's1_apple_almonds',
     slot: 'snack1', diets: ['chittuv'], tags: ['veg', 'vegan', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'תפוח ירוק עם חופן שקדים',
     ingredients: [
       { name: 'תפוח ירוק', grams: 150, count: 1, unit: 'יחידה', home: 'תפוח ירוק', kcal: 78, protein: 0.5, carbs: 21, fat: 0.3 },
@@ -175,6 +184,7 @@ const MEALS = [
   {
     id: 's1_yogurt_berries',
     slot: 'snack1', diets: ['chittuv'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'יוגורט יווני 0% עם פירות יער',
     ingredients: [
       { name: 'יוגורט יווני 0%', grams: 200, home: 'גביע', kcal: 120, protein: 20, carbs: 8, fat: 0 },
@@ -186,6 +196,7 @@ const MEALS = [
   {
     id: 's1_cheese_veg',
     slot: 'snack1', diets: ['chittuv'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'גבינה לבנה 5% עם מלפפון, פלפל אדום וגזר',
     ingredients: [
       { name: 'גבינה לבנה 5%', grams: 150, home: 'גביע', kcal: 135, protein: 15, carbs: 5, fat: 7.5 },
@@ -199,6 +210,7 @@ const MEALS = [
   {
     id: 's1_nectarine_pistachio',
     slot: 'snack1', diets: ['chittuv'], tags: ['veg', 'vegan', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'נקטרינה עם חופן פיסטוקים קלויים',
     ingredients: [
       { name: 'נקטרינה', grams: 130, count: 1, unit: 'יחידה', home: 'נקטרינה', kcal: 57, protein: 1.4, carbs: 14.3, fat: 0.4 },
@@ -209,6 +221,7 @@ const MEALS = [
   {
     id: 's1_tuna_salad_snack',
     slot: 'snack1', diets: ['chittuv'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'סלט טונה עם מלפפון, עגבנייה ולימון',
     ingredients: [
       { name: 'טונה במים', grams: 80, home: 'קופסה קטנה', kcal: 93, protein: 20.8, carbs: 0, fat: 0.8 },
@@ -221,6 +234,7 @@ const MEALS = [
   {
     id: 's1_cottage1_veg',
     slot: 'snack1', diets: ['chittuv'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קוטג\' 1% עם מלפפון, עגבניות שרי ופלפל צהוב',
     ingredients: [
       { name: 'גבינת קוטג\' 1%', grams: 150, home: 'גביע', kcal: 108, protein: 18, carbs: 5.25, fat: 1.5 },
@@ -233,6 +247,7 @@ const MEALS = [
   {
     id: 's1_hummus_veg_chittuv',
     slot: 'snack1', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'חומוס עם מקלות גזר, מלפפון ופלפל',
     ingredients: [
       { name: 'חומוס', grams: 60, home: '4 כפות', kcal: 99.6, protein: 4.74, carbs: 8.4, fat: 5.76 },
@@ -245,6 +260,7 @@ const MEALS = [
   {
     id: 'l_beef_cauliflower_mash',
     slot: 'lunch', diets: ['chittuv'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'סטייק בקר רזה עם פירה כרובית וברוקולי',
     ingredients: [
       { name: 'בשר בקר רזה', grams: 150, home: 'סטייק בינוני', kcal: 325.5, protein: 38.8, carbs: 0, fat: 18 },
@@ -262,6 +278,7 @@ const MEALS = [
   {
     id: 'l_tofu_teriyaki_rice',
     slot: 'lunch', diets: ['chittuv'], tags: ['veg', 'vegan', 'gluten'],
+    prepMinutes: 15, difficulty: 2,
     name: 'טופו בטריאקי עם אורז מלא וירקות מוקפצים',
     ingredients: [
       { name: 'טופו קשה', grams: 180, home: 'חבילה', kcal: 259, protein: 27.9, carbs: 5.4, fat: 15.7 },
@@ -281,6 +298,7 @@ const MEALS = [
   {
     id: 'l_veg_frittata_feta',
     slot: 'lunch', diets: ['chittuv'], tags: ['veg', 'dairy', 'egg'],
+    prepMinutes: 25, difficulty: 1,
     name: 'פריטטת ירקות אפויה עם פטה בולגרית',
     ingredients: [
       { name: 'ביצים', grams: 150, count: 3, unit: 'ביצים', home: '3 ביצים', kcal: 232.5, protein: 19.5, carbs: 1.65, fat: 16.5 },
@@ -298,6 +316,7 @@ const MEALS = [
   {
     id: 'l_hummus_quinoa_tahini_salad',
     slot: 'lunch', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'סלט חומוס, קינואה וירקות עם טחינה',
     ingredients: [
       { name: 'חומוס', grams: 100, home: '7 כפות', kcal: 166, protein: 7.9, carbs: 14, fat: 9.6 },
@@ -311,6 +330,7 @@ const MEALS = [
   {
     id: 'l_chicken_quinoa',
     slot: 'lunch', diets: ['chittuv'], tags: [],
+    prepMinutes: 20, difficulty: 1,
     name: 'חזה עוף בגריל עם קינואה וסלט ירקות צבעוני',
     ingredients: [
       { name: 'חזה עוף', grams: 150, home: 'חזה בינוני', kcal: 248, protein: 47, carbs: 0, fat: 5.4 },
@@ -328,6 +348,7 @@ const MEALS = [
   {
     id: 'l_salmon_sweetpotato',
     slot: 'lunch', diets: ['chittuv'], tags: [],
+    prepMinutes: 30, difficulty: 1,
     name: 'סלמון אפוי עם בטטה וברוקולי',
     ingredients: [
       { name: 'פילה סלמון', grams: 130, home: 'פילה בינוני', kcal: 270, protein: 26, carbs: 0, fat: 17 },
@@ -345,6 +366,7 @@ const MEALS = [
   {
     id: 'l_tuna_pasta',
     slot: 'lunch', diets: ['chittuv'], tags: ['gluten'],
+    prepMinutes: 5, difficulty: 1,
     name: 'פסטה מלאה עם טונה, עגבניות ובזיליקום',
     ingredients: [
       { name: 'פסטה מלאה מבושלת', grams: 150, home: 'צלחת', kcal: 186, protein: 7.5, carbs: 37, fat: 1.6 },
@@ -362,6 +384,7 @@ const MEALS = [
   {
     id: 'l_turkey_root_veg',
     slot: 'lunch', diets: ['chittuv'], tags: [],
+    prepMinutes: 40, difficulty: 1,
     name: 'חזה הודו אפוי עם ירקות שורש ברוזמרין ושום',
     ingredients: [
       { name: 'חזה הודו', grams: 180, home: 'חזה בינוני', kcal: 243, protein: 54, carbs: 0, fat: 1.8 },
@@ -380,6 +403,7 @@ const MEALS = [
   {
     id: 'l_chicken_meatballs_rice',
     slot: 'lunch', diets: ['chittuv'], tags: [],
+    prepMinutes: 10, difficulty: 1,
     name: 'קציצות עוף עם אורז מלא וסלט צבעוני',
     ingredients: [
       { name: 'עוף טחון', grams: 180, home: 'מנה', kcal: 288, protein: 37.8, carbs: 0, fat: 14.4 },
@@ -400,6 +424,7 @@ const MEALS = [
   {
     id: 's2_popcorn_light',
     slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'פופקורן ביתי מוקפץ באוויר (דל שומן)',
     ingredients: [
       { name: 'תירס פופקורן (גרעינים)', grams: 25, home: '2 כפות גרעינים', kcal: 97, protein: 3.2, carbs: 19.5, fat: 1.1 },
@@ -413,6 +438,7 @@ const MEALS = [
   {
     id: 's2_protein_brownie',
     slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'dairy', 'egg'],
+    prepMinutes: 25, difficulty: 2,
     name: 'בראוני חלבון אישי בתנור',
     ingredients: [
       { name: 'ביצה', grams: 50, count: 1, unit: 'ביצה', home: 'ביצה', kcal: 78, protein: 6.5, carbs: 0.5, fat: 5.5 },
@@ -432,6 +458,7 @@ const MEALS = [
   {
     id: 's2_protein_balls',
     slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'vegan', 'gluten', 'dairy', 'nuts'],
+    prepMinutes: 30, difficulty: 2,
     name: 'כדורי חלבון ללא אפייה',
     ingredients: [
       { name: 'שיבולת שועל', grams: 30, home: '3 כפות', kcal: 116, protein: 5.1, carbs: 19.4, fat: 2.1 },
@@ -450,6 +477,7 @@ const MEALS = [
   {
     id: 's2_choc_chip_cookies_light',
     slot: 'snack2', diets: ['chittuv'], tags: ['veg', 'gluten', 'dairy'],
+    prepMinutes: 15, difficulty: 1,
     name: '2 עוגיות שוקולד צ\'יפס בריאות ודלות קלוריות',
     ingredients: [
       { name: 'שיבולת שועל טחונה', grams: 20, home: '2 כפות', kcal: 78, protein: 3.4, carbs: 13, fat: 1.4 },
@@ -469,6 +497,7 @@ const MEALS = [
   {
     id: 'd_seabream_couscous',
     slot: 'dinner', diets: ['chittuv'], tags: ['gluten'],
+    prepMinutes: 25, difficulty: 1,
     name: 'פילה דג ים בתנור עם קוסקוס מלא וירקות',
     ingredients: [
       { name: 'פילה דג ים (לברק/דניס)', grams: 180, home: 'פילה', kcal: 172.8, protein: 36, carbs: 0, fat: 3.06 },
@@ -485,6 +514,7 @@ const MEALS = [
   {
     id: 'd_lentil_quinoa_patties_chittuv',
     slot: 'dinner', diets: ['chittuv'], tags: ['veg', 'vegan'],
+    prepMinutes: 25, difficulty: 1,
     name: 'קציצות עדשים וקינואה ברוטב עגבניות',
     ingredients: [
       { name: 'עדשים מבושלות', grams: 150, home: '3/4 כוס', kcal: 174, protein: 13.5, carbs: 30, fat: 0.6 },
@@ -503,6 +533,7 @@ const MEALS = [
   {
     id: 'd_turkey_meatballs',
     slot: 'dinner', diets: ['chittuv'], tags: [],
+    prepMinutes: 20, difficulty: 1,
     name: 'קציצות הודו ברוטב עגבניות עם אורז מלא',
     ingredients: [
       { name: 'בשר הודו טחון', grams: 150, home: 'מנה', kcal: 198, protein: 32, carbs: 0, fat: 7.5 },
@@ -520,6 +551,7 @@ const MEALS = [
   {
     id: 'd_chicken_stirfry',
     slot: 'dinner', diets: ['chittuv'], tags: [],
+    prepMinutes: 10, difficulty: 1,
     name: 'חזה עוף מוקפץ עם ברוקולי, גזר ופלפל על אורז מלא',
     ingredients: [
       { name: 'חזה עוף', grams: 130, home: 'חזה בינוני', kcal: 215, protein: 40, carbs: 0, fat: 4.7 },
@@ -537,6 +569,7 @@ const MEALS = [
   {
     id: 'd_shakshuka',
     slot: 'dinner', diets: ['chittuv'], tags: ['veg', 'gluten', 'dairy', 'egg'],
+    prepMinutes: 10, difficulty: 1,
     name: 'שקשוקה עם גבינה בולגרית 5% וסלט',
     ingredients: [
       { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1, fat: 11 },
@@ -555,6 +588,7 @@ const MEALS = [
   {
     id: 'd_salmon_veg_couscous',
     slot: 'dinner', diets: ['chittuv'], tags: ['gluten'],
+    prepMinutes: 25, difficulty: 1,
     name: 'סלמון אפוי עם קוסקוס מלא וירקות',
     ingredients: [
       { name: 'פילה סלמון', grams: 130, home: 'פילה בינוני', kcal: 270, protein: 26, carbs: 0, fat: 17 },
@@ -575,6 +609,7 @@ const MEALS = [
   {
     id: 'ds_apple_oat_crumble',
     slot: 'dessert', diets: ['chittuv'], tags: ['veg', 'vegan', 'gluten'],
+    prepMinutes: 35, difficulty: 3,
     name: 'קרמבל תפוחים ושיבולת שועל (ללא סוכר לבן)',
     yield: 'כ-6 מנות',
     serving: { label: 'מנה', kcal: 165, protein: 3, carbs: 26, fat: 6.3 },
@@ -594,6 +629,7 @@ const MEALS = [
   {
     id: 'ds_protein_cookies',
     slot: 'dessert', diets: ['chittuv'], tags: ['veg', 'gluten', 'dairy', 'nuts', 'egg'],
+    prepMinutes: 20, difficulty: 2,
     name: 'עוגיות חלבון ושיבולת שועל (ללא סוכר לבן)',
     yield: 'כ-10 עוגיות',
     serving: { label: '2 עוגיות', kcal: 195, protein: 12, carbs: 21, fat: 7 },
@@ -614,6 +650,7 @@ const MEALS = [
   {
     id: 'ds_banana_cake',
     slot: 'dessert', diets: ['chittuv'], tags: ['veg', 'nuts', 'egg'],
+    prepMinutes: 40, difficulty: 2,
     name: 'עוגת בננה ושקדים ללא תוספת סוכר',
     yield: 'כ-8 פרוסות',
     serving: { label: 'פרוסה', kcal: 185, protein: 6, carbs: 12, fat: 12 },
@@ -639,6 +676,7 @@ const MEALS = [
   {
     id: 'mb_rice_pudding_coconut_apple',
     slot: 'breakfast', diets: ['masa'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'דייסת אורז מתוקה עם חלב קוקוס ותפוח',
     ingredients: [
       { name: 'אורז לבן מבושל', grams: 150, home: 'כוס', kcal: 195, protein: 4.05, carbs: 42, fat: 0.45 },
@@ -652,6 +690,7 @@ const MEALS = [
   {
     id: 'mb_eggs_potatoes_avocado',
     slot: 'breakfast', diets: ['masa'], tags: ['veg', 'dairy', 'egg'],
+    prepMinutes: 30, difficulty: 1,
     name: 'ביצים מקושקשות עם אבוקדו, גבינה צהובה ותפוחי אדמה מטוגנים',
     ingredients: [
       { name: 'ביצים', grams: 150, count: 3, unit: 'ביצים', home: '3 ביצים', kcal: 232.5, protein: 19.5, carbs: 1.65, fat: 16.5 },
@@ -670,6 +709,7 @@ const MEALS = [
   {
     id: 'mb_avocado_hummus_toast',
     slot: 'breakfast', diets: ['masa'], tags: ['veg', 'vegan', 'gluten', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'טוסט אבוקדו וחומוס עם אגוזי מלך',
     ingredients: [
       { name: 'לחם מלא', grams: 90, count: 3, unit: 'פרוסות', home: '3 פרוסות', kcal: 180, protein: 9, carbs: 31.5, fat: 2.25 },
@@ -687,6 +727,7 @@ const MEALS = [
   {
     id: 'mb_pb_banana_pancakes',
     slot: 'breakfast', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'nuts', 'egg'],
+    prepMinutes: 10, difficulty: 2,
     name: 'פנקייקים עם חמאת בוטנים ובננה',
     ingredients: [
       { name: 'קמח מלא', grams: 60, home: 'חצי כוס', kcal: 204, protein: 8.2, carbs: 43.2, fat: 1.5 },
@@ -707,6 +748,7 @@ const MEALS = [
   {
     id: 'mb_eggs_cheese_toast',
     slot: 'breakfast', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'egg'],
+    prepMinutes: 10, difficulty: 1,
     name: 'חביתת 3 ביצים עם גבינה צהובה 9%, טוסטים ואבוקדו',
     ingredients: [
       { name: 'ביצים', grams: 150, count: 3, unit: 'ביצים', home: '3 ביצים', kcal: 233, protein: 19.5, carbs: 1.5, fat: 16.5 },
@@ -725,6 +767,7 @@ const MEALS = [
   {
     id: 'mb_oatmeal_protein',
     slot: 'breakfast', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'nuts'],
+    prepMinutes: 10, difficulty: 1,
     name: 'קוואקר חם עם חלב, חלבון, בננה ואגוזים',
     ingredients: [
       { name: 'שיבולת שועל', grams: 80, home: 'כוס', kcal: 311, protein: 13.6, carbs: 53, fat: 5.6 },
@@ -743,6 +786,7 @@ const MEALS = [
   {
     id: 'mb_shakshuka_mass',
     slot: 'breakfast', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'egg'],
+    prepMinutes: 10, difficulty: 1,
     name: 'שקשוקה עשירה עם גבינה בולגרית 5% ולחם מלא',
     ingredients: [
       { name: 'ביצים', grams: 150, count: 3, unit: 'ביצים', home: '3 ביצים', kcal: 233, protein: 19.5, carbs: 1.5, fat: 16.5 },
@@ -761,6 +805,7 @@ const MEALS = [
   {
     id: 'mb_french_toast_protein',
     slot: 'breakfast', diets: ['masa'], tags: ['gluten', 'egg'],
+    prepMinutes: 10, difficulty: 1,
     name: 'טוסט צרפתי (ביצים) מטוגן עם בננה ודבש',
     ingredients: [
       { name: 'לחם מלא', grams: 90, count: 3, unit: 'פרוסות', home: '3 פרוסות', kcal: 180, protein: 9, carbs: 31.5, fat: 2.25 },
@@ -781,6 +826,7 @@ const MEALS = [
   {
     id: 'ms1_egg_cheese_sandwich',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'egg'],
+    prepMinutes: 5, difficulty: 1,
     name: 'כריך ביצה וגבינה צהובה בלחם מלא',
     ingredients: [
       { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1, fat: 11 },
@@ -792,6 +838,7 @@ const MEALS = [
   {
     id: 'ms1_dates_tahini',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'תמרים ממולאים בטחינה גולמית',
     ingredients: [
       { name: 'תמרים', grams: 60, home: '3-4 תמרים', kcal: 169, protein: 1.5, carbs: 45, fat: 0.24 },
@@ -802,6 +849,7 @@ const MEALS = [
   {
     id: 'ms1_yogurt_granola_mass',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'gluten', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'יוגורט יווני 5% עם גרנולה טבעית ובננה',
     ingredients: [
       { name: 'יוגורט יווני 5%', grams: 150, home: 'גביע', kcal: 145.5, protein: 13.5, carbs: 6, fat: 7.5 },
@@ -813,6 +861,7 @@ const MEALS = [
   {
     id: 'ms1_turkey_sandwich',
     slot: 'snack1', diets: ['masa'], tags: ['gluten'],
+    prepMinutes: 5, difficulty: 1,
     name: 'כריך חזה הודו, אבוקדו ופלפל אדום בלחם מלא',
     ingredients: [
       { name: 'לחם מלא', grams: 60, count: 2, unit: 'פרוסות', home: '2 פרוסות', kcal: 160, protein: 8, carbs: 28, fat: 2 },
@@ -825,6 +874,7 @@ const MEALS = [
   {
     id: 'ms1_strawberry_banana_shake',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'שייק תותים, בננה ויוגורט יווני 5%',
     ingredients: [
       { name: 'יוגורט יווני 5%', grams: 150, home: 'גביע', kcal: 145.5, protein: 13.5, carbs: 6, fat: 7.5 },
@@ -840,6 +890,7 @@ const MEALS = [
   {
     id: 'ms1_rice_cakes_pb',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'vegan', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'פריכיות אורז עם חמאת בוטנים ובננה',
     ingredients: [
       { name: 'פריכיות אורז מלא', grams: 27, count: 3, unit: 'יחידות', home: '3 פריכיות', kcal: 104.5, protein: 2.2, carbs: 21.9, fat: 0.8 },
@@ -851,6 +902,7 @@ const MEALS = [
   {
     id: 'ms1_cottage3_banana_honey',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קוטג\' 3% עם בננה ודבש',
     ingredients: [
       { name: 'גבינת קוטג\' 3%', grams: 150, home: 'גביע', kcal: 135, protein: 16.5, carbs: 5.25, fat: 4.5 },
@@ -862,6 +914,7 @@ const MEALS = [
   {
     id: 'ms1_labneh_zaatar_pita',
     slot: 'snack1', diets: ['masa'], tags: ['veg', 'gluten', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'לבנה עם זעתר ושמן זית על פיתה מלאה',
     ingredients: [
       { name: 'לבנה', grams: 150, home: 'קערית', kcal: 180, protein: 10.5, carbs: 7.5, fat: 12 },
@@ -876,6 +929,7 @@ const MEALS = [
   {
     id: 'ml_salmon_rice_asparagus',
     slot: 'lunch', diets: ['masa'], tags: [],
+    prepMinutes: 25, difficulty: 1,
     name: 'פילה סלמון עם אורז מלא ואספרגוס',
     ingredients: [
       { name: 'פילה סלמון', grams: 180, home: 'פילה', kcal: 374.4, protein: 36, carbs: 0, fat: 23.4 },
@@ -892,6 +946,7 @@ const MEALS = [
   {
     id: 'ml_hummus_spinach_coconut_curry',
     slot: 'lunch', diets: ['masa'], tags: ['veg', 'vegan'],
+    prepMinutes: 15, difficulty: 1,
     name: 'קארי חומוס ותרד בחלב קוקוס עם אורז לבן',
     ingredients: [
       { name: 'חומוס', grams: 150, home: 'קופסה', kcal: 249, protein: 11.85, carbs: 21, fat: 14.4 },
@@ -909,6 +964,7 @@ const MEALS = [
   {
     id: 'ml_lentil_coconut_curry',
     slot: 'lunch', diets: ['masa'], tags: ['veg', 'vegan', 'nuts'],
+    prepMinutes: 20, difficulty: 2,
     name: 'קארי עדשים וירקות עם אורז מלא ושקדים',
     ingredients: [
       { name: 'עדשים מבושלות', grams: 200, home: 'כוס', kcal: 232, protein: 18, carbs: 40, fat: 0.8 },
@@ -928,6 +984,7 @@ const MEALS = [
   {
     id: 'ml_creamy_mushroom_pasta',
     slot: 'lunch', diets: ['masa'], tags: ['veg', 'gluten', 'dairy'],
+    prepMinutes: 10, difficulty: 2,
     name: 'פסטה ברוטב שמנת עם פטריות וגבינה צהובה',
     ingredients: [
       { name: 'פסטה מלאה מבושלת', grams: 200, home: 'שני כוסות', kcal: 248, protein: 10.6, carbs: 50, fat: 2 },
@@ -947,6 +1004,7 @@ const MEALS = [
   {
     id: 'ml_chicken_rice_legumes',
     slot: 'lunch', diets: ['masa'], tags: [],
+    prepMinutes: 10, difficulty: 1,
     name: 'חזה עוף עם אורז מלא, עדשים וסלט ירקות',
     ingredients: [
       { name: 'חזה עוף', grams: 200, home: 'חזה גדול', kcal: 330, protein: 62, carbs: 0, fat: 7.2 },
@@ -965,6 +1023,7 @@ const MEALS = [
   {
     id: 'ml_beef_potato',
     slot: 'lunch', diets: ['masa'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'בשר בקר רזה עם תפוחי אדמה וירקות צלויים',
     ingredients: [
       { name: 'בשר בקר רזה', grams: 170, home: 'סטייק', kcal: 369, protein: 44, carbs: 0, fat: 20.4 },
@@ -982,6 +1041,7 @@ const MEALS = [
   {
     id: 'ml_bolognese',
     slot: 'lunch', diets: ['masa'], tags: ['gluten'],
+    prepMinutes: 20, difficulty: 1,
     name: 'פסטה מלאה בולונז עם בשר טחון',
     ingredients: [
       { name: 'פסטה מלאה מבושלת', grams: 380, home: 'צלחת גדולה', kcal: 471, protein: 19, carbs: 93.7, fat: 4.1 },
@@ -998,6 +1058,7 @@ const MEALS = [
   {
     id: 'ml_beef_rice_veg',
     slot: 'lunch', diets: ['masa'], tags: ['gluten'],
+    prepMinutes: 15, difficulty: 1,
     name: 'נתחי בקר מוקפצים עם אורז וירקות ברוטב סויה קליל',
     ingredients: [
       { name: 'בשר בקר רזה', grams: 180, home: 'מנה', kcal: 390.6, protein: 46.8, carbs: 0, fat: 21.6 },
@@ -1018,6 +1079,7 @@ const MEALS = [
   {
     id: 'md_turkey_meatballs_sweetpotato_mash',
     slot: 'dinner', diets: ['masa'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'קציצות הודו ענקיות עם פירה בטטה',
     ingredients: [
       { name: 'בשר הודו טחון', grams: 200, home: '2 קציצות גדולות', kcal: 380, protein: 40, carbs: 0, fat: 24 },
@@ -1034,6 +1096,7 @@ const MEALS = [
   {
     id: 'md_chickpea_quinoa_patties',
     slot: 'dinner', diets: ['masa'], tags: ['veg', 'vegan'],
+    prepMinutes: 55, difficulty: 2,
     name: 'קציצות חומוס וקינואה עם בטטה אפויה',
     ingredients: [
       { name: 'חומוס', grams: 150, home: 'קופסה', kcal: 249, protein: 11.85, carbs: 21, fat: 14.4 },
@@ -1052,6 +1115,7 @@ const MEALS = [
   {
     id: 'md_veg_lasagna',
     slot: 'dinner', diets: ['masa'], tags: ['veg', 'gluten', 'dairy'],
+    prepMinutes: 35, difficulty: 3,
     name: 'לזניית ירקות עם מוצרלה וריקוטה',
     ingredients: [
       { name: 'פסטה מלאה מבושלת', grams: 150, home: 'יריעות/פסטה', kcal: 186, protein: 8, carbs: 37.5, fat: 1.5 },
@@ -1072,6 +1136,7 @@ const MEALS = [
   {
     id: 'md_salmon_rice',
     slot: 'dinner', diets: ['masa'], tags: [],
+    prepMinutes: 25, difficulty: 1,
     name: 'סלמון אפוי עם אורז מלא ובטטה',
     ingredients: [
       { name: 'פילה סלמון', grams: 150, home: 'פילה בינוני', kcal: 312, protein: 30, carbs: 0, fat: 19.5 },
@@ -1089,6 +1154,7 @@ const MEALS = [
   {
     id: 'md_chicken_rice_salad',
     slot: 'dinner', diets: ['masa'], tags: [],
+    prepMinutes: 10, difficulty: 1,
     name: 'חזה עוף עם אורז מלא, אבוקדו וסלט כרוב',
     ingredients: [
       { name: 'חזה עוף', grams: 200, home: 'חזה גדול', kcal: 330, protein: 62, carbs: 0, fat: 7.2 },
@@ -1107,6 +1173,7 @@ const MEALS = [
   {
     id: 'md_chicken_noodles',
     slot: 'dinner', diets: ['masa'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'חזה עוף מוקפץ עם אטריות אורז וירקות',
     ingredients: [
       { name: 'חזה עוף', grams: 170, home: 'חזה בינוני', kcal: 281, protein: 53.3, carbs: 0, fat: 6.1 },
@@ -1124,6 +1191,7 @@ const MEALS = [
   {
     id: 'md_beef_sweet_potato_mash',
     slot: 'dinner', diets: ['masa'], tags: [],
+    prepMinutes: 10, difficulty: 1,
     name: 'קציצות בקר עם מחית בטטה ואפונה ירוקה',
     ingredients: [
       { name: 'בשר בקר טחון רזה', grams: 180, home: 'מנה', kcal: 390.6, protein: 46.8, carbs: 0, fat: 21.6 },
@@ -1144,6 +1212,7 @@ const MEALS = [
   {
     id: 'ms2_rice_cakes_hummus_tomato',
     slot: 'snack2', diets: ['masa'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'פריכיות אורז עם חומוס ועגבניות שרי',
     ingredients: [
       { name: 'פריכיות אורז מלא', grams: 36, count: 4, unit: 'יחידות', home: '4 פריכיות', kcal: 139.3, protein: 2.93, carbs: 29.2, fat: 1.07 },
@@ -1155,6 +1224,7 @@ const MEALS = [
   {
     id: 'ms2_pb_banana_sandwich',
     slot: 'snack2', diets: ['masa'], tags: ['veg', 'vegan', 'gluten', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'כריך חמאת בוטנים ובננה',
     ingredients: [
       { name: 'לחם מלא', grams: 60, count: 2, unit: 'פרוסות', home: '2 פרוסות', kcal: 160, protein: 8, carbs: 28, fat: 2 },
@@ -1166,6 +1236,7 @@ const MEALS = [
   {
     id: 'ms2_tuna_sandwich',
     slot: 'snack2', diets: ['masa'], tags: ['gluten'],
+    prepMinutes: 10, difficulty: 1,
     name: 'כריך טונה עם עגבנייה ומלפפון בלחם מלא',
     ingredients: [
       { name: 'טונה במים', grams: 80, home: 'קופסה קטנה', kcal: 93, protein: 20.8, carbs: 0, fat: 0.8 },
@@ -1179,6 +1250,7 @@ const MEALS = [
   {
     id: 'ms2_mozzarella_caprese',
     slot: 'snack2', diets: ['masa'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'מוצרלה עם עגבניות שרי ובזיליקום (קפרזה)',
     ingredients: [
       { name: 'מוצרלה מלאה', grams: 60, home: 'כדור קטן', kcal: 168, protein: 13.2, carbs: 1.2, fat: 12.6 },
@@ -1191,6 +1263,7 @@ const MEALS = [
   {
     id: 'ms2_dates_almond_butter',
     slot: 'snack2', diets: ['masa'], tags: ['veg', 'vegan', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'תמרים במילוי חמאת שקדים',
     ingredients: [
       { name: 'תמרים', grams: 60, home: '3-4 תמרים', kcal: 169, protein: 1.5, carbs: 45, fat: 0.24 },
@@ -1203,6 +1276,7 @@ const MEALS = [
   {
     id: 'mds_chocolate_brownies',
     slot: 'dessert', diets: ['masa'], tags: ['veg', 'gluten', 'egg'],
+    prepMinutes: 35, difficulty: 2,
     name: 'בראוניז שוקולד עשירים (ללא אגוזים)',
     yield: 'כ-12 קוביות',
     serving: { label: 'קובייה', kcal: 160, protein: 4.6, carbs: 18.6, fat: 8.6 },
@@ -1224,6 +1298,7 @@ const MEALS = [
   {
     id: 'mds_energy_balls',
     slot: 'dessert', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'nuts'],
+    prepMinutes: 40, difficulty: 2,
     name: 'בולי אנרגיה חמאת בוטנים, שיבולת שועל ושוקולד מריר',
     yield: 'כ-12 בולים',
     serving: { label: '2 בולים', kcal: 238, protein: 11, carbs: 24, fat: 12 },
@@ -1243,6 +1318,7 @@ const MEALS = [
   {
     id: 'mds_banana_muffins',
     slot: 'dessert', diets: ['masa'], tags: ['veg', 'gluten', 'dairy', 'nuts', 'egg'],
+    prepMinutes: 30, difficulty: 2,
     name: 'מאפינס בננה וחלבון',
     yield: 'כ-8 מאפינס',
     serving: { label: 'מאפין', kcal: 180, protein: 11, carbs: 18, fat: 5 },
@@ -1272,6 +1348,7 @@ const MEALS = [
   {
     id: 'kb_avocado_olive_coconut_bowl',
     slot: 'breakfast', diets: ['keto'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קערת אבוקדו, זיתים וקוקוס טחון',
     ingredients: [
       { name: 'אבוקדו', grams: 150, home: 'אבוקדו וחצי', kcal: 240, protein: 3, carbs: 13.5, fat: 22.5 },
@@ -1285,6 +1362,7 @@ const MEALS = [
   {
     id: 'kb_cheese_omelet_avocado',
     slot: 'breakfast', diets: ['keto'], tags: ['veg', 'dairy', 'egg'],
+    prepMinutes: 10, difficulty: 2,
     name: 'חביתת גבינה ותרד עם אבוקדו וזיתים',
     ingredients: [
       { name: 'ביצים', grams: 150, count: 3, unit: 'ביצים', home: '3 ביצים', kcal: 232.5, protein: 19.5, carbs: 1.65, fat: 16.5 },
@@ -1304,6 +1382,7 @@ const MEALS = [
   {
     id: 'kb_yogurt_macadamia',
     slot: 'breakfast', diets: ['keto'], tags: ['veg', 'dairy', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קערת יוגורט יווני 10% עם פירות יער, אגוזי מקדמיה וקוקוס',
     ingredients: [
       { name: 'יוגורט יווני 10%', grams: 200, home: 'גביע גדול', kcal: 260, protein: 16, carbs: 8, fat: 18 },
@@ -1316,6 +1395,7 @@ const MEALS = [
   {
     id: 'kb_shakshuka_feta',
     slot: 'breakfast', diets: ['keto'], tags: ['veg', 'dairy', 'egg'],
+    prepMinutes: 10, difficulty: 2,
     name: 'שקשוקה קטוגנית עם כרוב, זיתים ופטה',
     ingredients: [
       { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
@@ -1335,6 +1415,7 @@ const MEALS = [
   {
     id: 'kb_eggs_avocado_tahini',
     slot: 'breakfast', diets: ['keto'], tags: ['veg', 'egg'],
+    prepMinutes: 10, difficulty: 1,
     name: 'קערת בוקר ישראלית: ביצים קשות, אבוקדו, מלפפון, זיתים וטחינה',
     ingredients: [
       { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
@@ -1353,6 +1434,7 @@ const MEALS = [
   {
     id: 'kb_green_shake',
     slot: 'breakfast', diets: ['keto'], tags: ['veg', 'vegan', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'שייק ירוק קטוגני — אבוקדו, חלב קוקוס ותרד',
     ingredients: [
       { name: 'אבוקדו', grams: 70, home: 'שני שליש אבוקדו', kcal: 112, protein: 1.4, carbs: 6.3, fat: 10.5 },
@@ -1371,6 +1453,7 @@ const MEALS = [
   {
     id: 'ks1_eggs_olives_oil',
     slot: 'snack1', diets: ['keto'], tags: ['egg'],
+    prepMinutes: 5, difficulty: 1,
     name: 'ביצים קשות עם זיתים ושמן זית',
     ingredients: [
       { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
@@ -1383,6 +1466,7 @@ const MEALS = [
   {
     id: 'ks1_olives_cucumber_coconut',
     slot: 'snack1', diets: ['keto'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'זיתים ומלפפון עם שמן זית וקוקוס טחון',
     ingredients: [
       { name: 'זיתים', grams: 40, home: 'כ-10 זיתים', kcal: 46, protein: 0.32, carbs: 2.4, fat: 4.4 },
@@ -1395,6 +1479,7 @@ const MEALS = [
   {
     id: 'ks1_avocado_macadamia_olives',
     slot: 'snack1', diets: ['keto'], tags: ['veg', 'vegan', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'אבוקדו ואגוזי מקדמיה עם זיתים בשמן זית ולימון',
     ingredients: [
       { name: 'אבוקדו', grams: 80, home: 'שני שליש אבוקדו', kcal: 128, protein: 1.6, carbs: 7.2, fat: 12 },
@@ -1407,6 +1492,7 @@ const MEALS = [
   {
     id: 'ks1_cream_cheese_veg',
     slot: 'snack1', diets: ['keto'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'גבינת שמנת 30% עם מקלות מלפפון, סלרי וכרוב סגול',
     ingredients: [
       { name: 'גבינת שמנת 30%', grams: 50, home: '3 כפות', kcal: 171, protein: 3, carbs: 2, fat: 17 },
@@ -1419,6 +1505,7 @@ const MEALS = [
   {
     id: 'ks1_smoked_salmon_cream_cheese',
     slot: 'snack1', diets: ['keto'], tags: ['dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'סלמון מעושן עם גבינת שמנת 30% ומלפפון',
     ingredients: [
       { name: 'סלמון מעושן', grams: 60, home: '4-5 פרוסות', kcal: 70, protein: 10.8, carbs: 0, fat: 2.6 },
@@ -1435,6 +1522,7 @@ const MEALS = [
   {
     id: 'ks1_yogurt_coconut_walnuts',
     slot: 'snack1', diets: ['keto'], tags: ['veg', 'dairy', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'יוגורט יווני 10% עם קוקוס טחון ואגוזי מלך',
     ingredients: [
       { name: 'יוגורט יווני 10%', grams: 150, home: 'גביע', kcal: 195, protein: 12, carbs: 6, fat: 13.5 },
@@ -1446,6 +1534,7 @@ const MEALS = [
   {
     id: 'ks1_mozzarella_caprese',
     slot: 'snack1', diets: ['keto'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'מוצרלה עם עגבניות שרי, בזיליקום ושמן זית (קפרזה)',
     ingredients: [
       { name: 'מוצרלה מלאה', grams: 100, home: 'כדור', kcal: 280, protein: 22, carbs: 2, fat: 21 },
@@ -1458,6 +1547,7 @@ const MEALS = [
   {
     id: 'ks1_cucumber_boats_cream',
     slot: 'snack1', diets: ['keto'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'סירות מלפפון ממולאות בגבינת שמנת',
     ingredients: [
       { name: 'מלפפון', grams: 150, home: '2 מלפפונים קטנים', kcal: 22.5, protein: 0.98, carbs: 5.4, fat: 0.17 },
@@ -1471,6 +1561,7 @@ const MEALS = [
   {
     id: 'kl_turkey_asparagus_avocado',
     slot: 'lunch', diets: ['keto'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'חזה הודו צלוי עם אספרגוס ואבוקדו בשמן זית',
     ingredients: [
       { name: 'חזה הודו', grams: 170, home: 'חזה בינוני', kcal: 231, protein: 40.8, carbs: 0, fat: 3.4 },
@@ -1487,6 +1578,7 @@ const MEALS = [
   {
     id: 'kl_tofu_greens_coconut_stirfry',
     slot: 'lunch', diets: ['keto'], tags: ['veg', 'vegan'],
+    prepMinutes: 15, difficulty: 1,
     name: 'טופו מוקפץ עם ירקות ירוקים בשמן קוקוס וחלב קוקוס',
     ingredients: [
       { name: 'טופו קשה', grams: 150, home: 'חצי חבילה', kcal: 216, protein: 23.25, carbs: 4.5, fat: 13.05 },
@@ -1504,6 +1596,7 @@ const MEALS = [
   {
     id: 'kl_cauliflower_cheddar_frittata',
     slot: 'lunch', diets: ['keto'], tags: ['veg', 'dairy', 'egg'],
+    prepMinutes: 20, difficulty: 1,
     name: 'פריטטת כרובית וגבינה צהובה',
     ingredients: [
       { name: 'ביצים', grams: 150, count: 3, unit: 'ביצים', home: '3 ביצים', kcal: 232.5, protein: 19.5, carbs: 1.65, fat: 16.5 },
@@ -1521,6 +1614,7 @@ const MEALS = [
   {
     id: 'kl_tofu_avocado_macadamia_salad',
     slot: 'lunch', diets: ['keto'], tags: ['veg', 'vegan', 'nuts'],
+    prepMinutes: 10, difficulty: 2,
     name: 'סלט אבוקדו, זיתים ואגוזי מקדמיה עם טופו מטוגן',
     ingredients: [
       { name: 'טופו קשה', grams: 150, home: 'חצי חבילה', kcal: 216, protein: 23.25, carbs: 4.5, fat: 13.05 },
@@ -1540,6 +1634,7 @@ const MEALS = [
   {
     id: 'kl_ribeye_greens',
     slot: 'lunch', diets: ['keto'], tags: [],
+    prepMinutes: 40, difficulty: 2,
     name: 'סטייק אנטריקוט עם שעועית ירוקה, ברוקולי ואבוקדו',
     ingredients: [
       { name: 'סטייק אנטריקוט', grams: 130, home: 'סטייק בינוני', kcal: 378, protein: 31.85, carbs: 0, fat: 26.9 },
@@ -1559,6 +1654,7 @@ const MEALS = [
   {
     id: 'kl_chicken_skin_salad',
     slot: 'lunch', diets: ['keto'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'חזה עוף עם עור צלוי וסלט אבוקדו ושמן זית',
     ingredients: [
       { name: 'חזה עוף עם עור', grams: 150, home: 'חזה בינוני', kcal: 296, protein: 30, carbs: 0, fat: 18 },
@@ -1576,6 +1672,7 @@ const MEALS = [
   {
     id: 'kl_salmon_asparagus_butter',
     slot: 'lunch', diets: ['keto'], tags: ['dairy'],
+    prepMinutes: 20, difficulty: 1,
     name: 'סלמון בתנור עם אספרגוס ברוטב חמאה-לימון',
     ingredients: [
       { name: 'פילה סלמון', grams: 150, home: 'פילה בינוני', kcal: 312, protein: 30, carbs: 0, fat: 19.5 },
@@ -1592,6 +1689,7 @@ const MEALS = [
   {
     id: 'kl_lamb_cauliflower_tahini',
     slot: 'lunch', diets: ['keto'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'קציצות טלה עם כרובית וטחינה',
     ingredients: [
       { name: 'בשר טלה טחון', grams: 130, home: 'מנה', kcal: 364, protein: 32.5, carbs: 0, fat: 24.7 },
@@ -1610,6 +1708,7 @@ const MEALS = [
   {
     id: 'ks2_kale_chips',
     slot: 'snack2', diets: ['keto'], tags: ['veg', 'vegan'],
+    prepMinutes: 20, difficulty: 1,
     name: 'צ\'יפס קייל אפוי בשמן זית ומלח ים',
     ingredients: [
       { name: 'קייל', grams: 100, home: 'צרור', kcal: 49, protein: 4.3, carbs: 8.8, fat: 0.9 },
@@ -1625,6 +1724,7 @@ const MEALS = [
   {
     id: 'ks2_olives_feta',
     slot: 'snack2', diets: ['keto'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'זיתים ופטה בולגרית עם שמן זית',
     ingredients: [
       { name: 'זיתים', grams: 60, home: '15 זיתים', kcal: 69, protein: 0.48, carbs: 3.6, fat: 6.6 },
@@ -1636,6 +1736,7 @@ const MEALS = [
   {
     id: 'ks2_avocado_lemon',
     slot: 'snack2', diets: ['keto'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'אבוקדו במלח ים ולימון',
     ingredients: [
       { name: 'אבוקדו', grams: 100, count: 1, unit: 'יחידה', home: 'אבוקדו שלם', kcal: 160, protein: 2, carbs: 9, fat: 15 },
@@ -1646,6 +1747,7 @@ const MEALS = [
   {
     id: 'ks2_deviled_eggs_avocado',
     slot: 'snack2', diets: ['keto'], tags: ['veg', 'egg'],
+    prepMinutes: 5, difficulty: 1,
     name: 'ביצים ממולאות באבוקדו',
     ingredients: [
       { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
@@ -1663,6 +1765,7 @@ const MEALS = [
   {
     id: 'kd_lamb_burger_avocado_cabbage',
     slot: 'dinner', diets: ['keto'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'המבורגר טלה עם אבוקדו וסלט כרוב סגול',
     ingredients: [
       { name: 'בשר טלה טחון', grams: 150, home: 'קציצה גדולה', kcal: 420, protein: 37.5, carbs: 0, fat: 28.5 },
@@ -1680,6 +1783,7 @@ const MEALS = [
   {
     id: 'kd_roasted_cauliflower_butter_cheese',
     slot: 'dinner', diets: ['keto'], tags: ['veg', 'dairy', 'egg'],
+    prepMinutes: 35, difficulty: 2,
     name: 'כרובית אפויה שלמה עם חמאה, שום וגבינה',
     ingredients: [
       { name: 'כרובית', grams: 250, home: 'ראש כרובית קטן', kcal: 62.5, protein: 4.75, carbs: 12.5, fat: 0.75 },
@@ -1698,6 +1802,7 @@ const MEALS = [
   {
     id: 'kd_tofu_spinach_coconut_curry',
     slot: 'dinner', diets: ['keto'], tags: ['veg', 'vegan'],
+    prepMinutes: 15, difficulty: 2,
     name: 'קארי טופו ותרד בחלב קוקוס',
     ingredients: [
       { name: 'טופו קשה', grams: 150, home: 'חצי חבילה', kcal: 216, protein: 23.25, carbs: 4.5, fat: 13.05 },
@@ -1716,6 +1821,7 @@ const MEALS = [
   {
     id: 'kd_chicken_thigh_broccoli',
     slot: 'dinner', diets: ['keto'], tags: [],
+    prepMinutes: 40, difficulty: 3,
     name: 'פרגית עוף בתנור עם ברוקולי וכרובית',
     ingredients: [
       { name: 'פרגית עוף (עם עור)', grams: 130, home: 'ירך בינונית', kcal: 325, protein: 33.8, carbs: 0, fat: 20.8 },
@@ -1736,6 +1842,7 @@ const MEALS = [
   {
     id: 'kd_beef_burger_avocado',
     slot: 'dinner', diets: ['keto'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'המבורגר בקר עסיסי (ללא לחמנייה) עם אבוקדו ובצל סגול',
     ingredients: [
       { name: 'בקר טחון (רגיל)', grams: 180, home: 'קציצה גדולה', kcal: 457, protein: 30.6, carbs: 0, fat: 36 },
@@ -1753,6 +1860,7 @@ const MEALS = [
   {
     id: 'kd_salmon_spinach_cream',
     slot: 'dinner', diets: ['keto'], tags: ['dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'פילה סלמון עם קרם תרד וגבינה',
     ingredients: [
       { name: 'פילה סלמון', grams: 150, home: 'פילה בינוני', kcal: 312, protein: 30, carbs: 0, fat: 19.5 },
@@ -1770,6 +1878,7 @@ const MEALS = [
   {
     id: 'kd_beef_roast_zucchini',
     slot: 'dinner', diets: ['keto'], tags: [],
+    prepMinutes: 30, difficulty: 1,
     name: 'נתחי בקר צלויים עם כרובית וקישוא ברוזמרין',
     ingredients: [
       { name: 'כתף בקר לצלייה', grams: 130, home: 'מנה', kcal: 325, protein: 33.8, carbs: 0, fat: 20.8 },
@@ -1789,6 +1898,7 @@ const MEALS = [
   {
     id: 'kds_chocolate_coconut_fat_bombs',
     slot: 'dessert', diets: ['keto'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 2,
     name: 'פצצות שומן שוקולד-קוקוס קפואות',
     yield: 'כ-10 קוביות',
     serving: { label: 'קובייה', kcal: 123, protein: 0.9, carbs: 2.7, fat: 13 },
@@ -1807,6 +1917,7 @@ const MEALS = [
   {
     id: 'kds_avocado_mousse',
     slot: 'dessert', diets: ['keto'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 2,
     name: 'מוס שוקולד אבוקדו קטוגני',
     yield: 'כ-4 מנות',
     serving: { label: 'מנה', kcal: 155, protein: 3, carbs: 10, fat: 14.5 },
@@ -1825,6 +1936,7 @@ const MEALS = [
   {
     id: 'kds_keto_cheesecake',
     slot: 'dessert', diets: ['keto'], tags: ['veg', 'dairy', 'nuts', 'egg'],
+    prepMinutes: 80, difficulty: 3,
     name: 'עוגת גבינה קיטוגנית',
     yield: 'כ-8 פרוסות',
     serving: { label: 'פרוסה', kcal: 367, protein: 9.6, carbs: 6.5, fat: 34.8 },
@@ -1848,6 +1960,7 @@ const MEALS = [
   {
     id: 'kbk_egg_cottage_bread',
     slot: 'bakery', diets: ['keto'], tags: ['veg', 'dairy', 'nuts', 'egg'],
+    prepMinutes: 50, difficulty: 2,
     name: 'לחם קיטו — ביצים, קוטג\' 12% ושמן זית',
     yield: 'כ-10 פרוסות',
     serving: { label: 'פרוסה', kcal: 133, protein: 8.1, carbs: 2.4, fat: 10.6 },
@@ -1876,6 +1989,7 @@ const MEALS = [
   {
     id: 'hb_quinoa_fruit_tahini_bowl',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קערת קינואה עם פירות טריים וטחינה',
     ingredients: [
       { name: 'קינואה מבושלת', grams: 120, home: 'חצי כוס וקצת', kcal: 144, protein: 5.3, carbs: 25, fat: 2.3 },
@@ -1889,6 +2003,7 @@ const MEALS = [
   {
     id: 'hb_cottage_quinoa_berries',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קערת קוטג\' עם קינואה, פירות יער ודבש',
     ingredients: [
       { name: "גבינת קוטג' 5%", grams: 150, home: 'גביע', kcal: 154.5, protein: 16.5, carbs: 5.1, fat: 7.5 },
@@ -1905,6 +2020,7 @@ const MEALS = [
   {
     id: 'hb_avocado_tahini_toast',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'vegan', 'gluten'],
+    prepMinutes: 5, difficulty: 1,
     name: 'טוסט אבוקדו וטחינה עם עגבניות שרי',
     ingredients: [
       { name: 'לחם מלא', grams: 60, count: 2, unit: 'פרוסות', home: '2 פרוסות', kcal: 120, protein: 6, carbs: 21, fat: 1.5 },
@@ -1922,6 +2038,7 @@ const MEALS = [
   {
     id: 'hb_oats_apple_walnuts',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'gluten', 'dairy', 'nuts'],
+    prepMinutes: 10, difficulty: 1,
     name: 'קערת שיבולת שועל חמה עם תפוח, קינמון ואגוזי מלך',
     ingredients: [
       { name: 'שיבולת שועל', grams: 50, home: '5 כפות', kcal: 194.5, protein: 8.5, carbs: 33, fat: 3.5 },
@@ -1939,6 +2056,7 @@ const MEALS = [
   {
     id: 'hb_avocado_poached_egg',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'gluten', 'egg'],
+    prepMinutes: 10, difficulty: 1,
     name: 'טוסט אבוקדו עם ביצה עלומה על לחם מלא',
     ingredients: [
       { name: 'לחם מלא', grams: 60, count: 2, unit: 'פרוסות', home: '2 פרוסות', kcal: 123, protein: 6, carbs: 21, fat: 1.5 },
@@ -1956,6 +2074,7 @@ const MEALS = [
   {
     id: 'hb_yogurt_granola_grapes',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'gluten', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'יוגורט טבעי עם גרנולה טבעית וענבים',
     ingredients: [
       { name: 'יוגורט טבעי 3%', grams: 200, home: 'גביע', kcal: 124, protein: 7, carbs: 9.4, fat: 6 },
@@ -1967,6 +2086,7 @@ const MEALS = [
   {
     id: 'hb_mediterranean_shakshuka',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'gluten', 'egg'],
+    prepMinutes: 10, difficulty: 1,
     name: 'שקשוקה ים-תיכונית עם לחם מלא',
     ingredients: [
       { name: 'ביצים', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
@@ -1984,6 +2104,7 @@ const MEALS = [
   {
     id: 'hb_israeli_cottage_veg',
     slot: 'breakfast', diets: ['health'], tags: ['veg', 'gluten', 'dairy'],
+    prepMinutes: 10, difficulty: 1,
     name: 'קערת בוקר ישראלית: גבינה לבנה, ירקות טריים ולחם מלא',
     ingredients: [
       { name: 'גבינה לבנה 5%', grams: 150, home: 'גביע', kcal: 135, protein: 15, carbs: 5.25, fat: 7.5 },
@@ -2004,6 +2125,7 @@ const MEALS = [
   {
     id: 'hs1_tuna_cucumber_tomato',
     slot: 'snack1', diets: ['health'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'טונה עם מלפפון ועגבנייה',
     ingredients: [
       { name: 'טונה במים', grams: 80, home: 'קופסה קטנה', kcal: 93, protein: 20.8, carbs: 0, fat: 0.8 },
@@ -2016,6 +2138,7 @@ const MEALS = [
   {
     id: 'hs1_cottage3_peach',
     slot: 'snack1', diets: ['health'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קוטג\' 3% עם אפרסק פרוס',
     ingredients: [
       { name: 'גבינת קוטג\' 3%', grams: 150, home: 'גביע', kcal: 135, protein: 16.5, carbs: 5.25, fat: 4.5 },
@@ -2026,6 +2149,7 @@ const MEALS = [
   {
     id: 'hs1_labneh_veg_dip',
     slot: 'snack1', diets: ['health'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'לבנה עם ירקות חתוכים ושמן זית',
     ingredients: [
       { name: 'לבנה', grams: 150, home: 'קערית', kcal: 180, protein: 10.5, carbs: 7.5, fat: 12 },
@@ -2037,6 +2161,7 @@ const MEALS = [
   {
     id: 'hs1_hummus_veg_pita',
     slot: 'snack1', diets: ['health'], tags: ['veg', 'vegan', 'gluten'],
+    prepMinutes: 5, difficulty: 1,
     name: 'חומוס עם מקלות ירקות ופיתה מלאה',
     ingredients: [
       { name: 'חומוס', grams: 60, home: '4 כפות', kcal: 99.6, protein: 4.74, carbs: 8.4, fat: 5.76 },
@@ -2048,6 +2173,7 @@ const MEALS = [
   {
     id: 'hs1_yogurt_honey_walnuts',
     slot: 'snack1', diets: ['health'], tags: ['veg', 'dairy', 'nuts'],
+    prepMinutes: 5, difficulty: 1,
     name: 'יוגורט טבעי עם דבש ואגוזי מלך',
     ingredients: [
       { name: 'יוגורט טבעי 3%', grams: 180, home: 'גביע', kcal: 111.6, protein: 6.3, carbs: 8.46, fat: 5.4 },
@@ -2059,6 +2185,7 @@ const MEALS = [
   {
     id: 'hs1_dates_tahini_coconut',
     slot: 'snack1', diets: ['health'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'תמרים ממולאים בטחינה וקוקוס',
     ingredients: [
       { name: 'תמרים', grams: 48, count: 2, unit: 'יחידות', home: '2 תמרים', kcal: 133, protein: 0.9, carbs: 36, fat: 0.2 },
@@ -2072,6 +2199,7 @@ const MEALS = [
   {
     id: 'hl_seabream_bulgur_salad',
     slot: 'lunch', diets: ['health'], tags: ['gluten'],
+    prepMinutes: 25, difficulty: 1,
     name: 'פילה דג ים אפוי עם בורגול וסלט ירקות',
     ingredients: [
       { name: 'פילה דג ים (לברק/דניס)', grams: 180, home: 'פילה', kcal: 172.8, protein: 36, carbs: 0, fat: 3.06 },
@@ -2085,6 +2213,7 @@ const MEALS = [
   {
     id: 'hl_tofu_rice_noodles_veg',
     slot: 'lunch', diets: ['health'], tags: ['veg', 'vegan', 'gluten'],
+    prepMinutes: 15, difficulty: 1,
     name: 'טופו מוקפץ עם ירקות ואטריות אורז ברוטב סויה קליל',
     ingredients: [
       { name: 'טופו קשה', grams: 150, home: 'חצי חבילה', kcal: 216, protein: 23.25, carbs: 4.5, fat: 13.05 },
@@ -2101,6 +2230,7 @@ const MEALS = [
   {
     id: 'hl_salmon_quinoa_veg',
     slot: 'lunch', diets: ['health'], tags: [],
+    prepMinutes: 30, difficulty: 1,
     name: 'סלמון בתנור עם קינואה וירקות אפויים',
     ingredients: [
       { name: 'פילה סלמון', grams: 130, home: 'פילה בינוני', kcal: 270, protein: 26, carbs: 0, fat: 16.9 },
@@ -2118,6 +2248,7 @@ const MEALS = [
   {
     id: 'hl_lentil_feta_salad',
     slot: 'lunch', diets: ['health'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'סלט עדשים עם ירקות, פטה וזעתר',
     ingredients: [
       { name: 'עדשים מבושלות', grams: 200, home: '1.5 כוס', kcal: 232, protein: 18, carbs: 40, fat: 0.8 },
@@ -2134,6 +2265,7 @@ const MEALS = [
   {
     id: 'hl_chicken_bulgur_salad',
     slot: 'lunch', diets: ['health'], tags: ['gluten'],
+    prepMinutes: 5, difficulty: 1,
     name: 'חזה עוף על מצע בורגול עם סלט ירוק',
     ingredients: [
       { name: 'חזה עוף', grams: 150, home: 'חזה בינוני', kcal: 248, protein: 47, carbs: 0, fat: 5.4 },
@@ -2150,6 +2282,7 @@ const MEALS = [
   {
     id: 'hl_mujadara',
     slot: 'lunch', diets: ['health'], tags: ['veg', 'vegan'],
+    prepMinutes: 30, difficulty: 2,
     name: 'מג\'דרה — אורז מלא ועדשים עם בצל מקורמל וסלט ירקות',
     ingredients: [
       { name: 'אורז מלא מבושל', grams: 150, home: 'כוס', kcal: 165, protein: 3.45, carbs: 34.5, fat: 1.35 },
@@ -2171,6 +2304,7 @@ const MEALS = [
   {
     id: 'hs2_carrot_cucumber_hummus',
     slot: 'snack2', diets: ['health'], tags: ['veg', 'vegan'],
+    prepMinutes: 5, difficulty: 1,
     name: 'גזר ומלפפון עם חומוס',
     ingredients: [
       { name: 'גזר', grams: 60, home: 'גזר קטן', kcal: 24.6, protein: 0.54, carbs: 6, fat: 0.12 },
@@ -2182,6 +2316,7 @@ const MEALS = [
   {
     id: 'hs2_cottage1_grapes',
     slot: 'snack2', diets: ['health'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'קוטג\' 1% עם ענבים',
     ingredients: [
       { name: 'גבינת קוטג\' 1%', grams: 150, home: 'גביע', kcal: 108, protein: 18, carbs: 5.25, fat: 1.5 },
@@ -2192,6 +2327,7 @@ const MEALS = [
   {
     id: 'hs2_boiled_eggs_paprika',
     slot: 'snack2', diets: ['health'], tags: ['veg', 'egg'],
+    prepMinutes: 5, difficulty: 1,
     name: 'ביצים קשות עם מלח ים ופפריקה',
     ingredients: [
       { name: 'ביצים קשות', grams: 100, count: 2, unit: 'ביצים', home: '2 ביצים', kcal: 155, protein: 13, carbs: 1.1, fat: 11 },
@@ -2202,6 +2338,7 @@ const MEALS = [
   {
     id: 'hs2_bulgarit_veg',
     slot: 'snack2', diets: ['health'], tags: ['veg', 'dairy'],
+    prepMinutes: 5, difficulty: 1,
     name: 'מלפפון ופלפל עם גבינה בולגרית 5%',
     ingredients: [
       { name: 'מלפפון ופלפל', grams: 100, home: 'קערית', kcal: 20, protein: 1, carbs: 4, fat: 0.2 },
@@ -2214,6 +2351,7 @@ const MEALS = [
   {
     id: 'hd_turkey_burger_cabbage_slaw',
     slot: 'dinner', diets: ['health'], tags: [],
+    prepMinutes: 5, difficulty: 1,
     name: 'המבורגר הודו עם סלט כרוב סגול',
     ingredients: [
       { name: 'בשר הודו טחון', grams: 170, home: 'קציצה גדולה', kcal: 272, protein: 35.7, carbs: 0, fat: 13.6 },
@@ -2230,6 +2368,7 @@ const MEALS = [
   {
     id: 'hd_lentil_quinoa_patties_gf',
     slot: 'dinner', diets: ['health'], tags: ['veg', 'vegan'],
+    prepMinutes: 25, difficulty: 1,
     name: 'קציצות עדשים, קינואה וגזר עם טחינה (ללא גלוטן)',
     ingredients: [
       { name: 'עדשים מבושלות', grams: 180, home: 'כוס גדושה', kcal: 208.8, protein: 16.2, carbs: 36, fat: 0.72 },
@@ -2247,6 +2386,7 @@ const MEALS = [
   {
     id: 'hd_seabream_root_veg',
     slot: 'dinner', diets: ['health'], tags: [],
+    prepMinutes: 40, difficulty: 1,
     name: 'דג ים אפוי עם ירקות שורש ותפוח אדמה',
     ingredients: [
       { name: 'פילה דג ים (לברק/דניס)', grams: 180, home: 'פילה', kcal: 172.8, protein: 36, carbs: 0, fat: 3.06 },
@@ -2263,6 +2403,7 @@ const MEALS = [
   {
     id: 'hd_lentil_veg_patties',
     slot: 'dinner', diets: ['health'], tags: ['veg', 'vegan', 'gluten'],
+    prepMinutes: 10, difficulty: 1,
     name: 'קציצות עדשים וירקות עם טחינה',
     ingredients: [
       { name: 'עדשים מבושלות', grams: 200, home: '1.5 כוס', kcal: 232, protein: 18, carbs: 40, fat: 0.8 },
@@ -2281,6 +2422,7 @@ const MEALS = [
   {
     id: 'hd_chicken_sweetpotato_broccoli',
     slot: 'dinner', diets: ['health'], tags: [],
+    prepMinutes: 25, difficulty: 1,
     name: 'עוף בתנור עם בטטה וברוקולי',
     ingredients: [
       { name: 'חזה עוף', grams: 150, home: 'חזה בינוני', kcal: 248, protein: 47, carbs: 0, fat: 5.4 },
@@ -2298,6 +2440,7 @@ const MEALS = [
   {
     id: 'hd_seared_tuna_quinoa_avocado',
     slot: 'dinner', diets: ['health'], tags: [],
+    prepMinutes: 10, difficulty: 1,
     name: 'טונה צלויה עם סלט קינואה ואבוקדו',
     ingredients: [
       { name: 'סטייק טונה טרי', grams: 150, home: 'סטייק', kcal: 195, protein: 42, carbs: 0, fat: 1.5 },
@@ -2318,6 +2461,7 @@ const MEALS = [
   {
     id: 'hds_fresh_fruit_salad',
     slot: 'dessert', diets: ['health'], tags: ['veg', 'vegan'],
+    prepMinutes: 10, difficulty: 2,
     name: 'סלט פירות טרי עם דבש, לימון ונענע',
     yield: 'כ-4 מנות',
     serving: { label: 'מנה', kcal: 98, protein: 1.1, carbs: 25.3, fat: 0.4 },
@@ -2334,6 +2478,7 @@ const MEALS = [
   {
     id: 'hds_oat_banana_cookies',
     slot: 'dessert', diets: ['health'], tags: ['veg', 'vegan', 'gluten', 'nuts'],
+    prepMinutes: 25, difficulty: 2,
     name: 'עוגיות שיבולת שועל ובננה בריאותיות (ללא סוכר לבן)',
     yield: 'כ-12 עוגיות',
     serving: { label: '2 עוגיות', kcal: 196, protein: 5.9, carbs: 31.6, fat: 6.2 },
@@ -2354,6 +2499,7 @@ const MEALS = [
   {
     id: 'hds_carrot_cake',
     slot: 'dessert', diets: ['health'], tags: ['veg', 'gluten', 'nuts', 'egg'],
+    prepMinutes: 55, difficulty: 2,
     name: 'עוגת גזר בריאה עם קמח מלא ואגוזי מלך',
     yield: 'כ-10 פרוסות',
     serving: { label: 'פרוסה', kcal: 180, protein: 4.7, carbs: 18.5, fat: 10.7 },

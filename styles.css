@@ -147,6 +147,15 @@ input:focus, select:focus {
 .btn-ghost { background: transparent; border: 1.5px solid var(--border); color: var(--text-soft); padding: 8px 14px; border-radius: 10px; font-family: inherit; font-size: 13.5px; cursor: pointer; transition: all 0.15s; }
 .btn-ghost:hover { border-color: var(--green); color: var(--green); }
 
+.quick-meals-row { margin-bottom: 14px; }
+.quick-meals-toggle {
+  font-family: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer;
+  background: var(--card); color: var(--text-soft); border: 1.5px solid var(--border);
+  border-radius: 999px; padding: 8px 16px; transition: all 0.15s;
+}
+.quick-meals-toggle:hover { border-color: var(--green); }
+.quick-meals-toggle.active { background: var(--green); color: #fff; border-color: var(--green); }
+
 .summary-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
 .summary-cell { background: var(--card); border-radius: 14px; padding: 14px 8px; text-align: center; box-shadow: var(--shadow); }
 .summary-cell .val { font-size: 21px; font-weight: 900; color: var(--green); }
@@ -167,9 +176,27 @@ input:focus, select:focus {
 .meal-title .meal-icon { width: 17px; height: 17px; }
 .wd-meal .meal-icon { width: 14px; height: 14px; vertical-align: -2.5px; }
 .meal-title { font-size: 17.5px; font-weight: 700; margin-top: 2px; }
+.meal-meta { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.meal-badge { font-size: 12px; font-weight: 600; color: var(--taupe-dark); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; }
 .meal-kcal { font-size: 13px; color: var(--text-soft); font-weight: 500; }
 .meal-total { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); text-align: left; }
 .meal-empty { color: var(--text-soft); font-size: 14px; padding: 6px 0 14px; }
+.btn-replace {
+  flex-shrink: 0; font-family: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer;
+  background: var(--bg); color: var(--green); border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 7px 12px; transition: all 0.15s; white-space: nowrap;
+}
+.btn-replace:hover { border-color: var(--green); background: var(--green-light); }
+
+.meal-done-check { display: flex; align-items: flex-start; padding-top: 2px; flex-shrink: 0; }
+.meal-done-check input { width: 21px; height: 21px; accent-color: var(--green); cursor: pointer; }
+.meal.meal-done { opacity: 0.6; }
+.meal.meal-done .meal-title { text-decoration: line-through; }
+
+.progress-row { margin-bottom: 18px; }
+.progress-label { font-size: 12.5px; color: var(--text-soft); margin-bottom: 6px; font-weight: 500; }
+.progress-track { height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--green); border-radius: 999px; transition: width 0.3s ease; width: 0%; }
 
 /* מתכון מתקפל */
 .recipe { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 6px; }
@@ -179,6 +206,11 @@ input:focus, select:focus {
 .recipe[open] summary::before { content: '▾ '; }
 .recipe ol { margin: 6px 18px 10px; padding: 0; }
 .recipe li { font-size: 14px; color: var(--text-soft); margin-bottom: 5px; line-height: 1.55; }
+
+.why-meal { margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 6px; }
+.why-meal summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--taupe-dark); padding: 4px 0; list-style: none; }
+.why-meal summary::-webkit-details-marker { display: none; }
+.why-meal p { font-size: 13.5px; color: var(--text-soft); margin: 4px 0 6px; line-height: 1.55; }
 
 .dessert-ingredients { font-size: 13.5px; color: var(--text-soft); margin: 6px 0; }
 .d-yield { font-size: 13px; color: var(--taupe-dark); font-weight: 600; margin: 6px 0 12px; }
@@ -221,6 +253,7 @@ input:focus, select:focus {
   padding: 12px 16px; border-radius: 12px; border: 1.5px solid var(--rose);
   margin-top: 16px; line-height: 1.5;
 }
+.footer-note.disclaimer.safety-warning { margin-top: 0; margin-bottom: 14px; text-align: right; }
 
 @media (max-width: 420px) {
   .diet-grid { grid-template-columns: 1fr 1fr; }
@@ -263,7 +296,8 @@ input:focus, select:focus {
 .wd-kcal { color: var(--text-soft); font-size: 13px; }
 
 /* ---------- רשימת קניות ---------- */
-.sl-meta { font-size: 13px; color: var(--text-soft); margin-bottom: 14px; }
+.sl-meta-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.sl-meta { font-size: 13px; color: var(--text-soft); }
 .sl-category {
   background: var(--card); border-radius: 14px; box-shadow: var(--shadow); margin-bottom: 12px; overflow: hidden;
 }

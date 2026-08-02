@@ -94,12 +94,47 @@ function calcBMR({ gender, weight, height, age }) {
   return base - 78;
 }
 
+// רצפת בטיחות — אף תפריט לא ירד מתחת לזה, ללא קשר לנוסחת התזונה/גירעון.
+// ערכים שמרניים מקובעים; לא תחליף לייעוץ תזונתי/רפואי אישי (ראו גילוי הנאות באפליקציה).
+const MIN_SAFE_CALORIES = { female: 1200, male: 1500, other: 1350 };
+function applySafetyFloor(t, profile) {
+  const floor = MIN_SAFE_CALORIES[profile.gender] || 1200;
+  if (t.calories >= floor) return t;
+  const ratio = floor / t.calories;
+  // שומרים על יחסי המאקרו היחסיים; חלבון/שומן עשויים לחרוג מעט מהנוסחה המדויקת לכל ק"ג —
+  // מקובל כפשרה כשמדובר בהעלאת קלוריות למקום בטוח יותר, לא בהפחתה
+  return {
+    calories: floor,
+    protein: Math.round(t.protein * ratio),
+    carbs: Math.round(t.carbs * ratio),
+    fat: Math.round(t.fat * ratio),
+    safetyClamped: true,
+  };
+}
+
 function calcTargets(profile) {
   const bmr = calcBMR(profile);
   const tdee = bmr * (ACTIVITY_FACTORS[profile.activity] || 1.2);
   const diet = DIETS[profile.diet];
-  const t = diet.targets(profile, tdee);
+  const t = applySafetyFloor(diet.targets(profile, tdee), profile);
   return { bmr: Math.round(bmr), tdee: Math.round(tdee), ...t };
+}
+
+// אזהרות ידידותיות על יעד משקל/שינוי קיצוני — לא חוסמות שימוש, רק ממליצות להתייעץ עם איש/אשת מקצוע
+function assessGoalSafety(profile) {
+  const warnings = [];
+  if (profile.weightGoal && profile.weight && profile.height) {
+    const heightM = profile.height / 100;
+    const goalBMI = profile.weightGoal / (heightM * heightM);
+    const changeRatio = Math.abs(profile.weight - profile.weightGoal) / profile.weight;
+    if (goalBMI < 18.5) {
+      warnings.push('משקל המטרה שהזנת נמוך משמעותית ביחס לגובה שלך (BMI מתחת ל-18.5). מומלץ להתייעץ עם רופא/ה או דיאטן/ית קליני/ת לפני שמכוונים ליעד כזה.');
+    }
+    if (changeRatio > 0.25) {
+      warnings.push('השינוי במשקל שהגדרת גדול משמעותית (מעל 25% ממשקל הגוף הנוכחי שלך). מומלץ לשקול יעד ביניים מתון יותר, ולהתייעץ עם איש/אשת מקצוע לגבי הקצב הבטוח להגיע אליו.');
+    }
+  }
+  return warnings;
 }
 
 /* ---------- אקראיות דטרמיניסטית (אותו יום = אותו תפריט) ---------- */
@@ -118,6 +153,8 @@ const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
 /* ---------- סינון מאגר הארוחות ---------- */
 
+const QUICK_MEAL_MAX_MINUTES = 15;
+
 function mealsFor(slot, profile) {
   return MEALS.filter((m) => {
     if (m.slot !== slot) return false;
@@ -125,6 +162,7 @@ function mealsFor(slot, profile) {
     if (profile.prefs.includes('vegan') && !m.tags.includes('vegan')) return false;
     if (profile.prefs.includes('vegetarian') && !m.tags.includes('veg')) return false;
     if ((profile.allergens || []).some((a) => m.tags.includes(a))) return false;
+    if (profile.quickMeals && m.prepMinutes > QUICK_MEAL_MAX_MINUTES) return false;
     return true;
   });
 }
@@ -191,7 +229,10 @@ function scaleMeal(meal, targetKcal) {
   });
 
   const totals = sumItems(items);
-  return { id: meal.id, name: meal.name, steps: meal.steps, items, totals };
+  return {
+    id: meal.id, name: meal.name, steps: meal.steps, items, totals,
+    prepMinutes: meal.prepMinutes, difficulty: meal.difficulty, tags: meal.tags, slot: meal.slot,
+  };
 }
 
 function sumItems(items) {
@@ -268,7 +309,7 @@ function pickBestCombination(profile, targets, rnd, avoidIdsPerSlot) {
 // כדי שבדיקת "מה הוצג בימים הקודמים" תשקף את התוצאה המתוקנת בפועל, לא חישוב גולמי מחדש
 const _dailyMenuMemo = new Map();
 function _memoKey(profile, targets, dayOffset) {
-  return JSON.stringify([profile.diet, profile.prefs, profile.allergens || [], targets.calories, targets.protein, targets.carbs, targets.fat, dayOffset]);
+  return JSON.stringify([profile.diet, profile.prefs, profile.allergens || [], !!profile.quickMeals, targets.calories, targets.protein, targets.carbs, targets.fat, dayOffset]);
 }
 
 function generateDailyMenu(profile, targets, dayOffset = 0) {

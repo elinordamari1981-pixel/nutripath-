@@ -3,11 +3,35 @@
  */
 
 const STORAGE_KEY = 'tezuna_profile';
+const SHOPPING_CHECKED_KEY = 'tezuna_shopping_checked';
 let profile = null;
 let targets = null;
 let currentDay = 0; // 0 = היום, -1 = אתמול, 1 = מחר
 
 const $ = (sel) => document.querySelector(sel);
+
+function loadShoppingChecked() {
+  try { return JSON.parse(localStorage.getItem(SHOPPING_CHECKED_KEY)) || {}; } catch (e) { return {}; }
+}
+function saveShoppingChecked(state) {
+  try { localStorage.setItem(SHOPPING_CHECKED_KEY, JSON.stringify(state)); } catch (e) { /* התעלמות */ }
+}
+function toggleShoppingItem(input) {
+  const state = loadShoppingChecked();
+  const name = input.dataset.ingredient;
+  if (input.checked) state[name] = true; else delete state[name];
+  saveShoppingChecked(state);
+  document.getElementById('row-' + input.id).classList.toggle('sl-checked', input.checked);
+}
+function markAllShoppingPurchased() {
+  const state = loadShoppingChecked();
+  document.querySelectorAll('#week-shopping input[type=checkbox]').forEach((cb) => {
+    cb.checked = true;
+    state[cb.dataset.ingredient] = true;
+    document.getElementById('row-' + cb.id).classList.add('sl-checked');
+  });
+  saveShoppingChecked(state);
+}
 
 // אייקוני SVG לארוחות — צבע יורש מ-CSS (currentColor), תואם לפלטת המותג במקום אימוג'ים צבעוניים
 const MEAL_ICONS = {
@@ -20,6 +44,137 @@ const MEAL_ICONS = {
 function mealIcon(key) {
   const paths = MEAL_ICONS[key] || '';
   return `<svg class="meal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">${paths}</svg>`;
+}
+
+const DIFFICULTY_LABELS = { 1: 'קל', 2: 'בינוני', 3: 'מתקדם' };
+function difficultyStars(level) {
+  return '⭐'.repeat(level) + ' ' + (DIFFICULTY_LABELS[level] || '');
+}
+
+/* ---------- "למה הארוחה הזו?" — הסבר דינמי לפי המאקרו בפועל מול היעד ---------- */
+function mealExplanation(meal, slotDef) {
+  const proteinPct = Math.round((meal.totals.protein / targets.protein) * 100);
+  const kcalTargetForSlot = targets.calories * slotDef.share;
+  const kcalPct = Math.round((meal.totals.kcal / kcalTargetForSlot) * 100);
+
+  if (profile.diet === 'keto') {
+    return `נבחרה כי היא דלת פחמימות (${meal.totals.carbs} גר' בלבד) ותורמת כ-${proteinPct}% מיעד החלבון היומי שלך, בלי לחרוג ממסגרת הקלוריות שהוקצתה לארוחה זו (כ-${kcalPct}% ממנה).`;
+  }
+  if (profile.diet === 'chittuv' || profile.diet === 'masa') {
+    return `נבחרה כי היא מספקת ${meal.totals.protein} גר' חלבון (כ-${proteinPct}% מהיעד היומי שלך), ומתאימה לכ-${kcalPct}% מהקלוריות שהוקצו לארוחה זו.`;
+  }
+  return `נבחרה כי היא שומרת על איזון בין חלבון, פחמימה ושומן בהתאם לתפריט המאוזן שלך, ומתאימה לכ-${kcalPct}% מהקלוריות שהוקצו לארוחה זו.`;
+}
+
+/* ---------- מפתח תאריך יומי — משותף להחלפת ארוחות ומעקב השלמה ---------- */
+function dateKeyForDay(dayOffset) {
+  const d = new Date();
+  d.setDate(d.getDate() + dayOffset);
+  return d.toISOString().slice(0, 10);
+}
+
+/* ---------- מעקב השלמת ארוחות ---------- */
+const MEAL_DONE_KEY = 'tezuna_meal_done';
+function loadMealDone() {
+  try { return JSON.parse(localStorage.getItem(MEAL_DONE_KEY)) || {}; } catch (e) { return {}; }
+}
+function saveMealDone(state) {
+  try { localStorage.setItem(MEAL_DONE_KEY, JSON.stringify(state)); } catch (e) { /* התעלמות */ }
+}
+function toggleMealDone(slotKey, checked) {
+  const state = loadMealDone();
+  const dateKey = dateKeyForDay(currentDay);
+  if (!state[dateKey]) state[dateKey] = {};
+  if (checked) state[dateKey][slotKey] = true; else delete state[dateKey][slotKey];
+  saveMealDone(state);
+  renderProgress();
+}
+function renderProgress() {
+  const rawMenu = generateDailyMenu(profile, targets, currentDay);
+  if (!rawMenu.ready) { $('#progress-label').textContent = ''; $('#progress-fill').style.width = '0%'; return; }
+  const totalSlots = rawMenu.meals.filter((m) => !m.empty).length;
+  const doneForDay = loadMealDone()[dateKeyForDay(currentDay)] || {};
+  const doneCount = MEAL_SLOTS.filter((s, i) => !rawMenu.meals[i].empty && doneForDay[s.key]).length;
+  $('#progress-label').textContent = `${doneCount} מתוך ${totalSlots} ארוחות הושלמו`;
+  $('#progress-fill').style.width = totalSlots ? `${(doneCount / totalSlots) * 100}%` : '0%';
+}
+
+/* ---------- החלפת ארוחה בודדת ---------- */
+const MEAL_OVERRIDES_KEY = 'tezuna_meal_overrides';
+function loadMealOverrides() {
+  try { return JSON.parse(localStorage.getItem(MEAL_OVERRIDES_KEY)) || {}; } catch (e) { return {}; }
+}
+function saveMealOverrides(state) {
+  try { localStorage.setItem(MEAL_OVERRIDES_KEY, JSON.stringify(state)); } catch (e) { /* התעלמות */ }
+}
+
+// בונה עותק של התפריט עם החלפות ידניות (אם קיימות ליום זה), ומחשב מחדש את סיכום המאקרו היומי.
+// לא ממש את אובייקט ה-menu המוחזר מ-generateDailyMenu — הוא שמור ב-memo הפנימי ואסור לשנות אותו במקום.
+function applyMealOverrides(rawMenu, dayOffset) {
+  if (!rawMenu.ready) return rawMenu;
+  const overridesForDay = loadMealOverrides()[dateKeyForDay(dayOffset)] || {};
+  const meals = rawMenu.meals.map((m, i) => {
+    const slotDef = MEAL_SLOTS[i];
+    const overrideId = overridesForDay[slotDef.key];
+    if (!overrideId) return m;
+    const rawMeal = MEALS.find((x) => x.id === overrideId);
+    if (!rawMeal) return m;
+    const scaled = scaleMeal(rawMeal, targets.calories * slotDef.share);
+    return { emoji: slotDef.emoji, slotName: slotDef.name, ...scaled };
+  });
+  const dayTotals = sumItems(meals.filter((m) => !m.empty).flatMap((m) => m.items));
+  return { ...rawMenu, meals, dayTotals };
+}
+
+function replaceMeal(slotIndex) {
+  const slotDef = MEAL_SLOTS[slotIndex];
+  const rawMenu = generateDailyMenu(profile, targets, currentDay);
+  const originalMeal = rawMenu.meals[slotIndex];
+  if (!rawMenu.ready || !originalMeal || originalMeal.empty) return;
+
+  const dateKey = dateKeyForDay(currentDay);
+  const overrides = loadMealOverrides();
+  if (!overrides[dateKey]) overrides[dateKey] = {};
+  const dayOverrides = overrides[dateKey];
+
+  // history = כל המנות שכבר הוצגו בסלוט הזה היום (המקורית + כל ההחלפות) — נמנעים מלחזור עליהן
+  const historyKey = slotDef.key + '_history';
+  const history = dayOverrides[historyKey] || [originalMeal.id];
+  const currentId = history[history.length - 1];
+  const targetKcalShare = targets.calories * slotDef.share;
+  const currentScaled = scaleMeal(MEALS.find((m) => m.id === currentId), targetKcalShare);
+
+  let pool = mealsFor(slotDef.key, profile).filter((m) => !history.includes(m.id));
+  if (!pool.length) pool = mealsFor(slotDef.key, profile).filter((m) => m.id !== currentId);
+  if (!pool.length) return;
+
+  // הימנעות נוספת ממנות שהופיעו לאותו סלוט ב-3 הימים האחרונים, כשיש חלופה
+  const recentIds = new Set();
+  for (let back = 1; back <= 3; back++) {
+    const prevMenu = generateDailyMenu(profile, targets, currentDay - back);
+    const prevMeal = prevMenu.ready ? prevMenu.meals[slotIndex] : null;
+    if (prevMeal && !prevMeal.empty) recentIds.add(prevMeal.id);
+  }
+  const notRecent = pool.filter((m) => !recentIds.has(m.id));
+  const finalPool = notRecent.length ? notRecent : pool;
+
+  // בוחרים את המנה עם המאקרו הכי דומה למנה המוצגת כרגע (אחרי כיוונון לאותו יעד קלורי)
+  let best = null;
+  let bestErr = Infinity;
+  finalPool.forEach((m) => {
+    const scaled = scaleMeal(m, targetKcalShare);
+    const err = Math.abs(scaled.totals.protein - currentScaled.totals.protein)
+      + Math.abs(scaled.totals.carbs - currentScaled.totals.carbs)
+      + Math.abs(scaled.totals.fat - currentScaled.totals.fat);
+    if (err < bestErr) { bestErr = err; best = m; }
+  });
+  if (!best) return;
+
+  dayOverrides[slotDef.key] = best.id;
+  dayOverrides[historyKey] = [...history, best.id];
+  saveMealOverrides(overrides);
+
+  renderMenu();
 }
 
 /* ---------- ניווט בין מסכים ---------- */
@@ -132,6 +287,11 @@ $('#btn-edit').addEventListener('click', () => {
   prefillForm(profile);
   showScreen('screen-onboarding');
 });
+$('#btn-quick-meals').addEventListener('click', () => {
+  profile.quickMeals = !profile.quickMeals;
+  saveProfile(profile);
+  renderMenu();
+});
 $('#prev-day').addEventListener('click', () => { currentDay--; renderMenu(); });
 $('#next-day').addEventListener('click', () => { currentDay++; renderMenu(); });
 
@@ -195,6 +355,7 @@ function renderWeekShopping() {
   Object.values(byCat).forEach((list) => list.sort((a, b) => a.name.localeCompare(b.name, 'he')));
 
   const totalItems = Object.values(byCat).reduce((s, l) => s + l.length, 0);
+  const checkedState = loadShoppingChecked();
   const categoriesHtml = SHOPPING_CAT_ORDER.filter((c) => byCat[c]).map((c) => {
     const items = byCat[c].map((item, i) => {
       const noBrand = item.brand.includes('ללא מותג');
@@ -202,9 +363,10 @@ function renderWeekShopping() {
         ? `<span class="sl-nobrand">${item.brand}</span>`
         : `מותג: <span class="sl-tag">${item.brand}</span>`;
       const id = `sl-${c}-${i}`;
+      const isChecked = !!checkedState[item.name];
       return `
-        <div class="sl-item" id="row-${id}">
-          <input type="checkbox" id="${id}" onchange="document.getElementById('row-${id}').classList.toggle('sl-checked', this.checked)" />
+        <div class="sl-item${isChecked ? ' sl-checked' : ''}" id="row-${id}">
+          <input type="checkbox" id="${id}" data-ingredient="${item.name}" ${isChecked ? 'checked' : ''} onchange="toggleShoppingItem(this)" />
           <label for="${id}">
             <div class="sl-name">${item.name}</div>
             <div class="sl-brand">${brandHtml}</div>
@@ -220,7 +382,10 @@ function renderWeekShopping() {
   }).join('');
 
   el.innerHTML = `
-    <div class="sl-meta">${totalItems} פריטים · שבוע שלם, מותאם אישית ליעדים שלך</div>
+    <div class="sl-meta-row">
+      <div class="sl-meta">${totalItems} פריטים · שבוע שלם, מותאם אישית ליעדים שלך</div>
+      <button type="button" class="btn-ghost" onclick="markAllShoppingPurchased()">✓ סמנו הכל כנקנה</button>
+    </div>
     ${categoriesHtml}
     <div class="footer-note">💡 מותגים הם המלצות זמינות בסופרים בישראל — אפשר להחליף בכל מותג מקביל. בשר/דג טרי נקנים מהקצביה/דוכן הדגים ללא מותג ספציפי.</div>
   `;
@@ -247,12 +412,26 @@ function prefillForm(p) {
 }
 
 /* ---------- הצגת התפריט ---------- */
+/* ---------- אזהרות בטיחות: יעד קיצוני / קלוריות שהותאמו לרצפה בטוחה ---------- */
+function renderSafetyWarnings() {
+  const el = $('#safety-warnings');
+  const messages = assessGoalSafety(profile);
+  if (targets.safetyClamped) {
+    messages.push(`יעד הקלוריות היומי חושב כנמוך מדי, ולכן הועלה לרמה בטוחה יותר (${targets.calories} קק"ל). לפני גירעון קלורי משמעותי כדאי להתייעץ עם דיאטן/ית קליני/ת או רופא/ה.`);
+  }
+  if (!messages.length) { el.innerHTML = ''; return; }
+  el.innerHTML = messages.map((msg) => `<div class="footer-note disclaimer safety-warning">⚠️ ${msg}</div>`).join('');
+}
+
 function renderMenu() {
   const showC = profile.showCounting;
   $('#greeting').textContent = `שלום ${profile.firstName}`;
   $('#diet-badge').textContent = DIETS[profile.diet].name;
+  $('#btn-quick-meals').classList.toggle('active', !!profile.quickMeals);
+  renderSafetyWarnings();
 
-  const menu = generateDailyMenu(profile, targets, currentDay);
+  const rawMenu = generateDailyMenu(profile, targets, currentDay);
+  const menu = applyMealOverrides(rawMenu, currentDay);
   const summary = $('#summary-bar');
   const mealsEl = $('#meals');
   const dessertEl = $('#dessert');
@@ -288,8 +467,11 @@ function renderMenu() {
   const weekdayName = dayDate.toLocaleDateString('he-IL', { weekday: 'long' });
   $('#day-label').textContent = currentDay === 0 ? `היום · ${weekdayName}` : weekdayName;
 
+  renderProgress();
+
   // ארוחות
-  mealsEl.innerHTML = menu.meals.map((meal) => renderMeal(meal, showC)).join('');
+  const doneForDay = loadMealDone()[dateKeyForDay(currentDay)] || {};
+  mealsEl.innerHTML = menu.meals.map((meal, i) => renderMeal(meal, showC, i, !!doneForDay[MEAL_SLOTS[i].key])).join('');
 
   // מתכון הקינוח השבועי + מתכון המאפה השבועי (אותה תבנית תצוגה)
   renderWeeklyRecipe(dessertEl, weeklyDessert(profile), showC, '🍰', 'מתכון הקינוח השבועי');
@@ -318,7 +500,7 @@ function renderWeeklyRecipe(el, recipe, showC, emoji, title) {
   el.style.display = 'block';
 }
 
-function renderMeal(meal, showC) {
+function renderMeal(meal, showC, slotIndex, isDone) {
   if (meal.empty) {
     return `
       <div class="meal">
@@ -350,16 +532,31 @@ function renderMeal(meal, showC) {
     ? `<span class="meal-kcal">${meal.totals.kcal} קק"ל · ח${meal.totals.protein} פ${meal.totals.carbs} ש${meal.totals.fat}</span>`
     : '';
 
+  const metaLine = `
+    <div class="meal-meta">
+      <span class="meal-badge">⏱ ${meal.prepMinutes} דק'</span>
+      <span class="meal-badge">${difficultyStars(meal.difficulty)}</span>
+    </div>`;
+
+  const slotDef = MEAL_SLOTS[slotIndex];
+  const slotKey = slotDef.key;
+  const whyMeal = `<details class="why-meal"><summary>💡 למה הארוחה הזו?</summary><p>${mealExplanation(meal, slotDef)}</p></details>`;
   return `
-    <div class="meal">
+    <div class="meal${isDone ? ' meal-done' : ''}">
       <div class="meal-head">
+        <label class="meal-done-check" title="סמנו כשהושלמה">
+          <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleMealDone('${slotKey}', this.checked); this.closest('.meal').classList.toggle('meal-done', this.checked);" />
+        </label>
         <div>
           <div class="slot-label">${mealIcon(meal.emoji)} ${meal.slotName}</div>
           <div class="meal-title">${meal.name}</div>
+          ${metaLine}
         </div>
+        <button type="button" class="btn-replace" onclick="replaceMeal(${slotIndex})" title="החלף ארוחה זו במנה דומה">🔄 החלפה</button>
       </div>
       ${items}
       ${kcalLine ? `<div class="meal-total">${kcalLine}</div>` : ''}
+      ${whyMeal}
       ${steps}
     </div>`;
 }
