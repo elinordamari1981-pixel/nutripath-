@@ -194,6 +194,7 @@ function loadProfile() {
 }
 
 function saveProfile(p) {
+  p.updatedAt = new Date().toISOString();
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); } catch (e) { /* התעלמות */ }
 }
 
@@ -215,16 +216,11 @@ let quizStep = 1;
 function showQuizStep(n) {
   quizStep = Math.max(1, Math.min(QUIZ_TOTAL, n));
   quizSteps.forEach((s) => s.classList.toggle('active', +s.dataset.step === quizStep));
-  const isWelcome = quizStep === 1;
-  const questionsTotal = QUIZ_TOTAL - 1; // שלב 1 הוא מסך ברוכים הבאים, לא נספר כשאלה
-  $('#quiz-progress-fill').style.width = isWelcome ? '0%' : `${((quizStep - 1) / questionsTotal) * 100}%`;
-  $('#quiz-progress-fill').parentElement.hidden = isWelcome;
-  $('#quiz-step-label').hidden = isWelcome;
-  $('#quiz-step-label').textContent = `שאלה ${quizStep - 1} מתוך ${questionsTotal}`;
+  $('#quiz-progress-fill').style.width = `${(quizStep / QUIZ_TOTAL) * 100}%`;
+  $('#quiz-step-label').textContent = `שאלה ${quizStep} מתוך ${QUIZ_TOTAL}`;
   $('#quiz-back').hidden = quizStep === 1;
   const isLast = quizStep === QUIZ_TOTAL;
   $('#quiz-next').hidden = isLast;
-  $('#quiz-next').textContent = isWelcome ? 'בואו נתחיל ✨' : 'הבא ›';
   $('#quiz-submit').hidden = !isLast;
 }
 
@@ -571,16 +567,31 @@ $('#btn-restart-quiz').addEventListener('click', () => {
   showScreen('screen-onboarding');
 });
 
+/* ---------- דף נחיתה למשתמש חדש ---------- */
+function startQuizFromLanding() {
+  showScreen('screen-onboarding');
+  showQuizStep(1);
+}
+$('#btn-landing-start').addEventListener('click', startQuizFromLanding);
+$('#btn-landing-start-2').addEventListener('click', startQuizFromLanding);
+
 /* ---------- אתחול ---------- */
+const SPLASH_MS = 2200;
 (function init() {
   const saved = loadProfile();
-  if (saved) {
-    profile = saved;
-    targets = calcTargets(profile);
-    prefillForm(profile);
-    $('#welcome-back-greeting').textContent = `ברוך שובך, ${profile.firstName}! 👋`;
-    showScreen('screen-welcome-back');
-  }
+  setTimeout(() => {
+    if (saved) {
+      profile = saved;
+      targets = calcTargets(profile);
+      prefillForm(profile);
+      $('#welcome-back-greeting').textContent = `ברוך שובך, ${profile.firstName}! 👋`;
+      const updated = profile.updatedAt ? new Date(profile.updatedAt).toLocaleDateString('he-IL') : '';
+      $('#welcome-back-updated').textContent = updated ? `עודכן לאחרונה: ${updated}` : '';
+      showScreen('screen-welcome-back');
+    } else {
+      showScreen('screen-landing');
+    }
+  }, SPLASH_MS);
 })();
 
 // רישום Service Worker — מאפשר "התקנה" כאפליקציה. עובד רק כשמוגש דרך שרת (http/localhost), לא file://

@@ -22,8 +22,94 @@
 <body>
   <div id="app">
 
-    <!-- ===== מסך פתיחה / הרשמה ===== -->
-    <section id="screen-onboarding" class="screen active">
+    <!-- ===== מסך פתיחה (Splash) ===== -->
+    <section id="screen-splash" class="screen active">
+      <div class="splash-screen">
+        <div class="splash-logo-mark">
+          <svg width="64" height="64" viewBox="0 0 120 120" aria-hidden="true">
+            <ellipse class="petal petal-1" cx="60" cy="37.8" rx="17.4" ry="27" fill="#A15D55"/>
+            <ellipse class="petal petal-2" cx="60" cy="37.8" rx="17.4" ry="27" fill="#C48D7A" transform="rotate(90 60 60)"/>
+            <ellipse class="petal petal-3" cx="60" cy="37.8" rx="17.4" ry="27" fill="#7A5B45" transform="rotate(180 60 60)"/>
+            <ellipse class="petal petal-4" cx="60" cy="37.8" rx="17.4" ry="27" fill="#D9A9A0" transform="rotate(270 60 60)"/>
+            <circle cx="60" cy="60" r="9" fill="#F7F2EC"/>
+          </svg>
+        </div>
+        <div class="splash-name">Nutri<b>Path</b></div>
+        <p class="splash-tagline">המסלול שלך לתזונה טובה יותר</p>
+      </div>
+    </section>
+
+    <!-- ===== דף נחיתה — למשתמש חדש, לפני השאלון ===== -->
+    <section id="screen-landing" class="screen">
+      <div class="hero">
+        <div class="logo-mark">
+          <svg width="40" height="40" viewBox="0 0 120 120" aria-hidden="true">
+            <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#A15D55"/>
+            <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#C48D7A" transform="rotate(90 60 60)"/>
+            <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#7A5B45" transform="rotate(180 60 60)"/>
+            <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#D9A9A0" transform="rotate(270 60 60)"/>
+            <circle cx="60" cy="60" r="9" fill="#F7F2EC"/>
+          </svg>
+          <div class="logo">Nutri<b>Path</b></div>
+        </div>
+        <p class="logo-tagline">המסלול שלך לתזונה</p>
+        <h1>תזונה מותאמת אישית, בלי סיבוכים</h1>
+        <p class="subtitle">תפסיקו לספור קלוריות. תתחילו לעקוב אחרי תפריט שנבנה בדיוק בשבילכם.</p>
+        <button type="button" class="btn-primary landing-cta" id="btn-landing-start">בואו נתחיל ✨</button>
+        <p class="footer-note disclaimer">⚠️ האפליקציה מיועדת למידע כללי בלבד ואינה מהווה ייעוץ תזונתי, קליני או רפואי, ואינה תחליף להתייעצות עם דיאטן/ית קליני/ת או עם רופא/ה.</p>
+      </div>
+
+      <div class="card landing-section">
+        <h2 class="landing-title">איך זה עובד</h2>
+        <div class="landing-steps">
+          <div class="landing-step">
+            <div class="landing-step-icon">📝</div>
+            <div class="landing-step-num">שלב 1</div>
+            <div class="landing-step-text">עונים על שאלון קצר</div>
+          </div>
+          <div class="landing-step">
+            <div class="landing-step-icon">🍽️</div>
+            <div class="landing-step-num">שלב 2</div>
+            <div class="landing-step-text">מקבלים תפריט אישי מותאם</div>
+          </div>
+          <div class="landing-step">
+            <div class="landing-step-icon">💪</div>
+            <div class="landing-step-num">שלב 3</div>
+            <div class="landing-step-text">נהנים מאכילה בריאה בלי ניחושים</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card landing-section">
+        <h2 class="landing-title">למה NutriPath</h2>
+        <div class="landing-features">
+          <div class="landing-feature-card">
+            <div class="landing-feature-icon">🥗</div>
+            <div class="landing-feature-text">תפריטים מותאמים אישית</div>
+          </div>
+          <div class="landing-feature-card">
+            <div class="landing-feature-icon">⚡</div>
+            <div class="landing-feature-text">מתכונים מהירים ופשוטים</div>
+          </div>
+          <div class="landing-feature-card">
+            <div class="landing-feature-icon">🎯</div>
+            <div class="landing-feature-text">בנוי בדיוק למטרות שלכם</div>
+          </div>
+          <div class="landing-feature-card">
+            <div class="landing-feature-icon">❤️</div>
+            <div class="landing-feature-text">בלי לספור קלוריות, אלא אם בא לכם</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card landing-final-cta">
+        <h2 class="landing-title">מוכנים להתחיל את המסלול התזונתי שלכם?</h2>
+        <button type="button" class="btn-primary landing-cta" id="btn-landing-start-2">בנו לי תפריט אישי ✨</button>
+      </div>
+    </section>
+
+    <!-- ===== מסך שאלון ===== -->
+    <section id="screen-onboarding" class="screen">
       <div class="hero">
         <div class="logo-mark">
           <svg width="40" height="40" viewBox="0 0 120 120" aria-hidden="true">
@@ -45,24 +131,6 @@
         <div class="quiz-step-label" id="quiz-step-label"></div>
 
         <div class="quiz-step" data-step="1">
-          <div class="quiz-welcome">
-            <div class="logo-mark">
-              <svg width="48" height="48" viewBox="0 0 120 120" aria-hidden="true">
-                <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#A15D55"/>
-                <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#C48D7A" transform="rotate(90 60 60)"/>
-                <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#7A5B45" transform="rotate(180 60 60)"/>
-                <ellipse cx="60" cy="37.8" rx="17.4" ry="27" fill="#D9A9A0" transform="rotate(270 60 60)"/>
-                <circle cx="60" cy="60" r="9" fill="#F7F2EC"/>
-              </svg>
-            </div>
-            <h2 class="quiz-question">ברוכים הבאים ל-NutriPath</h2>
-            <p class="quiz-welcome-tagline">המסלול שלך לתזונה נכונה</p>
-            <p class="subtitle">כמה שאלות קצרות, ומקבלים תפריט יומי מותאם אישית בדיוק בשבילך.</p>
-            <p class="footer-note disclaimer">⚠️ האפליקציה מיועדת למידע כללי בלבד ואינה מהווה ייעוץ תזונתי, קליני או רפואי, ואינה תחליף להתייעצות עם דיאטן/ית קליני/ת או עם רופא/ה.</p>
-          </div>
-        </div>
-
-        <div class="quiz-step" data-step="2">
           <h2 class="quiz-question">מה השם שלך?</h2>
           <div class="row">
             <div class="field">
@@ -76,7 +144,7 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="3">
+        <div class="quiz-step" data-step="2">
           <h2 class="quiz-question">מה גילך?</h2>
           <div class="field">
             <input type="number" name="age" required min="16" max="100" placeholder="30" />
@@ -84,7 +152,7 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="4">
+        <div class="quiz-step" data-step="3">
           <h2 class="quiz-question">מה המין הביולוגי שלך?</h2>
           <div class="field">
             <div class="chips">
@@ -95,21 +163,21 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="5">
+        <div class="quiz-step" data-step="4">
           <h2 class="quiz-question">מה הגובה שלך (בס"מ)?</h2>
           <div class="field">
             <input type="number" name="height" required min="120" max="220" placeholder="170" />
           </div>
         </div>
 
-        <div class="quiz-step" data-step="6">
+        <div class="quiz-step" data-step="5">
           <h2 class="quiz-question">מה המשקל שלך (בק"ג)?</h2>
           <div class="field">
             <input type="number" name="weight" required min="30" max="250" step="0.1" placeholder="70" />
           </div>
         </div>
 
-        <div class="quiz-step" data-step="7">
+        <div class="quiz-step" data-step="6">
           <h2 class="quiz-question">מה משקל המטרה שלך?</h2>
           <div class="field">
             <label>ק"ג (לא חובה)</label>
@@ -118,7 +186,7 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="8">
+        <div class="quiz-step" data-step="7">
           <h2 class="quiz-question">מה רמת הפעילות הגופנית שלך?</h2>
           <div class="field">
             <select name="activity" required>
@@ -131,14 +199,14 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="9">
+        <div class="quiz-step" data-step="8">
           <h2 class="quiz-question">כמה פעמים בשבוע את/ה מתאמן/ת?</h2>
           <div class="field">
             <input type="number" name="workoutsPerWeek" min="0" max="14" step="1" placeholder="למשל 3" />
           </div>
         </div>
 
-        <div class="quiz-step" data-step="10">
+        <div class="quiz-step" data-step="9">
           <h2 class="quiz-question">איזה סגנון תזונה את/ה מעדיפ/ה?</h2>
           <div class="field">
             <div class="diet-grid" id="diet-grid">
@@ -162,7 +230,7 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="11">
+        <div class="quiz-step" data-step="10">
           <h2 class="quiz-question">האם יש לך אלרגיות או רגישויות למזון?</h2>
           <div class="field">
             <p class="hint">נסנן החוצה כל מנה שמכילה את מה שתסמנו כאן (לא חובה).</p>
@@ -175,7 +243,7 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="12">
+        <div class="quiz-step" data-step="11">
           <h2 class="quiz-question">צמחוני/ת או טבעוני/ת?</h2>
           <div class="field">
             <p class="hint">לא חובה — דלגו הלאה אם לא רלוונטי.</p>
@@ -186,7 +254,7 @@
           </div>
         </div>
 
-        <div class="quiz-step" data-step="13">
+        <div class="quiz-step" data-step="12">
           <h2 class="quiz-question">רוצים לראות מספרים, או תפריט נקי?</h2>
           <div class="field toggle-field">
             <div>
@@ -229,6 +297,7 @@
         <p class="subtitle">התפריט המותאם אישית שלך מוכן ומחכה לך.</p>
         <button class="btn-primary" id="btn-go-to-menu">לתפריט שלי ✨</button>
         <button type="button" class="btn-ghost btn-block" id="btn-restart-quiz">עריכת פרטים</button>
+        <p class="welcome-back-updated" id="welcome-back-updated"></p>
       </div>
     </section>
 
